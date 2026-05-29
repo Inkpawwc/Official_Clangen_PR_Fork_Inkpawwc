@@ -1,0 +1,12 @@
+{
+    "en": {
+        "plus_icon_placeholder": "+",
+        "minus_icon_placeholder": "-",
+        "cat_feelings": "~~%{name}'s feelings~~",
+        "romance": "Romantic",
+        "like": "Like",
+        "respect": "Respect",
+        "comfort": "Comfort",
+        "trust": "Trust"
+    }
+}

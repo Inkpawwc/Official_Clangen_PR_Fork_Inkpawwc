@@ -18,6 +18,7 @@ from .MediationScreen import MediationScreen
 from .PatrolScreen import PatrolScreen
 from .ProfileScreen import ProfileScreen
 from .RelationshipScreen import RelationshipScreen
+from .RelationshipEditorScreen import RelationshipEditorScreen
 from .RoleScreen import RoleScreen
 from .Screens import Screens
 from .SettingsScreen import SettingsScreen
@@ -91,6 +92,7 @@ def rebuild_all_screens():
         GameScreen.MEDIATION: MediationScreen,
         GameScreen.CHANGE_GENDER: ChangeGenderScreen,
         GameScreen.EVENT_EDIT: EventEditScreen,
+        GameScreen.RELATIONSHIP_EDITOR: RelationshipEditorScreen
     }
 
     for enum, classobj in enum_to_class.items():

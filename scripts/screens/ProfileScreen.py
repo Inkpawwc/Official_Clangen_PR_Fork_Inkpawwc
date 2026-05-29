@@ -11,7 +11,6 @@ import pygame_gui
 import ujson
 from pygame_gui.core import ObjectID
 
-from scripts.game_input import INPUT_ACTION_PRESSED, Action
 from scripts.cat.cats import Cat, BACKSTORIES
 from scripts.clan_resources.freshkill import FRESHKILL_ACTIVE
 from scripts.game_structure import image_cache, game
@@ -193,6 +192,8 @@ class ProfileScreen(Screens):
                 and event.ui_element == self.profile_elements["leader_ceremony"]
             ):
                 self.change_screen(GameScreen.CEREMONY)
+            elif event.ui_element == self.profile_elements.get("app_den"):
+                self.change_screen(GameScreen.APP_DEN)
             elif event.ui_element == self.profile_elements.get("med_den"):
                 self.change_screen(GameScreen.MED_DEN)
             elif event.ui_element == self.profile_elements.get("mediation"):
@@ -211,8 +212,8 @@ class ProfileScreen(Screens):
                 )
             else:
                 self.handle_tab_events(event)
-        elif event.type == INPUT_ACTION_PRESSED:
-            if event.action == Action.PREVIOUS:
+        elif event.type == pygame.KEYDOWN and game_setting_get("keybinds"):
+            if event.key == pygame.K_LEFT:
                 if isinstance(Cat.fetch_cat(self.previous_cat), Cat):
                     self.clear_profile()
                     switch_set_value(Switch.cat, self.previous_cat)
@@ -220,7 +221,7 @@ class ProfileScreen(Screens):
                     self.update_disabled_buttons_and_text()
                 else:
                     print("invalid previous cat", self.previous_cat)
-            elif event.action == Action.NEXT:
+            elif event.key == pygame.K_RIGHT:
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):
                     self.clear_profile()
                     switch_set_value(Switch.cat, self.next_cat)
@@ -228,7 +229,8 @@ class ProfileScreen(Screens):
                     self.update_disabled_buttons_and_text()
                 else:
                     print("invalid next cat", self.previous_cat)
-            if event.action == Action.BACK:
+
+            elif event.key == pygame.K_ESCAPE:
                 self.close_current_tab()
                 self.change_screen(game.last_screen_forProfile)
 
@@ -243,6 +245,10 @@ class ProfileScreen(Screens):
                 self.change_screen(GameScreen.CHOOSE_MATE)
             elif event.ui_element == self.change_adoptive_parent_button:
                 self.change_screen(GameScreen.CHOOSE_ADOPTIVE_PARENT)
+            elif event.ui_element == self.relationship_editor_button:
+                self.change_screen(GameScreen.RELATIONSHIP_EDITOR)
+                self.update_disabled_buttons_and_text()
+
 
         # Roles Tab
         elif self.open_tab == "roles":
@@ -555,18 +561,6 @@ class ProfileScreen(Screens):
         if self.the_cat is None:
             return
 
-        # initialize thoughts if they have none
-        if not self.the_cat.thought:
-            if self.the_cat.status.is_other_clancat:
-                # this isn't great, but it's only being run if someone checks an
-                # other clan cat when booting the game before doing a timeskip
-                other_clan_cats = [
-                    c for c in Cat.all_cats_list if c.status.is_other_clancat
-                ]
-                self.the_cat.get_new_thought(other_clan_cats=other_clan_cats)
-            else:
-                self.the_cat.get_new_thought()
-
         # Info in string
         cat_name = str(self.the_cat.name)
         cat_name = shorten_text_to_fit(cat_name, 500, 20)
@@ -663,6 +657,18 @@ class ProfileScreen(Screens):
             self.profile_elements["mediation"] = UISurfaceImageButton(
                 ui_scale(pygame.Rect((133, 380), (81, 28))),
                 "screens.core.clearing",
+                get_button_dict(ButtonStyles.ROUNDED_RECT, (81, 28)),
+                object_id="@buttonstyles_rounded_rect",
+                manager=MANAGER,
+                starting_height=2,
+            )
+        elif (
+            self.the_cat.status.alive_in_player_clan
+            and self.the_cat.status.rank.is_any_apprentice_rank()
+        ):
+            self.profile_elements["apprentices_den"] = UISurfaceImageButton(
+                ui_scale(pygame.Rect((133, 380), (81, 28))),
+                "screens.core.apprentices_den",
                 get_button_dict(ButtonStyles.ROUNDED_RECT, (81, 28)),
                 object_id="@buttonstyles_rounded_rect",
                 manager=MANAGER,
@@ -2024,6 +2030,14 @@ class ProfileScreen(Screens):
             self.choose_mate_button = UISurfaceImageButton(
                 ui_scale(pygame.Rect((50, 558), (172, 36))),
                 "screens.profile.mate",
+                get_button_dict(ButtonStyles.LADDER_MIDDLE, (172, 36)),
+                object_id="@buttonstyles_ladder_middle",
+                starting_height=2,
+                manager=MANAGER,
+            )
+            self.relationship_editor_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((50, 594), (172, 36))),
+                "screens.profile.relationship_editor",
                 get_button_dict(ButtonStyles.LADDER_BOTTOM, (172, 36)),
                 object_id="@buttonstyles_ladder_bottom",
                 starting_height=2,
@@ -2453,6 +2467,7 @@ class ProfileScreen(Screens):
             self.see_relationships_button.kill()
             self.choose_mate_button.kill()
             self.change_adoptive_parent_button.kill()
+            self.relationship_editor_button.kill()
         elif self.open_tab == "roles":
             self.manage_roles.kill()
             self.change_mentor_button.kill()
