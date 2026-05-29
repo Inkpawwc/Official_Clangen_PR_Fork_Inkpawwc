@@ -118,7 +118,6 @@ def adjust_row(
     index = int(element.get_abs_rect().x / ui_scale_value(10))
 
     row.insert(index, element)
-    row.pop(index + 1)
 
     return row
 
