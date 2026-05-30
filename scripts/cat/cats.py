@@ -3501,7 +3501,7 @@ def create_option_preview_cat(scar: str = None, acc: str = None):
             name="SingleColour",
             colour="WHITE",
             length="medium",
-            eye_color="SAGE",
+            eye_colour="SAGE",
             reverse=False,
             white_patches=None,
             vitiligo=None,
