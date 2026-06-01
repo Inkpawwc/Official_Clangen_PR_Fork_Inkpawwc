@@ -205,9 +205,7 @@ def generate_sprite(
         if cat.pelt.eye_colour2 != None:
             heterochromia_name = f"{sprites.EYE_DATA['spritesheet']}{cat.pelt.eye_colour2}{cat_sprite}"
             eyes2 = sprites.sprites[heterochromia_name].copy()
-            eyes2.blit(
-                sprites.sprites["heterochromiamask" + cat_sprite],
-                (0, 0),
+            eyes2.blit(eyes2, (0, 0),
                 special_flags=pygame.BLEND_RGBA_MULT,
             )
 
