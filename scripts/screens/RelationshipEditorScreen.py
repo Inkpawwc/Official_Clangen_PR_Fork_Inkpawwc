@@ -277,24 +277,23 @@ class RelationshipEditorScreen(Screens):
             manager=MANAGER,
             anchors={"right": "right", "right_target": self.selected_cat_frame},
         )
+
+        self.cat_list_frame = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((50, 470), (700, 150))),
+            get_box(BoxStyles.ROUNDED_BOX, (700, 150)),
+        )
+
         self.randomize_selected = UISurfaceImageButton(
-            ui_scale(pygame.Rect((-75, 30), (34, 34))),
+            ui_scale(pygame.Rect((50, 34), (34, 34))),
             Icon.DICE,
             get_button_dict(ButtonStyles.ICON, (34, 34)),
             object_id="@buttonstyles_icon",
             manager=MANAGER,
             sound_id="dice_roll",
             anchors={
-                "right": "right",
-                "bottom": "bottom",
-                "right_target": self.selected_cat_frame,
-                "bottom_target": self.remove_cat
-            },
-        )
-
-        self.cat_list_frame = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((50, 470), (700, 150))),
-            get_box(BoxStyles.ROUNDED_BOX, (700, 150)),
+                "top": "top",
+                "top_target": self.cat_list_frame,
+            }
         )
 
         self.search_bar_image = pygame_gui.elements.UIImage(
@@ -1002,11 +1001,6 @@ class RelationshipEditorScreen(Screens):
     def exit_screen(self):
         self.the_cat = None
         self.selected_cat = None
-
-
-
-        self.show_dead_text.kill()
-        del self.show_dead_text
 
         for ele in self.rel_type_buttons:
             self.rel_type_buttons[ele].kill()
