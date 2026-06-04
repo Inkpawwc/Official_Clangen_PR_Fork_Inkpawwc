@@ -88,14 +88,14 @@ class RelationshipEditorScreen(Screens):
                 if isinstance(Cat.fetch_cat(self.previous_cat), Cat):
                     switch_set_value(Switch.cat, self.previous_cat)
                     self.update_current_cat_info()
-                    self.draw_info_block(self.the_cat, starting_pos=(50, 100))
+                    self.draw_info_block(self.the_cat, starting_pos=(60, 100))
                 else:
                     print("invalid previous cat", self.previous_cat)
             elif event.ui_element == self.next_cat_button:
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):
                     switch_set_value(Switch.cat, self.next_cat)
                     self.update_current_cat_info()
-                    self.draw_info_block(self.the_cat, starting_pos=(50, 100))
+                    self.draw_info_block(self.the_cat, starting_pos=(60, 100))
                 else:
                     print("invalid next cat", self.next_cat)
 
@@ -284,15 +284,15 @@ class RelationshipEditorScreen(Screens):
         )
 
         self.randomize_selected = UISurfaceImageButton(
-            ui_scale(pygame.Rect((50, 34), (34, 34))),
+            ui_scale(pygame.Rect((385, -35), (35, 35))),
             Icon.DICE,
-            get_button_dict(ButtonStyles.ICON, (34, 34)),
+            get_button_dict(ButtonStyles.ICON, (35, 35)),
             object_id="@buttonstyles_icon",
             manager=MANAGER,
             sound_id="dice_roll",
             anchors={
-                "top": "top",
-                "top_target": self.cat_list_frame,
+                "bottom": "bottom",
+                "bottom_target": self.cat_list_frame,
             }
         )
 
@@ -307,11 +307,6 @@ class RelationshipEditorScreen(Screens):
             placeholder_text="general.name_search",
             manager=MANAGER,
         )
-
-
-
-
-
 
         self.next_page = UISurfaceImageButton(
             ui_scale(pygame.Rect((433, 619), (34, 34))),
@@ -593,7 +588,7 @@ class RelationshipEditorScreen(Screens):
         ) = self.the_cat.determine_next_and_previous_cats(
             filter_func=(
                 lambda cat: cat.age
-                in ("newborn", "kitten", "juvenile", "adolescent", "young adult", "adult", "senior adult", "senior")
+                in ("newborn", "kitten", "adolescent", "young adult", "adult", "senior adult", "senior")
             )
         )
         (
@@ -622,6 +617,7 @@ class RelationshipEditorScreen(Screens):
                 self.the_cat.sprite, ui_scale_dimensions((100, 100))
             ),
         )
+        self.current_cat_elements["image"].hide()
 
         if reset_selected_cat:
             self.selected_cat = None
@@ -640,15 +636,16 @@ class RelationshipEditorScreen(Screens):
 
 
         self.selected_cat_elements["image"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((600, 107), (100, 100))),
+            ui_scale(pygame.Rect((590, 107), (100, 100))),
             pygame.transform.scale(
                 self.selected_cat.sprite, ui_scale_dimensions((100, 100))
             ),
         )
+        self.selected_cat_elements["image"].hide()
 
 
-        self.draw_info_block(self.the_cat, starting_pos=(50, 100))
-        self.draw_info_block(self.selected_cat, starting_pos=(550, 100))
+        self.draw_info_block(self.the_cat, starting_pos=(60, 100))
+        self.draw_info_block(self.selected_cat, starting_pos=(540, 100))
 
     def update_both(self):
         """Updates both the current cat and selected cat info."""
@@ -679,7 +676,7 @@ class RelationshipEditorScreen(Screens):
         y = starting_pos[1]
 
         self.selected_cat_elements["cat_image" + tag] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((x + 50, y + 7), (100, 100))),
+            ui_scale(pygame.Rect((x + 40, y + 7), (100, 100))),
             pygame.transform.scale(cat.sprite, ui_scale_dimensions((100, 100))),
         )
 
@@ -902,14 +899,26 @@ class RelationshipEditorScreen(Screens):
             name = str(cat.name)
             short_name = shorten_text_to_fit(name, 68, 11)
 
-            self.selected_cat_elements[
-                f"relation_heading{tag}"
-            ] = pygame_gui.elements.UILabel(
-                ui_scale(pygame.Rect((x + 20, y + 160), (160, -1))),
-                "screens.relationship_editor.cat_feelings",
-                object_id="#text_box_22_horizcenter",
-                text_kwargs={"name": short_name, "m_c": cat},
-            )
+            if related:
+                self.selected_cat_elements[
+                    f"relation_heading{tag}"
+                ] = pygame_gui.elements.UILabel(
+                    ui_scale(pygame.Rect((x + 20, y - 100), (160, -1))),
+                    "screens.relationship_editor.cat_feelings",
+                    object_id="#text_box_22_horizcenter",
+                    text_kwargs={"name": short_name, "m_c": cat},
+                    anchors={"top_target": self.selected_cat_elements["col2_relation" + tag]},
+                )
+            else:
+                self.selected_cat_elements[
+                    f"relation_heading{tag}"
+                ] = pygame_gui.elements.UILabel(
+                    ui_scale(pygame.Rect((x + 20, y - 100), (160, -1))),
+                    "screens.relationship_editor.cat_feelings",
+                    object_id="#text_box_22_horizcenter",
+                    text_kwargs={"name": short_name, "m_c": cat},
+                    anchors={"top_target": self.selected_cat_elements["col2" + tag]},
+                )
 
             if other_cat.ID in cat.relationships:
                 the_relationship = cat.relationships[other_cat.ID]
@@ -941,7 +950,7 @@ class RelationshipEditorScreen(Screens):
                 self.rel_change_dec["romance_decrease"].enable()
 
             self.selected_cat_elements[f"display{tag}"] = UIRelationDisplay(
-                position=(x + 50, 0),
+                position=(x + 50, y - 100),
                 relationship=the_relationship,
                 romance=allow_romance,
                 manager=MANAGER,
