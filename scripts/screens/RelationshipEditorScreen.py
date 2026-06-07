@@ -257,10 +257,7 @@ class RelationshipEditorScreen(Screens):
                 if pygame.key.get_mods() & pygame.KMOD_SHIFT:
                     self.the_cat = self.random_cat()
                 self.update_both()
-                for ele in self.rel_change_inc:
-                    self.rel_change_inc[ele].enable()
-                for ele in self.rel_change_dec:
-                    self.rel_change_dec[ele].enable()
+
 
             elif event.ui_element in self.cat_buttons:
                 if event.ui_element.return_cat_object() not in (
@@ -279,10 +276,7 @@ class RelationshipEditorScreen(Screens):
                     else:
                         self.selected_cat = event.ui_element.return_cat_object()
                     self.update_selected_cat()
-                    for ele in self.rel_change_inc:
-                        self.rel_change_inc[ele].enable()
-                    for ele in self.rel_change_dec:
-                        self.rel_change_dec[ele].enable()
+
 
     def screen_switches(self):
         super().screen_switches()
@@ -348,7 +342,6 @@ class RelationshipEditorScreen(Screens):
             {"normal": get_button_dict(ButtonStyles.ICON, (28, 28))["normal"]},
             object_id="@buttonstyles_icon",
             manager=MANAGER,
-            tool_tip_text= "screens.relationship_editor.show_outsiders",
             anchors={
                 "left_target": self.checkbox_elements["show_outsiders_frame"],
                 "top_target": self.checkbox_elements["show_outsiders_frame"]
@@ -370,7 +363,6 @@ class RelationshipEditorScreen(Screens):
             {"normal": get_button_dict(ButtonStyles.ICON, (28, 28))["normal"]},
             object_id="@buttonstyles_icon",
             manager=MANAGER,
-            tool_tip_text = "screens.relationship_editor.show_dead",
             anchors={
                 "top_target": self.checkbox_elements["show_dead_frame"],
                 "left_target": self.checkbox_elements["show_dead_frame"]
@@ -770,6 +762,10 @@ class RelationshipEditorScreen(Screens):
                 self.selected_cat.sprite, ui_scale_dimensions((100, 100))
             ),
         )
+        for ele in self.rel_change_inc:
+            self.rel_change_inc[ele].enable()
+        for ele in self.rel_change_dec:
+            self.rel_change_dec[ele].enable()
         self.draw_info_block(self.the_cat, starting_pos=(60, 100))
         self.draw_info_block(self.selected_cat, starting_pos=(540, 100))
 
@@ -1214,6 +1210,7 @@ class RelationshipEditorScreen(Screens):
                 if get_clan_setting("show dead relation")
                 else "@unchecked_checkbox"
             ),
+            tool_tip_text="screens.relationship_editor.show_dead",
             anchors={
                 "top_target": self.checkbox_elements["show_dead_frame"],
                 "left_target": self.checkbox_elements["show_dead_frame"]
@@ -1228,6 +1225,7 @@ class RelationshipEditorScreen(Screens):
                 if get_clan_setting("show outsiders")
                 else "@unchecked_checkbox"
             ),
+            tool_tip_text="screens.relationship_editor.show_outsiders",
             anchors={
                 "top_target": self.checkbox_elements["show_outsiders_frame"],
                 "left_target": self.checkbox_elements["show_outsiders_frame"]
