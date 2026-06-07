@@ -7,6 +7,8 @@
         "like": "Like",
         "respect": "Respect",
         "comfort": "Comfort",
-        "trust": "Trust"
+        "trust": "Trust",
+        "show_outsiders": "show outsiders",
+        "show_dead": "show dead"
     }
 }

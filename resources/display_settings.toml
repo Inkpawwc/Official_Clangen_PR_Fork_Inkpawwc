@@ -102,6 +102,9 @@
         "show empty relation" = [
             false, true
         ]
+        "show outsiders" = [
+            false, true
+        ]
         "den labels" = [
             true, false
         ]

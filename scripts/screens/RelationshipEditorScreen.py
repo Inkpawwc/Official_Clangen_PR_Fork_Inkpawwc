@@ -40,6 +40,9 @@ from ..ui.elements.text_box_tweaked import UITextBoxTweaked
 
 
 class RelationshipEditorScreen(Screens):
+    checkboxes = {}
+    focus_cat_elements = {}
+
     def __init__(self, name=None):
         super().__init__(name)
         self.all_relations = None
@@ -48,6 +51,7 @@ class RelationshipEditorScreen(Screens):
 
         self.current_cat_elements = {}
         self.selected_cat_elements = {}
+        self.checkbox_elements = {}
 
         self.info = None
 
@@ -75,6 +79,7 @@ class RelationshipEditorScreen(Screens):
         self.current_listed_cats = None
         self.previous_search_text = ""
         self.show_dead_text = None
+        self.show_outsiders_text = None
 
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
@@ -89,6 +94,12 @@ class RelationshipEditorScreen(Screens):
                     switch_set_value(Switch.cat, self.previous_cat)
                     self.update_current_cat_info()
                     self.draw_info_block(self.the_cat, starting_pos=(60, 100))
+                    self.switch_focus_button.hide()
+                    self.remove_cat.hide()
+                    for ele in self.rel_change_inc:
+                        self.rel_change_inc[ele].disable()
+                    for ele in self.rel_change_dec:
+                        self.rel_change_dec[ele].disable()
                 else:
                     print("invalid previous cat", self.previous_cat)
             elif event.ui_element == self.next_cat_button:
@@ -96,6 +107,12 @@ class RelationshipEditorScreen(Screens):
                     switch_set_value(Switch.cat, self.next_cat)
                     self.update_current_cat_info()
                     self.draw_info_block(self.the_cat, starting_pos=(60, 100))
+                    self.switch_focus_button.hide()
+                    self.remove_cat.hide()
+                    for ele in self.rel_change_inc:
+                        self.rel_change_inc[ele].disable()
+                    for ele in self.rel_change_dec:
+                        self.rel_change_dec[ele].disable()
                 else:
                     print("invalid next cat", self.next_cat)
 
@@ -106,10 +123,39 @@ class RelationshipEditorScreen(Screens):
                 self.page -= 1
                 self.update_page()
 
+            elif event.ui_element == self.switch_focus_button:
+                switch_set_value(Switch.cat, self.selected_cat.ID)
+                self.update_current_cat_info()
+                self.draw_info_block(self.the_cat, starting_pos=(60, 100))
+                self.switch_focus_button.hide()
+                self.remove_cat.hide()
+                for ele in self.rel_change_inc:
+                    self.rel_change_inc[ele].disable()
+                for ele in self.rel_change_dec:
+                    self.rel_change_dec[ele].disable()
+
 
             elif event.ui_element == self.remove_cat:
                 self.selected_cat = None
                 self.update_selected_cat()
+                self.draw_info_block(self.the_cat, starting_pos=(60, 100))
+                self.switch_focus_button.hide()
+                self.remove_cat.hide()
+                for ele in self.rel_change_inc:
+                    self.rel_change_inc[ele].disable()
+                for ele in self.rel_change_dec:
+                    self.rel_change_dec[ele].disable()
+
+            elif event.ui_element == self.checkboxes["show_dead"]:
+                switch_clan_setting("show dead relation")
+                self.update_checkboxes()
+                self.apply_cat_filter()
+                self.update_page()
+            elif event.ui_element == self.checkboxes["show_outsiders"]:
+                switch_clan_setting("show outsiders")
+                self.update_checkboxes()
+                self.apply_cat_filter()
+                self.update_page()
 
             elif event.ui_element == self.rel_change_inc["like_increase"]:
                 Cat.edit_relationship(
@@ -168,7 +214,6 @@ class RelationshipEditorScreen(Screens):
                 )
                 self.update_current_cat_info(reset_selected_cat=False)
 
-
             elif event.ui_element == self.rel_change_inc["comfort_increase"]:
                 Cat.edit_relationship(
                     self.the_cat,
@@ -187,7 +232,6 @@ class RelationshipEditorScreen(Screens):
                     decrease=True
                 )
                 self.update_current_cat_info(reset_selected_cat=False)
-
 
             elif event.ui_element == self.rel_change_inc["romance_increase"]:
                 Cat.edit_relationship(
@@ -213,6 +257,11 @@ class RelationshipEditorScreen(Screens):
                 if pygame.key.get_mods() & pygame.KMOD_SHIFT:
                     self.the_cat = self.random_cat()
                 self.update_both()
+                for ele in self.rel_change_inc:
+                    self.rel_change_inc[ele].enable()
+                for ele in self.rel_change_dec:
+                    self.rel_change_dec[ele].enable()
+
             elif event.ui_element in self.cat_buttons:
                 if event.ui_element.return_cat_object() not in (
                     self.the_cat,
@@ -223,11 +272,17 @@ class RelationshipEditorScreen(Screens):
                         or not self.the_cat
                     ):
                         self.the_cat = event.ui_element.return_cat_object()
+                        for ele in self.rel_change_inc:
+                            self.rel_change_inc[ele].disable()
+                        for ele in self.rel_change_dec:
+                            self.rel_change_dec[ele].disable()
                     else:
                         self.selected_cat = event.ui_element.return_cat_object()
                     self.update_selected_cat()
-
-
+                    for ele in self.rel_change_inc:
+                        self.rel_change_inc[ele].enable()
+                    for ele in self.rel_change_dec:
+                        self.rel_change_dec[ele].enable()
 
     def screen_switches(self):
         super().screen_switches()
@@ -264,19 +319,6 @@ class RelationshipEditorScreen(Screens):
             ui_scale(pygame.Rect((50, 95), (220, 370))),
             get_box(BoxStyles.ROUNDED_BOX, (220, 350)),
         )
-        self.selected_cat_frame = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((530, 95), (220, 370))),
-            get_box(BoxStyles.ROUNDED_BOX, (220, 350)),
-        )
-
-        self.remove_cat = UISurfaceImageButton(
-            ui_scale(pygame.Rect((-127, 380), (127, 30))),
-            "buttons.remove_cat",
-            get_button_dict(ButtonStyles.MENU_LEFT, (127, 30)),
-            object_id="@buttonstyles_menu_left",
-            manager=MANAGER,
-            anchors={"right": "right", "right_target": self.selected_cat_frame},
-        )
 
         self.cat_list_frame = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((50, 470), (700, 150))),
@@ -284,17 +326,83 @@ class RelationshipEditorScreen(Screens):
         )
 
         self.randomize_selected = UISurfaceImageButton(
-            ui_scale(pygame.Rect((385, -35), (35, 35))),
+            ui_scale(pygame.Rect((385, 435), (35, 35))),
             Icon.DICE,
             get_button_dict(ButtonStyles.ICON, (35, 35)),
             object_id="@buttonstyles_icon",
             manager=MANAGER,
             sound_id="dice_roll",
+            )
+
+        self.checkbox_elements["show_outsiders_frame"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((367, 385), (72, 34))),
+            "",
+            {"normal": get_button_dict(ButtonStyles.ROUNDED_RECT, (72, 34))["normal"]},
+            object_id="@buttonstyles_rounded_rect",
+            manager=MANAGER,
+            )
+
+        self.checkbox_elements["show_outsider_icon"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((-70, -34), (34, 34))),
+            Icon.CLAN_UNKNOWN,
+            {"normal": get_button_dict(ButtonStyles.ICON, (28, 28))["normal"]},
+            object_id="@buttonstyles_icon",
+            manager=MANAGER,
+            tool_tip_text= "screens.relationship_editor.show_outsiders",
             anchors={
-                "bottom": "bottom",
-                "bottom_target": self.cat_list_frame,
-            }
+                "left_target": self.checkbox_elements["show_outsiders_frame"],
+                "top_target": self.checkbox_elements["show_outsiders_frame"]
+            },
         )
+
+        self.checkbox_elements["show_dead_frame"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((367, -68), (72, 34))),
+            "",
+            {"normal": get_button_dict(ButtonStyles.ROUNDED_RECT, (72, 34))["normal"]},
+            object_id="@buttonstyles_rounded_rect",
+            manager=MANAGER,
+            anchors={"top_target": self.checkbox_elements["show_outsiders_frame"]},
+        )
+
+        self.checkbox_elements["show_dead_icon"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((-70, -34), (34, 34))),
+            Icon.STARCLAN,
+            {"normal": get_button_dict(ButtonStyles.ICON, (28, 28))["normal"]},
+            object_id="@buttonstyles_icon",
+            manager=MANAGER,
+            tool_tip_text = "screens.relationship_editor.show_dead",
+            anchors={
+                "top_target": self.checkbox_elements["show_dead_frame"],
+                "left_target": self.checkbox_elements["show_dead_frame"]
+            },
+        )
+
+        self.selected_cat_frame = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((530, 95), (220, 370))),
+            get_box(BoxStyles.ROUNDED_BOX, (220, 350)),
+        )
+
+        self.switch_focus_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((-300, 350), (80, 30))),
+            "buttons.switch_focus",
+            get_button_dict(ButtonStyles.MENU_LEFT, (80, 30)),
+            object_id="@buttonstyles_menu_left",
+            manager=MANAGER,
+            anchors={"left_target": self.selected_cat_frame},
+        )
+        self.remove_cat = UISurfaceImageButton(
+            ui_scale(pygame.Rect((-300, 380), (80, 30))),
+            "buttons.remove_cat",
+            get_button_dict(ButtonStyles.MENU_LEFT, (80, 30)),
+            object_id="@buttonstyles_menu_left",
+            manager=MANAGER,
+            anchors={"left_target": self.selected_cat_frame},
+        )
+
+        # Draw the checkboxes
+        self.update_checkboxes()
+
+
 
         self.search_bar_image = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((55, 625), (118, 34))),
@@ -325,9 +433,16 @@ class RelationshipEditorScreen(Screens):
 
 
         self.update_list_cats()
+        self.update_focus_cat()
         self.update_rel_choices()
         self.update_both()
-        self.draw_info_block(self.the_cat, starting_pos=(50, 100))
+        self.draw_info_block(self.the_cat, starting_pos=(60, 100))
+        self.switch_focus_button.hide()
+        self.remove_cat.hide()
+        for ele in self.rel_change_inc:
+            self.rel_change_inc[ele].disable()
+        for ele in self.rel_change_dec:
+            self.rel_change_dec[ele].disable()
 
     def random_cat(self):
         if self.selected_cat_list():
@@ -511,7 +626,6 @@ class RelationshipEditorScreen(Screens):
         self.all_cats_list = [
             i
             for i in Cat.all_cats_list
-            if i.status.alive_in_player_clan
         ]
         self.all_cats = self.chunks(self.all_cats_list, 24)
         self.current_listed_cats = self.all_cats_list
@@ -572,9 +686,6 @@ class RelationshipEditorScreen(Screens):
                     y += 55
                     x = 65
 
-
-
-
     def update_current_cat_info(self, reset_selected_cat=True):
         """Updates all elements with the current cat, as well as the selected cat.
         Called when the screen switched, and whenever the focused cat is switched"""
@@ -611,17 +722,35 @@ class RelationshipEditorScreen(Screens):
         self.selected_cat_elements = {}
 
 
-        self.current_cat_elements["image"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((100, 107), (100, 100))),
-            pygame.transform.scale(
-                self.the_cat.sprite, ui_scale_dimensions((100, 100))
-            ),
+
+        (
+            self.next_cat,
+            self.previous_cat,
+        ) = self.the_cat.determine_next_and_previous_cats()
+
+        (
+            self.next_cat_button.disable()
+            if self.next_cat == 0
+            else self.next_cat_button.enable()
         )
-        self.current_cat_elements["image"].hide()
+        (
+            self.previous_cat_button.disable()
+            if self.previous_cat == 0
+            else self.previous_cat_button.enable()
+        )
+
+        self.apply_cat_filter(self.search_bar.get_text())
+        self.update_selected_cat()
+        self.update_page()
+
 
         if reset_selected_cat:
             self.selected_cat = None
+            self.remove_cat.hide()
+            self.switch_focus_button.hide()
+
         self.update_selected_cat()
+
 
     def update_selected_cat(self):
         """Updates all elements of the selected cat"""
@@ -641,9 +770,6 @@ class RelationshipEditorScreen(Screens):
                 self.selected_cat.sprite, ui_scale_dimensions((100, 100))
             ),
         )
-        self.selected_cat_elements["image"].hide()
-
-
         self.draw_info_block(self.the_cat, starting_pos=(60, 100))
         self.draw_info_block(self.selected_cat, starting_pos=(540, 100))
 
@@ -676,7 +802,7 @@ class RelationshipEditorScreen(Screens):
         y = starting_pos[1]
 
         self.selected_cat_elements["cat_image" + tag] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((x + 40, y + 7), (100, 100))),
+            ui_scale(pygame.Rect((x + 50, y + 7), (100, 100))),
             pygame.transform.scale(cat.sprite, ui_scale_dimensions((100, 100))),
         )
 
@@ -959,14 +1085,12 @@ class RelationshipEditorScreen(Screens):
                 },
             )
 
+        self.switch_focus_button.show()
+        self.remove_cat.show()
+
 
     def apply_cat_filter(self, search_text=""):
-        # Filter for dead or empty cats
-        self.filtered_cats = self.all_relations
-        if not get_clan_setting("show dead relation"):
-            self.filtered_cats = list(
-                filter(lambda rel: not rel.cat_to.dead, self.filtered_cats)
-            )
+
         # Filter for search
         search_cats = []
         if search_text.strip() != "":
@@ -1034,6 +1158,14 @@ class RelationshipEditorScreen(Screens):
             self.selected_cat_elements[ele].kill()
         self.selected_cat_elements = {}
 
+        for ele in self.checkboxes:
+            self.checkboxes[ele].kill()
+        self.checkboxes = {}
+
+        for ele in self.checkbox_elements:
+            self.checkbox_elements[ele].kill()
+        self.checkbox_elements = {}
+
         self.previous_cat_button.kill()
         del self.previous_cat_button
         self.next_cat_button.kill()
@@ -1048,6 +1180,8 @@ class RelationshipEditorScreen(Screens):
         del self.cat_list_frame
         self.remove_cat.kill()
         del self.remove_cat
+        self.switch_focus_button.kill()
+        del self.switch_focus_button
         self.next_page.kill()
         del self.next_page
         self.previous_page.kill()
@@ -1067,7 +1201,49 @@ class RelationshipEditorScreen(Screens):
             self.selected_cat_elements[ele].kill()
         self.selected_cat_elements = {}
 
+    def update_checkboxes(self):
+        # Remove all checkboxes
+        for ele in self.checkboxes:
+            self.checkboxes[ele].kill()
+        self.checkboxes = {}
+        self.checkboxes["show_dead"] = UIImageButton(
+            ui_scale(pygame.Rect((-36, -34), (34, 34))),
+            "",
+            object_id=(
+                "@checked_checkbox"
+                if get_clan_setting("show dead relation")
+                else "@unchecked_checkbox"
+            ),
+            anchors={
+                "top_target": self.checkbox_elements["show_dead_frame"],
+                "left_target": self.checkbox_elements["show_dead_frame"]
+            },
+        )
 
+        self.checkboxes["show_outsiders"] = UIImageButton(
+            ui_scale(pygame.Rect((-36, -34), (34, 34))),
+            "",
+            object_id=(
+                "@checked_checkbox"
+                if get_clan_setting("show outsiders")
+                else "@unchecked_checkbox"
+            ),
+            anchors={
+                "top_target": self.checkbox_elements["show_outsiders_frame"],
+                "left_target": self.checkbox_elements["show_outsiders_frame"]
+            },
+        )
+
+    def update_focus_cat(self):
+        for ele in self.focus_cat_elements:
+            self.focus_cat_elements[ele].kill()
+        self.focus_cat_elements = {}
+
+        self.the_cat = Cat.all_cats.get(
+            switch_get_value(Switch.cat), game.clan.instructor
+        )
+
+        self.current_page = 1
 
     def on_use(self):
         super().on_use()
