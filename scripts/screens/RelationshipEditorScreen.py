@@ -42,6 +42,8 @@ from ..ui.elements.text_box_tweaked import UITextBoxTweaked
 class RelationshipEditorScreen(Screens):
     checkboxes = {}
     focus_cat_elements = {}
+    show_dead_frame = image_cache.load_image("resources/images/buttons/show_dead_frame.png").convert_alpha()
+    show_outsiders_frame = image_cache.load_image("resources/images/buttons/show_outsiders_frame.png").convert_alpha()
 
     def __init__(self, name=None):
         super().__init__(name)
@@ -328,45 +330,25 @@ class RelationshipEditorScreen(Screens):
             sound_id="dice_roll",
             )
 
-        self.checkbox_elements["show_outsiders_frame"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((367, 385), (72, 34))),
-            "",
-            {"normal": get_button_dict(ButtonStyles.ROUNDED_RECT, (72, 34))["normal"]},
-            object_id="@buttonstyles_rounded_rect",
+        self.checkbox_elements["show_outsiders_frame"] = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((367, 385), (72, 39))),
+            pygame.transform.scale(
+                self.show_outsiders_frame,
+                ui_scale_dimensions((72, 39))
+            ),
             manager=MANAGER,
             )
 
-        self.checkbox_elements["show_outsider_icon"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((-70, -34), (34, 34))),
-            Icon.CLAN_UNKNOWN,
-            {"normal": get_button_dict(ButtonStyles.ICON, (28, 28))["normal"]},
-            object_id="@buttonstyles_icon",
+        self.checkbox_elements["show_dead_frame"] = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((367, -38), (72, 39))),
+            pygame.transform.scale(
+                self.show_dead_frame,
+                ui_scale_dimensions((72, 39))
+            ),
             manager=MANAGER,
             anchors={
-                "left_target": self.checkbox_elements["show_outsiders_frame"],
-                "top_target": self.checkbox_elements["show_outsiders_frame"]
-            },
-        )
-
-        self.checkbox_elements["show_dead_frame"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((367, -68), (72, 34))),
-            "",
-            {"normal": get_button_dict(ButtonStyles.ROUNDED_RECT, (72, 34))["normal"]},
-            object_id="@buttonstyles_rounded_rect",
-            manager=MANAGER,
-            anchors={"top_target": self.checkbox_elements["show_outsiders_frame"]},
-        )
-
-        self.checkbox_elements["show_dead_icon"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((-70, -34), (34, 34))),
-            Icon.STARCLAN,
-            {"normal": get_button_dict(ButtonStyles.ICON, (28, 28))["normal"]},
-            object_id="@buttonstyles_icon",
-            manager=MANAGER,
-            anchors={
-                "top_target": self.checkbox_elements["show_dead_frame"],
-                "left_target": self.checkbox_elements["show_dead_frame"]
-            },
+                "bottom": "bottom",
+                "bottom_target": self.checkbox_elements["show_outsiders_frame"]},
         )
 
         self.selected_cat_frame = pygame_gui.elements.UIImage(
@@ -1203,7 +1185,7 @@ class RelationshipEditorScreen(Screens):
             self.checkboxes[ele].kill()
         self.checkboxes = {}
         self.checkboxes["show_dead"] = UIImageButton(
-            ui_scale(pygame.Rect((-36, -34), (34, 34))),
+            ui_scale(pygame.Rect((-36, -36), (34, 34))),
             "",
             object_id=(
                 "@checked_checkbox"
@@ -1218,7 +1200,7 @@ class RelationshipEditorScreen(Screens):
         )
 
         self.checkboxes["show_outsiders"] = UIImageButton(
-            ui_scale(pygame.Rect((-36, -34), (34, 34))),
+            ui_scale(pygame.Rect((-36, -36), (34, 34))),
             "",
             object_id=(
                 "@checked_checkbox"
