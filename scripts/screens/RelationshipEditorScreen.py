@@ -9,6 +9,7 @@ from pygame_gui.core import UIContainer
 
 from scripts.cat.cats import Cat
 from scripts.cat_relations.enums import RelType, RelTier, rel_type_tiers
+from scripts.cat.status import Status
 from scripts.game_structure import image_cache, game, constants
 from ..clan_package.settings import get_clan_setting
 from scripts.clan_package.settings import switch_clan_setting
@@ -48,7 +49,6 @@ class RelationshipEditorScreen(Screens):
     def __init__(self, name=None):
         super().__init__(name)
         self.all_relations = None
-        self.the_cat = None
         self.back_button = None
 
         self.current_cat_elements = {}
@@ -149,7 +149,7 @@ class RelationshipEditorScreen(Screens):
                     self.rel_change_dec[ele].disable()
 
             elif event.ui_element == self.checkboxes["show_dead"]:
-                switch_clan_setting("show dead relation")
+                switch_clan_setting("show dead")
                 self.update_checkboxes()
                 self.apply_cat_filter()
                 self.update_page()
@@ -271,6 +271,7 @@ class RelationshipEditorScreen(Screens):
                         or not self.the_cat
                     ):
                         self.the_cat = event.ui_element.return_cat_object()
+                        self.update_current_cat_info(reset_selected_cat=False)
                         for ele in self.rel_change_inc:
                             self.rel_change_inc[ele].disable()
                         for ele in self.rel_change_dec:
@@ -596,19 +597,6 @@ class RelationshipEditorScreen(Screens):
 
         self.update_list_cats()
 
-    def update_list_cats(self):
-        self.all_cats_list = [
-            i
-            for i in Cat.all_cats_list
-        ]
-        self.all_cats = self.chunks(self.all_cats_list, 24)
-        self.current_listed_cats = self.all_cats_list
-        self.all_pages = (
-            int(ceil(len(self.current_listed_cats) / 24.0))
-            if len(self.current_listed_cats) > 24
-            else 1
-        )
-        self.update_page()
 
     def update_page(self):
         for cat in self.cat_buttons:
@@ -750,6 +738,23 @@ class RelationshipEditorScreen(Screens):
             self.rel_change_dec[ele].enable()
         self.draw_info_block(self.the_cat, starting_pos=(60, 100))
         self.draw_info_block(self.selected_cat, starting_pos=(540, 100))
+
+
+    def update_list_cats(self):
+        self.all_cats_list = [
+            i
+            for i in Cat.all_cats_list
+            if (i.status.alive_in_player_clan
+            or i.status.is_outsider)
+        ]
+        self.all_cats = self.chunks(self.all_cats_list, 24)
+        self.current_listed_cats = self.all_cats_list
+        self.all_pages = (
+            int(ceil(len(self.current_listed_cats) / 24.0))
+            if len(self.current_listed_cats) > 24
+            else 1
+        )
+        self.update_page()
 
     def update_both(self):
         """Updates both the current cat and selected cat info."""
@@ -1069,6 +1074,10 @@ class RelationshipEditorScreen(Screens):
 
     def apply_cat_filter(self, search_text=""):
 
+        self.filtered_cats = self.all_cats_list.copy()
+
+
+
         # Filter for search
         search_cats = []
         if search_text.strip() != "":
@@ -1189,7 +1198,7 @@ class RelationshipEditorScreen(Screens):
             "",
             object_id=(
                 "@checked_checkbox"
-                if get_clan_setting("show dead relation")
+                if get_clan_setting("show dead")
                 else "@unchecked_checkbox"
             ),
             tool_tip_text="screens.relationship_editor.show_dead",

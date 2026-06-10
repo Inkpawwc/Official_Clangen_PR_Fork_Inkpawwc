@@ -102,6 +102,9 @@
         "show empty relation" = [
             false, true
         ]
+        "show dead" = [
+            false, true
+        ]
         "show outsiders" = [
             false, true
         ]
