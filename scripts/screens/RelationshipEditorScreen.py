@@ -741,12 +741,33 @@ class RelationshipEditorScreen(Screens):
 
 
     def update_list_cats(self):
-        self.all_cats_list = [
-            i
-            for i in Cat.all_cats_list
-            if (i.status.alive_in_player_clan
-            or i.status.is_outsider)
-        ]
+        if (not get_clan_setting("show outsiders")
+        and not get_clan_setting("show dead")):
+            self.all_cats_list = [
+                i
+                for i in Cat.all_cats_list
+                if (i.status.alive_in_player_clan)
+
+            ]
+        elif not get_clan_setting("show outsiders"):
+            self.all_cats_list = [
+                i
+                for i in Cat.all_cats_list
+                if not (i.status.is_outsider)
+            ]
+        elif not get_clan_setting("show dead"):
+            self.all_cats_list = [
+                i
+                for i in Cat.all_cats_list
+                if (i.status.alive_in_player_clan
+                    or i.status.is_outsider)
+            ]
+        else:
+            self.all_cats_list = [
+                i
+                for i in Cat.all_cats_list
+            ]
+
         self.all_cats = self.chunks(self.all_cats_list, 24)
         self.current_listed_cats = self.all_cats_list
         self.all_pages = (
@@ -979,7 +1000,7 @@ class RelationshipEditorScreen(Screens):
                 "col2_relation" + tag
             ] = pygame_gui.elements.UITextBox(
                 i18n.t("general.related_text"),
-                ui_scale(pygame.Rect((x + 110, -15), (80, -1))),
+                ui_scale(pygame.Rect((x + 110, -9), (80, -1))),
                 starting_height=3,
                 object_id="#text_box_22_horizleft_spacing_95",
                 manager=MANAGER,
@@ -1075,7 +1096,6 @@ class RelationshipEditorScreen(Screens):
     def apply_cat_filter(self, search_text=""):
 
         self.filtered_cats = self.all_cats_list.copy()
-
 
 
         # Filter for search

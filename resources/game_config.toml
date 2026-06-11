@@ -17,7 +17,7 @@ dev_tools = true
   chance_of_group_event = 5
 
   # sets the positive or negative effect that interactions will have on other cats based on personality compatibility
-  compatibility_effect = 5
+  compatibility_effect = 8
 
   # Adds a passive buff to relationship events. We divide the value change by passive_influence_div and apply it to all other relationship values.
   passive_influence_div = 3
@@ -61,7 +61,7 @@ dev_tools = true
   chance_friends_to_lovers = 170
 
   # chance to move on from a dead or absent mate, fraction represents a percentage. default is 30% chance.
-  chance_to_move_on = 0.3
+  chance_to_move_on = 0.1
 
 
   # NOTE FOR RELATIONSHIP CONSTRAINTS
@@ -222,7 +222,7 @@ dev_tools = true
   birth_cooldown = 6
 
   # 1/chance that kits, relationship and other factors will influence this chance
-  primary_chance_mated = 80
+  primary_chance_mated = 70
 
   # 1/chance that kits, relationship and other factors will influence this chance
   primary_chance_unmated = 130
@@ -232,13 +232,13 @@ dev_tools = true
 
   # 1/chance for an unmated cat to have an affair (coparenting)
   # for this check, only other unmated cats can be the affair partner
-  unmated_random_affair_chance = 10
+  unmated_random_affair_chance = 6
 
   # The kit number is incremental. It is 1-6 as default so if you change these numbers, you should probably keep this in mind.
   # As in, your max kits number should probably be 5 more than the min kits number.
   # But that's not required - just makes more sense that way with how the litters are generated.
   min_kits = 1
-  max_kits = 6
+  max_kits = 8
 
   # number / total for that age across all kit amounts = chance of having that many kits for that age
   [pregnancy.one_kit_possibility]
@@ -271,15 +271,27 @@ dev_tools = true
     "senior adult" = 0
     senior = 0
 
+[pregnancy.six_kit_possibility]
+    "young adult" = 6
+    adult = 2
+    "senior adult" = 0
+    senior = 0
+
+[pregnancy.seven_kit_possibility]
+    "young adult" = 5
+    adult = 1
+    "senior adult" = 0
+    senior = 0
+
   [pregnancy.max_kit_possibility]
-    "young adult" = 2
+    "young adult" = 4
     adult = 0
     "senior adult" = 0
     senior = 0
 
 [cat_generation]
   # base 1/chance that a cat will generate with a permanent condition. gets modified further in code
-  base_permanent_condition = 90
+  base_permanent_condition = 50
 
   # 1/2^(chance - 1) that a male cat will be a tortie
   base_male_tortie = 13
@@ -319,7 +331,7 @@ dev_tools = true
 
 [accessory_generation]
   # base 1/chance a cat generates with an accessory 
-  base_acc_chance = 150
+  base_acc_chance = 90
 
   # modifiers for accessories add or subtract from chance IN THE DENOMINATOR 
   #   i.e. 1/(chance + med_modifier + baby_modifier + elder_modifier + ...)
@@ -341,10 +353,10 @@ dev_tools = true
   grumpy_trait_modifier = 30
 
   # modifies accessory chance based on if cat had a ceremony
-  ceremony_modifier = -20
+  ceremony_modifier = -50
 
   # modifies accessory chance based on if cat already has at least one other accessory
-  multiple_acc_modifier = 50
+  multiple_acc_modifier = 20
 
 [transition_related]
   # base 1/chance that a cat will trans their gender
@@ -408,8 +420,8 @@ dev_tools = true
   adolescent = [6, 11]
   "young adult" = [12, 47]
   adult = [48, 95]
-  "senior adult" = [96, 119]
-  senior = [120, 300]
+  "senior adult" = [96, 139]
+  senior = [140, 300]
 
 [cat_sprites]
   # set to false to disable sick sprites
@@ -432,7 +444,7 @@ dev_tools = true
   fail_stat_cat_modifier = -15
 
   # base 1/chance for a romance patrol. gets modified further in code
-  chance_of_romance_patrol = 16
+  chance_of_romance_patrol = 8
 
   # forces patrol with this id to occur, assuming it's possible by constraints
   debug_ensure_patrol_id = ""
@@ -469,7 +481,7 @@ dev_tools = true
   # modifiers for death chance based on if a war is going badly
   # SUBTRACTS from the denominator so higher = more likely to die
   war_death_modifier_leader = 35
-  war_death_modifier = 330
+  war_death_modifier = 300
 
   # base 1/2^(chance) a completely random murder occurs
   # aggression and instability will make the denominator lower and increase chance of murder
@@ -496,11 +508,11 @@ dev_tools = true
   injury_chance = 250
 
   # 1/chance a cat will get a permanent condition from an event with that possibility 
-  permanent_condition_chance = 15
+  permanent_condition_chance = 10
 
   # modifiers for injury chance based on if a war is going badly
   # SUBTRACTS from the denominator so higher = more likely to get injured
-  war_injury_modifier = 225
+  war_injury_modifier = 210
 
 [clan_creation]
   # Set this to -1 for it to be infinite
@@ -514,7 +526,7 @@ dev_tools = true
   base_med_app_timeskip_ex = [[2, 7], [2, 3]]
 
   # minimum age required for a cat to graduate
-  min_graduating_age = 10
+  min_graduating_age = 9
 
   [graduation.max_apprentice_age]
     # max apprentice ages. after this, they're forcibly promoted
@@ -620,17 +632,17 @@ dev_tools = true
 
   [focus.rest_and_recover]
     # roughly 1/chance injuries will be prevented
-    injury_prevent = 4
+    injury_prevent = 2
 
     # roughly 1/chance illnesses will be prevented 
     # illness is not as easy preventable as injuries
     illness_prevent = 6
 
     # every chance outbreak will be prevented
-    outbreak_prevention = 2
+    outbreak_prevention = 3
 
     # how many moons earlier are cats healed
-    moons_earlier_healed = 1
+    moons_earlier_healed = 2
 
 [save_load]
   # whether or not to perform integrity checks and attempt to fix issues with saves
@@ -699,7 +711,7 @@ dev_tools = true
 
     # base effects for herbs that have specified effects
     base_mortality_effect = 3
-    base_duration_effect = 1
+    base_duration_effect = 2
     base_risk_effect = 3
 
     # herb bonus applied when cats should gather a boosted number of herbs
@@ -750,7 +762,7 @@ dev_tools = true
   activate_events = true
   # determines when the freshkill pile amount is considered "full" or "excessive" for the purpose of events
   # the higher this number, the more freshkill is required before the pile is "full/excessive"
-  base_event_trigger_factor = 4
+  base_event_trigger_factor = 2
 
   # defines the amount of prey a Clan begins with
   start_amount = 60
