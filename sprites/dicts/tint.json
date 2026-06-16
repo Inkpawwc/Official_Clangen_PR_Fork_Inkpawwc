@@ -24,8 +24,8 @@
   "possible_tints": {
     "basic": ["pink", "gray", "red", "orange", "warmdilute"],
     "warm": ["yellow", "purple", "dilute", "cooldilute"],
-    "cool": ["purple", "black", "dilute"],
-    "white": ["yellow"],
+    "cool": ["purple", "blue", "black", "dilute"],
+    "white": ["yellow", "purple", "blue", "dilute", "cooldilute"],
     "monochrome": ["blue", "black", "dilute", "cooldilute"],
     "brown": ["yellow", "purple", "black", "dilute", "cooldilute"]
   },
