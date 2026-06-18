@@ -8,7 +8,6 @@ from .ChooseMateScreen import ChooseMateScreen
 from .ChooseMentorScreen import ChooseMentorScreen
 from .ClanScreen import ClanScreen
 from .ClanSettingsScreen import ClanSettingsScreen
-from .CustomizeCatScreen import CustomizeCatScreen
 from .EventEditScreen import EventEditScreen
 from .EventsScreen import EventsScreen
 from .FamilyTreeScreen import FamilyTreeScreen
@@ -93,8 +92,7 @@ def rebuild_all_screens():
         GameScreen.MEDIATION: MediationScreen,
         GameScreen.CHANGE_GENDER: ChangeGenderScreen,
         GameScreen.EVENT_EDIT: EventEditScreen,
-        GameScreen.RELATIONSHIP_EDITOR: RelationshipEditorScreen,
-        GameScreen.CUSTOMIZE_CAT: CustomizeCatScreen
+        GameScreen.RELATIONSHIP_EDITOR: RelationshipEditorScreen
     }
 
     for enum, classobj in enum_to_class.items():

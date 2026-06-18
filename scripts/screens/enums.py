@@ -42,4 +42,3 @@ class GameScreen(StrEnum):
     CHOOSE_MENTOR = "choose_mentor_screen"
     CHOOSE_ADOPTIVE_PARENT = "choose_adoptive_parent_screen"
     RELATIONSHIP_EDITOR = "relationship_editor_screen"
-    CUSTOMIZE_CAT ="customize_cat_screen"
