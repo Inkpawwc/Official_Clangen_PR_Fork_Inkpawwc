@@ -1,21 +1,16 @@
 from typing import Optional
-from copy import copy
-import random
 
 import i18n
 import pygame.transform
 import pygame_gui.elements
 
 from scripts.cat.cats import Cat
-from scripts.cat.pelts import Pelt
-from scripts.cat.sprites.load_sprites import sprites
 from scripts.game_structure import image_cache, constants
 from scripts.game_structure import game
 from scripts.ui.elements.relation_display import UIRelationDisplay
 from scripts.ui.elements.sprite_button import UISpriteButton
 from scripts.ui.elements.image_button import UIImageButton
 from scripts.ui.elements.surface_image_button import UISurfaceImageButton
-from scripts.ui.elements.dropdown import UIDropDown
 from scripts.ui.windows.relationship_log import RelationshipLogWindow
 from scripts.screens.Screens import Screens
 from scripts.screens.enums import GameScreen
@@ -43,16 +38,44 @@ from scripts.game_structure.game.switches import (
     switch_get_value,
 )
 
+from copy import copy
+import random
+
+import pygame
+import pygame_gui
+from pygame import Rect
+from pygame_gui.elements import UIDropDownMenu, UITextBox
+
+from scripts.cat.cats import Cat
+from scripts.cat.pelts import Pelt
 from scripts.cat.sprites.load_sprites import Sprites
+from scripts.game_structure import game
+from scripts.game_structure.screen_settings import MANAGER
+from ..ui.elements.sprite_button import UISpriteButton
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
+from ..ui.theme import get_text_box_theme
+from ..events_module.text_adjust import shorten_text_to_fit
+from scripts.screens.Screens import Screens
+from scripts.ui.generate_box import get_box, BoxStyles
+from scripts.ui.generate_button import get_button_dict, ButtonStyles
+from scripts.ui.get_arrow import get_arrow
+from scripts.utility import (
+    ui_scale,
+    generate_sprite,
+    ui_scale_dimensions,
+    get_text_box_theme,
+)
+from scripts.utility import update_sprite
 
 """ Cat customization UI """
 
 
 # generate UI elements
 def create_text_box(text, pos, size, theme, anchors=None):
-    return pygame_gui.elements.UITextBox(
+    return UITextBox(
         text,
-        ui_scale(pygame.Rect(pos, size)),
+        ui_scale(Rect(pos, size)),
         manager=MANAGER,
         object_id=get_text_box_theme(theme),
         anchors=anchors,
@@ -72,10 +95,10 @@ def create_button(pos, size, text, style, anchors=None, sound_id=None):
 
 
 def create_dropdown(pos, size, options, selected_option, style=None):
-    return UIDropDown(
+    return UIDropDownMenu(
         options,
         selected_option,
-        ui_scale(pygame.Rect(pos, size)),
+        ui_scale(Rect(pos, size)),
         object_id=f"#{style}",
         manager=MANAGER,
     )
@@ -138,35 +161,47 @@ class CustomizeCatScreen(Screens):
         self.back_button = None
         self.next_cat_button = None
 
-        self.pelt_names = Pelt.pelt_patterns
+        self.pelt_names = list(Pelt.sprites_names.keys())
         self.pelt_names.sort()
         self.pelt_name_label = None
         self.pelt_name_dropdown = None
 
-        self.pelt_colours = copy(Pelt.all_pelt_colours)
+        self.pelt_colours = copy(Pelt.pelt_colours)
         self.pelt_colours.sort()
         self.pelt_colour_label = None
         self.pelt_colour_dropdown = None
 
-        self.patterns = copy(Pelt.pelt_patterns)
+        self.patterns = copy(Pelt.tortiepatterns)
         self.patterns.sort()
         self.patterns.insert(0, "None")
         self.pattern_label = None
         self.pattern_dropdown = None
 
-        self.tortie_patches = copy(Pelt.tortie_patches)
+        self.tortie_bases = copy(Pelt.tortiebases)
+        self.tortie_bases.sort()
+        self.tortie_base_label = None
+        self.tortie_base_dropdown = None
+
+        self.tortie_colours = copy(Pelt.pelt_colours)
+        self.tortie_colours.sort()
+        self.tortie_colour_label = None
+        self.tortie_colour_dropdown = None
+
+        self.tortie_patterns = copy(Pelt.tortiepatterns)
+        self.tortie_patterns.sort()
+        self.tortie_pattern_label = None
+        self.tortie_pattern_dropdown = None
 
         self.white_patches = copy(
             Pelt.little_white + Pelt.mid_white + Pelt.high_white + Pelt.mostly_white
         )
-        for sprite_list in Sprites.WHITE_MOSTLY_DATA["sprite_list"]:
-            self.white_patches.extend(x for x in sprite_list if x == "FULLWHITE")  # add fullwhite patch
+        self.white_patches.append(Pelt.white_sprites[6])  # add fullwhite patch
         self.white_patches.sort()
         self.white_patches.insert(0, "None")
         self.white_patches_label = None
         self.white_patches_dropdown = None
 
-        self.vitiligo_patterns = copy(Pelt.vitiligo_markings)
+        self.vitiligo_patterns = copy(Pelt.vit)
         self.vitiligo_patterns.sort()
         self.vitiligo_patterns.insert(0, "None")
         self.vitiligo_label = None
@@ -180,7 +215,7 @@ class CustomizeCatScreen(Screens):
 
         self.white_patches_tints = ["None"] + [
             tint
-            for tint in list(sprites.white_patches_tints["tint_colours"])
+            for tint in list(sprites.white_patches_tints["tint_colours"].keys())
             if tint != "none"
         ]
         self.white_patches_tints.sort()
@@ -205,7 +240,7 @@ class CustomizeCatScreen(Screens):
         self.reset_message = None
         self.reset_button = None
 
-        self.eye_colours = [colour.capitalize() for colour in copy(Pelt.all_eye_colours)]
+        self.eye_colours = [colour.capitalize() for colour in copy(Pelt.eye_colours)]
         self.eye_colours.sort()
         self.eye_colour1_label = None
         self.eye_colour1_dropdown = None
@@ -229,8 +264,30 @@ class CustomizeCatScreen(Screens):
         self.accessories = list(
             dict.fromkeys(
                 Pelt.plant_accessories
+                + Pelt.lanternacc
+                + Pelt.moipaacc
+                + Pelt.heartacc
+                + Pelt.flower_accessories
+                + Pelt.randomaccessories
+                + Pelt.sailormoon
+                + Pelt.beetle_feathers
+                + Pelt.beetle_accessories
+                + Pelt.bows_accessories
+                + Pelt.plant2_accessories
+                + Pelt.ster_accessories
                 + Pelt.wild_accessories
-                + Pelt.collar_accessories
+                + Pelt.tail_accessories
+                + Pelt.collars
+                + Pelt.snake_accessories
+                + Pelt.smallAnimal_accessories
+                + Pelt.deadInsect_accessories
+                + Pelt.aliveInsect_accessories
+                + Pelt.fruit_accessories
+                + Pelt.crafted_accessories
+                + Pelt.tail2_accessories
+                + Pelt.bone_accessories
+                + Pelt.butterflies_accessories
+                + Pelt.stuff_accessories
             )
         )
         self.accessories.sort()
@@ -238,7 +295,7 @@ class CustomizeCatScreen(Screens):
         self.accessory_label = None
         self.accessory_dropdown = None
 
-        self.scars = ["None"] + copy(Pelt.general_scars + Pelt.missing_part_scars)
+        self.scars = ["None"] + copy(Pelt.scars1 + Pelt.scars2 + Pelt.scars3)
         self.scars.sort()
         self.scars.insert(0, "None")
         self.scar_message = None
@@ -270,7 +327,7 @@ class CustomizeCatScreen(Screens):
         self.build_cat_page()
 
     def build_cat_page(self):
-        self.the_cat = Cat.all_cats[switch_get_value(Switch.cat)]
+        self.the_cat = Cat.fetch_cat(game.switches["cat"])
         self.next_cat, self.previous_cat = (
             self.the_cat.determine_next_and_previous_cats()
         )
@@ -378,70 +435,40 @@ class CustomizeCatScreen(Screens):
         # ------------------------------------------------------------------------------------------------------------"""
 
     def setup_buttons(self):
-        self.previous_cat_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((25, 25), (153, 30))),
-            "buttons.previous_cat",
-            get_button_dict(ButtonStyles.SQUOVAL, (153, 30)),
-            object_id="@buttonstyles_squoval",
-            manager=MANAGER,
+        self.previous_cat_button = create_button(
+            (25, 25),
+            (153, 30),
+            get_arrow(2, arrow_left=True) + " Previous Cat",
+            ButtonStyles.SQUOVAL,
             sound_id="page_flip",
         )
-        self.back_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((25, 60), (105, 30))),
-            "buttons.back",
-            get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
-            object_id="@buttonstyles_squoval",
-            manager=MANAGER,
+        self.back_button = create_button(
+            (25, 60), (105, 30), get_arrow(2) + " Back", ButtonStyles.SQUOVAL
         )
-        self.next_cat_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((622, 25), (153, 30))),
-            "buttons.next_cat",
-            get_button_dict(ButtonStyles.SQUOVAL, (153, 30)),
-            object_id="@buttonstyles_squoval",
-            manager=MANAGER,
+        self.next_cat_button = create_button(
+            (622, 25),
+            (153, 30),
+            "Next Cat " + get_arrow(3, arrow_left=False),
+            ButtonStyles.SQUOVAL,
             sound_id="page_flip",
         )
-
-
-        self.pelt_length_left_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((224, 530), (34, 34))),
-            Icon.ARROW_LEFT,
-            get_button_dict(ButtonStyles.ICON, (34, 34)),
-            object_id="@buttonstyles_icon",
+        self.pelt_length_left_button = create_button(
+            (224, 530), (30, 30), get_arrow(1), ButtonStyles.ROUNDED_RECT
         )
-        self.pelt_length_right_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((324, 530), (34, 34))),
-            Icon.ARROW_RIGHT,
-            get_button_dict(ButtonStyles.ICON, (34, 34)),
-            object_id="@buttonstyles_icon",
+        self.pelt_length_right_button = create_button(
+            (324, 530), (30, 30), get_arrow(1, False), ButtonStyles.ROUNDED_RECT
         )
-
-        self.pose_left_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((406, 530), (34, 34))),
-            Icon.ARROW_LEFT,
-            get_button_dict(ButtonStyles.ICON, (34, 34)),
-            object_id="@buttonstyles_icon",
+        self.pose_left_button = create_button(
+            (406, 530), (30, 30), get_arrow(1), ButtonStyles.ROUNDED_RECT
         )
-
-        self.pose_right_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((486, 530), (34, 34))),
-            Icon.ARROW_LEFT,
-            get_button_dict(ButtonStyles.ICON, (34, 34)),
-            object_id="@buttonstyles_icon",
+        self.pose_right_button = create_button(
+            (486, 530), (30, 30), get_arrow(1, False), ButtonStyles.ROUNDED_RECT
         )
-
-        self.reverse_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((105, 530), (70, 34))),
-            "Reverse",
-            get_button_dict(ButtonStyles.ROUNDED_RECT, (70, 34)),
-            object_id="@buttonstyles_icon",
+        self.reverse_button = create_button(
+            (105, 530), (70, 30), "Reverse", ButtonStyles.ROUNDED_RECT
         )
-
-        self.reset_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((110, 450), (105, 30))),
-            "Reset",
-            get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
-            object_id="@buttonstyles_icon",
+        self.reset_button = create_button(
+            (110, 450), (105, 30), "Reset", ButtonStyles.SQUOVAL
         )
 
     def setup_dropdowns(self):
@@ -449,16 +476,6 @@ class CustomizeCatScreen(Screens):
         #                                              DROPDOWN SETUP START                                            #
         # ------------------------------------------------------------------------------------------------------------
         """
-        self.dropdowns["pelt_name"] = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            parent_text=f"windows.conju{self.conju}",
-            item_list=[
-                self.pelt_names
-            ],
-            manager=MANAGER,
-            starting_selection=[f"windows.conju{self.conju}"],
-            open_on_hover=True,
-        )
         self.pelt_name_dropdown = create_dropdown(
             (320, 125),
             (135, 40),
