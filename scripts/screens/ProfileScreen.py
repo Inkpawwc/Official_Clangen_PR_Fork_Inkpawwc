@@ -169,7 +169,10 @@ class ProfileScreen(Screens):
                     print("invalid next cat", self.previous_cat)
             elif event.ui_element == self.customize_cat_button:
                 self.close_current_tab()
-                self.change_screen(GameScreen.CUSTOMIZE_CAT)
+                self.change_screen("customize cat screen")
+            elif event.ui_element == self.customize_stats_button:
+                self.close_current_tab()
+                self.change_screen("customize stats screen")
             elif event.ui_element == self.inspect_button:
                 self.close_current_tab()
                 self.change_screen(GameScreen.SPRITE_INSPECT)
