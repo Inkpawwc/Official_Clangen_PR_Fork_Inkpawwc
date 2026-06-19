@@ -8,14 +8,15 @@
         "colours_ticked": ["Ticked"],
         "colours_speckled": ["Speckled"],
         "colours_bengal": ["Bengal"],
+        "colours_cape": ["Cape"],
         "colours_mackerel": ["Mackerel"],
         "colours_classic": ["Classic"],
         "colours_sokoke": ["Sokoke"],
         "colours_agouti": ["Agouti"],
+        "colours_batspeckle": ["Batspeckle"],
         "colours_singlestripe": ["Singlestripe"],
-        "colours_masked": ["Masked"],
-        "colours_cape": ["Cape"],
-        "colours_batspeckle": ["Batspeckle"]
+        "colours_masked": ["Masked"]
+
     },
     "sprite_list": [
         {
@@ -48,6 +49,7 @@
         "single",
         "tabby",
         "bengal",
+        "cape",
         "marbled",
         "ticked",
         "smoke",
@@ -57,10 +59,9 @@
         "classic",
         "sokoke",
         "agouti",
+        "batspeckle",
         "singlestripe",
-        "masked",
-        "cape",
-        "batspeckle"
+        "masked"
     ],
     "pattern_categories": {
         "tabbies": [
@@ -69,7 +70,8 @@
             "Mackerel",
             "Classic",
             "Sokoke",
-            "Agouti"
+            "Agouti",
+            "Cape"
         ],
         "spotted": [
             "Speckled",
@@ -85,7 +87,6 @@
             "Bengal",
             "Marbled",
             "Masked",
-            "Cape",
             "Batspeckle"
         ],
         "torties": [
