@@ -426,15 +426,15 @@ class CustomizeCatScreen(Screens):
 
         self.pose_right_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((486, 530), (34, 34))),
-            Icon.ARROW_LEFT,
+            Icon.ARROW_RIGHT,
             get_button_dict(ButtonStyles.ICON, (34, 34)),
             object_id="@buttonstyles_icon",
         )
 
         self.reverse_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((105, 530), (70, 34))),
+            ui_scale(pygame.Rect((105, 530), (75, 34))),
             "Reverse",
-            get_button_dict(ButtonStyles.ROUNDED_RECT, (70, 34)),
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (75, 34)),
             object_id="@buttonstyles_icon",
         )
 
@@ -899,16 +899,16 @@ class CustomizeCatScreen(Screens):
 
         # stores current scar state
         self.initial_scar_selection[self.scar1_dropdown] = (
-            self.scar1_dropdown.selected_option[1]
+            self.scar1_dropdown.selected_list[0]
         )
         self.initial_scar_selection[self.scar2_dropdown] = (
-            self.scar2_dropdown.selected_option[1]
+            self.scar2_dropdown.selected_list[1]
         )
         self.initial_scar_selection[self.scar3_dropdown] = (
-            self.scar3_dropdown.selected_option[1]
+            self.scar3_dropdown.selected_list[1]
         )
         self.initial_scar_selection[self.scar4_dropdown] = (
-            self.scar4_dropdown.selected_option[1]
+            self.scar4_dropdown.selected_list[1]
         )
 
 
@@ -960,8 +960,8 @@ class CustomizeCatScreen(Screens):
 
     def setup_eye_colours(self):
         if (
-            self.eye_colour2_dropdown.selected_option[1]
-            == self.eye_colour1_dropdown.selected_option[1]
+            self.eye_colour2_dropdown.selected_list[1]
+            == self.eye_colour1_dropdown.selected_list[1]
         ):
             self.heterochromia = False
             self.eye_colour2_dropdown.disable()
@@ -1151,20 +1151,20 @@ class CustomizeCatScreen(Screens):
             # self.print_pelt_attributes()  # for testing purposes
 
     def handle_dropdown_change(self, dropdown, attribute):
-        selected_option = dropdown.selected_option[1]
+        selected_list = dropdown.selected_list[1]
 
         # convert to list
         if attribute == "pattern":
-            if selected_option == "NONE":
+            if selected_list == "NONE":
                 self.the_cat.pelt.pattern = None
             elif self.the_cat.pelt.pattern is None:
-                self.the_cat.pelt.pattern = [selected_option]
+                self.the_cat.pelt.pattern = [selected_list]
             elif isinstance(self.the_cat.pelt.pattern, list):
-                self.the_cat.pelt.pattern.append(selected_option)
+                self.the_cat.pelt.pattern.append(selected_list)
             else:
-                self.the_cat.pelt.pattern = [selected_option]
+                self.the_cat.pelt.pattern = [selected_list]
         else:
-            setattr(self.the_cat.pelt, attribute, selected_option)
+            setattr(self.the_cat.pelt, attribute, selected_list)
         self.make_cat_sprite()
 
     def handle_back_button(self):
@@ -1180,7 +1180,7 @@ class CustomizeCatScreen(Screens):
         self.change_screen("profile screen")
 
     def handle_pelt_name_dropdown(self):
-        new_pelt_name = self.pelt_name_dropdown.selected_option[1]
+        new_pelt_name = self.pelt_name_dropdown.selected_list[1]
         self.check_if_tortie(new_pelt_name, self.previous_pelt_name)
         self.the_cat.pelt.name = new_pelt_name
         self.previous_pelt_name = new_pelt_name
@@ -1191,39 +1191,39 @@ class CustomizeCatScreen(Screens):
         self.change_pelt_length(direction)
 
     def handle_white_patches_dropdown(self):
-        selected_option = self.white_patches_dropdown.selected_option
-        if selected_option[0] == "None":
+        selected_list = self.white_patches_dropdown.selected_list
+        if selected_list[0] == "None":
             self.the_cat.pelt.white_patches = []
         else:
             if isinstance(self.the_cat.pelt.white_patches, list):
-                self.the_cat.pelt.white_patches.append(selected_option[1])
+                self.the_cat.pelt.white_patches.append(selected_list[1])
             else:
-                self.the_cat.pelt.white_patches = [selected_option[1]]
+                self.the_cat.pelt.white_patches = [selected_list[1]]
         self.make_cat_sprite()
         self.check_white_patches_tint()
 
     def handle_vitiligo_dropdown(self):
-        selected_option = self.vitiligo_dropdown.selected_option
-        if selected_option[0] == "None":
+        selected_list = self.vitiligo_dropdown.selected_list
+        if selected_list[0] == "None":
             self.the_cat.pelt.vitiligo = None
         else:
-            self.the_cat.pelt.vitiligo = selected_option[1]
+            self.the_cat.pelt.vitiligo = selected_list[1]
         self.make_cat_sprite()
 
     def handle_points_dropdown(self):
-        selected_option = self.points_dropdown.selected_option
-        if selected_option[0] == "None":
+        selected_list = self.points_dropdown.selected_list
+        if selected_list[0] == "None":
             self.the_cat.pelt.points = None
         else:
-            self.the_cat.pelt.points = selected_option[1]
+            self.the_cat.pelt.points = selected_list[1]
         self.make_cat_sprite()
         self.check_white_patches_tint()
 
     def handle_eye_colour_dropdown(self, dropdown):
         if dropdown == self.eye_colour1_dropdown:
-            self.the_cat.pelt.eye_colour = self.eye_colour1_dropdown.selected_option[1]
+            self.the_cat.pelt.eye_colour = self.eye_colour1_dropdown.selected_list[1]
         else:
-            self.the_cat.pelt.eye_colour2 = self.eye_colour2_dropdown.selected_option[1]
+            self.the_cat.pelt.eye_colour2 = self.eye_colour2_dropdown.selected_list[1]
         self.make_cat_sprite()
 
     def handle_pose_buttons(self, button):
@@ -1231,18 +1231,18 @@ class CustomizeCatScreen(Screens):
         self.change_pose(direction)
 
     def handle_accessory_dropdown(self):
-        selected_option = self.accessory_dropdown.selected_option
+        selected_list = self.accessory_dropdown.selected_list
         if not isinstance(self.the_cat.pelt.accessory, list):
             self.the_cat.pelt.accessory = []
-        if selected_option[0] == "None":
+        if selected_list[0] == "None":
             self.the_cat.pelt.accessory = []
         else:
-            if selected_option[1] not in self.the_cat.pelt.accessory:
-                self.the_cat.pelt.accessory.append(selected_option[1])
+            if selected_list[1] not in self.the_cat.pelt.accessory:
+                self.the_cat.pelt.accessory.append(selected_list[1])
         self.make_cat_sprite()
 
     def handle_scar_dropdown(self, dropdown):
-        selected_option = dropdown.selected_option[1]
+        selected_list = dropdown.selected_list[1]
         previous_selection = self.previous_scar_selection.get(
             dropdown, self.initial_scar_selection[dropdown]
         )
@@ -1255,10 +1255,10 @@ class CustomizeCatScreen(Screens):
                 previous_selection
             )  # remove previous selection
 
-        if selected_option != "NONE":
-            self.the_cat.pelt.scars.append(selected_option)  # add new selection
+        if selected_list != "NONE":
+            self.the_cat.pelt.scars.append(selected_list)  # add new selection
 
-        self.previous_scar_selection[dropdown] = selected_option
+        self.previous_scar_selection[dropdown] = selected_list
 
         self.make_cat_sprite()
 
@@ -1440,7 +1440,7 @@ class CustomizeCatScreen(Screens):
     def handle_heterochromia_checkbox(self):
         self.heterochromia = not self.heterochromia
         if self.heterochromia:
-            self.the_cat.pelt.eye_colour2 = self.eye_colour2_dropdown.selected_option[1]
+            self.the_cat.pelt.eye_colour2 = self.eye_colour2_dropdown.selected_list[1]
             self.eye_colour2_dropdown.enable()
         else:
             self.the_cat.pelt.eye_colour2 = None
