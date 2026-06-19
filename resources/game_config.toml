@@ -8,7 +8,7 @@ dev_tools = true
 # settings regarding relationship events, also called "interactions"
 [relationship]
   # sets the max amount of interactions a cat can have each moon
-  max_interaction = 4
+  max_interaction = 3
 
   # sets the max amount of interactions a cat with a special role (leader, deputy, medicine cat, or mediator) can have each moon
   max_interaction_special = 6

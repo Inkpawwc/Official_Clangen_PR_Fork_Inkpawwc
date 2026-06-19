@@ -13,7 +13,9 @@
         "colours_sokoke": ["Sokoke"],
         "colours_agouti": ["Agouti"],
         "colours_singlestripe": ["Singlestripe"],
-        "colours_masked": ["Masked"]
+        "colours_masked": ["Masked"],
+        "colours_cape": ["Cape"],
+        "colours_batspeckle": ["Batspeckle"]
     },
     "sprite_list": [
         {
@@ -56,7 +58,9 @@
         "sokoke",
         "agouti",
         "singlestripe",
-        "masked"
+        "masked",
+        "cape",
+        "batspeckle"
     ],
     "pattern_categories": {
         "tabbies": [
@@ -80,7 +84,9 @@
         "exotic": [
             "Bengal",
             "Marbled",
-            "Masked"
+            "Masked",
+            "Cape",
+            "Batspeckle"
         ],
         "torties": [
             "Tortie",
