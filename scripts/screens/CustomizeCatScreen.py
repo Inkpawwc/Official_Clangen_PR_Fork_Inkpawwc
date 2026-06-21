@@ -403,7 +403,6 @@ class CustomizeCatScreen(Screens):
             sound_id="page_flip",
         )
 
-
         self.pelt_length_left_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((224, 530), (34, 34))),
             Icon.ARROW_LEFT,
@@ -899,18 +898,17 @@ class CustomizeCatScreen(Screens):
 
         # stores current scar state
         self.initial_scar_selection[self.scar1_dropdown] = (
-            self.scar1_dropdown.selected_list[0]
+            self.scar1_dropdown.selected_list
         )
         self.initial_scar_selection[self.scar2_dropdown] = (
-            self.scar2_dropdown.selected_list[1]
+            self.scar2_dropdown.selected_list
         )
         self.initial_scar_selection[self.scar3_dropdown] = (
-            self.scar3_dropdown.selected_list[1]
+            self.scar3_dropdown.selected_list
         )
         self.initial_scar_selection[self.scar4_dropdown] = (
-            self.scar4_dropdown.selected_list[1]
+            self.scar4_dropdown.selected_list
         )
-
 
     def setup_cat(self):
         self.get_cat_age()
@@ -959,15 +957,41 @@ class CustomizeCatScreen(Screens):
             self.white_patches_tint_dropdown.disable()
 
     def setup_eye_colours(self):
+        """
+        new_selection = (
+            self.new_cat_editor["cat_list"].selected_list[0]
+            if self.new_cat_editor["cat_list"].selected_list
+            else None
+        )
+        if self.selected_new_cat != new_selection:
+            self.selected_new_cat = new_selection
+            self.change_new_cat_info_dict()
+        """
+        new_selection = (
+            self.eye_colour2_dropdown.selected_list[0]
+            if self.eye_colour2_dropdown.selected_list
+            else self.the_cat.pelt.eye_colour
+        )
+        if self.the_cat.pelt.eye_colour2 != new_selection:
+            self.the_cat.pelt.eye_colour2 = new_selection
+
+        if self.eye_colour2_dropdown.selected_list != self.eye_colour1_dropdown.selected_list:
+            self.heterochromia = True
+        else:
+            self.heterochromia = False
+        self.make_heterochromia_checkbox()
+
+        """    
         if (
-            self.eye_colour2_dropdown.selected_list[1]
-            == self.eye_colour1_dropdown.selected_list[1]
+            self.eye_colour2_dropdown.selected_list[0]
+            == self.eye_colour1_dropdown.selected_list[0]
         ):
             self.heterochromia = False
             self.eye_colour2_dropdown.disable()
         else:
             self.heterochromia = True
         self.make_heterochromia_checkbox()
+        """
 
     def setup_accessory(self):
         if self.life_stage == "newborn":
@@ -991,23 +1015,11 @@ class CustomizeCatScreen(Screens):
     # TODO: append values to a list with identifier to retain values between cat pages
     def capture_initial_state(self):
         self.initial_state = {
-            "name": self.the_cat.pelt.name,
-            "colour": self.the_cat.pelt.colour,
-            "length": self.the_cat.pelt.length,
-            "pattern": self.the_cat.pelt.pattern,
-            "tortiebase": self.the_cat.pelt.tortiebase,
-            "tortiecolour": self.the_cat.pelt.tortiecolour,
-            "tortiepattern": self.the_cat.pelt.tortiepattern,
-            "white_patches": self.the_cat.pelt.white_patches,
-            "vitiligo": self.the_cat.pelt.vitiligo,
-            "points": self.the_cat.pelt.points,
-            "white_patches_tint": self.the_cat.pelt.white_patches_tint,
-            "tint": self.the_cat.pelt.tint,
-            "skin": self.the_cat.pelt.skin,
+            "pelt": self.the_cat.pelt,
             "eye_colour": self.the_cat.pelt.eye_colour,
             "eye_colour2": self.the_cat.pelt.eye_colour2,
             "accessory": self.the_cat.pelt.accessory,
-            "scars": self.the_cat.pelt.scars.copy(),
+            "scars": self.the_cat.pelt.scars,
             "reverse": self.the_cat.pelt.reverse,
             "pose": self.cat_elements["current_pose"],
             "cat_sprites": {
