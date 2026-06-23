@@ -8,7 +8,7 @@ dev_tools = true
 # settings regarding relationship events, also called "interactions"
 [relationship]
   # sets the max amount of interactions a cat can have each moon
-  max_interaction = 3
+  max_interaction = 1
 
   # sets the max amount of interactions a cat with a special role (leader, deputy, medicine cat, or mediator) can have each moon
   max_interaction_special = 6
@@ -17,10 +17,10 @@ dev_tools = true
   chance_of_group_event = 5
 
   # sets the positive or negative effect that interactions will have on other cats based on personality compatibility
-  compatibility_effect = 8
+  compatibility_effect = 8  drtfrdgvbtfhn c,vn
 
   # Adds a passive buff to relationship events. We divide the value change by passive_influence_div and apply it to all other relationship values.
-  passive_influence_div = 3
+  passive_influence_div = 2
 
   # 1/chance that a group event will be a "special group event"
   # special groups are defined in group_types.json
