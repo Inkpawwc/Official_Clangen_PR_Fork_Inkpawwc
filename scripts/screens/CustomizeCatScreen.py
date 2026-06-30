@@ -17,6 +17,7 @@ from scripts.ui.elements.sprite_button import UISpriteButton
 from scripts.ui.elements.image_button import UIImageButton
 from scripts.ui.elements.surface_image_button import UISurfaceImageButton
 from scripts.ui.elements.dropdown import UIDropDown
+from scripts.ui.elements.scrolling_dropdown import UIScrollingDropDown
 from scripts.ui.windows.relationship_log import RelationshipLogWindow
 from scripts.screens.Screens import Screens
 from scripts.screens.enums import GameScreen
@@ -252,6 +253,8 @@ class CustomizeCatScreen(Screens):
         self.scar4_label = None
         self.scar4_dropdown = None
 
+        self.container = {}
+
     # prints attributes for testing
     # def print_pelt_attributes(self):
     # print("\n*** PELT START ***")
@@ -444,37 +447,34 @@ class CustomizeCatScreen(Screens):
             object_id="@buttonstyles_icon",
         )
 
+    def on_use(self):
+        if self.pelt_name_dropdown.selected_list != self.the_cat.pelt:
+            self.the_cat.pelt = (
+                self.pelt_name_dropdown.selected_list[0]
+                if self.pelt_name_dropdown.selected_list
+                else self.the_cat.pelt
+            )
+            changed = True
+
     def setup_dropdowns(self):
         """------------------------------------------------------------------------------------------------------------#
         #                                              DROPDOWN SETUP START                                            #
         # ------------------------------------------------------------------------------------------------------------
         """
-        self.pelt_name_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
-            item_list=[
-                "single",
-                "tabby",
-                "bengal",
-                "marbled",
-                "ticked",
-                "smoke",
-                "rosette",
-                "speckled",
-                "mackerel",
-                "classic",
-                "sokoke",
-                "agouti",
-                "singlestripe",
-                "masked",
-            ],
-            manager=MANAGER,
-            open_on_hover=True,
+        self.container["container"] = (
+            pygame_gui.elements.UIAutoResizingContainer(
+                ui_scale(pygame.Rect((320, 125), (440, 0))),
+                manager=MANAGER,
+                resize_left=False,
+                resize_top=False,
+                resize_right=False,
+            )
         )
 
-        self.pelt_name_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.pelt_name_dropdown = UIScrollingDropDown(
+            pygame.Rect((0, 0), (135, 40)),
+            dropdown_dimensions=(135, 320),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -491,12 +491,15 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            multiple_choice=False,
+            container=self.container["container"],
+            manager=MANAGER
+
         )
-        self.pelt_colour_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.pelt_colour_dropdown = UIScrollingDropDown(
+            pygame.Rect((480, 125), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -513,12 +516,12 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
-        self.pattern_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.pattern_dropdown = UIScrollingDropDown(
+            pygame.Rect((640, 125), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -535,12 +538,12 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
-        self.tortie_base_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.tortie_base_dropdown = UIScrollingDropDown(
+            pygame.Rect((320, 200), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -557,12 +560,12 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
-        self.tortie_colour_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.tortie_colour_dropdown = UIScrollingDropDown(
+            pygame.Rect((480, 200), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -579,12 +582,12 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
-        self.tortie_pattern_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.tortie_pattern_dropdown = UIScrollingDropDown(
+            pygame.Rect((640, 200), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -601,12 +604,12 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
-        self.white_patches_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.white_patches_dropdown = UIScrollingDropDown(
+            pygame.Rect((320, 285), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -623,12 +626,12 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
-        self.vitiligo_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.vitiligo_dropdown = UIScrollingDropDown(
+            pygame.Rect((480, 285), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -645,12 +648,12 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
-        self.points_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.points_dropdown = UIScrollingDropDown(
+            pygame.Rect((640, 285), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -667,12 +670,12 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
-        self.white_patches_tint_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.white_patches_tint_dropdown = UIScrollingDropDown(
+            pygame.Rect((320, 360), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -689,12 +692,12 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
-        self.tint_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.tint_dropdown = UIScrollingDropDown(
+            pygame.Rect((480, 360), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -711,12 +714,12 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
-        self.skin_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.skin_dropdown = UIScrollingDropDown(
+            pygame.Rect((640, 360), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -733,12 +736,12 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
-        self.eye_colour1_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.eye_colour1_dropdown = UIScrollingDropDown(
+            pygame.Rect((320, 445), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -755,12 +758,12 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
-        self.eye_colour2_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.eye_colour2_dropdown = UIScrollingDropDown(
+            pygame.Rect((640, 445), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -777,12 +780,12 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
-        self.accessory_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.accessory_dropdown = UIScrollingDropDown(
+            pygame.Rect((568, 525), (180, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -799,14 +802,14 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
 
         scars = self.the_cat.pelt.scars
-        self.scar1_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.scar1_dropdown = UIScrollingDropDown(
+            pygame.Rect((52, 605), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -823,12 +826,12 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
-        self.scar2_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.scar2_dropdown = UIScrollingDropDown(
+            pygame.Rect((238, 605), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -845,12 +848,12 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
-        self.scar3_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.scar3_dropdown = UIScrollingDropDown(
+            pygame.Rect((424, 605), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -867,12 +870,12 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
-        self.scar4_dropdown = UIDropDown(
-            pygame.Rect((320, 125), (135, 40)),
-            "pelt names",
+        self.scar4_dropdown = UIScrollingDropDown(
+            pygame.Rect((610, 605), (135, 40)),
+            dropdown_dimensions=(135, 40),
+            parent_text="pelt names",
             item_list=[
                 "single",
                 "tabby",
@@ -889,9 +892,9 @@ class CustomizeCatScreen(Screens):
                 "singlestripe",
                 "masked",
             ],
-            manager=MANAGER,
-            open_on_hover=True,
+            manager=MANAGER
         )
+
         """------------------------------------------------------------------------------------------------------------#
         #                                              DROPDOWN SETUP END                                              #
         # ------------------------------------------------------------------------------------------------------------"""
