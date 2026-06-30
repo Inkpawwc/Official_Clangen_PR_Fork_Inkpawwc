@@ -15,7 +15,9 @@
         "colours_agouti": ["Agouti"],
         "colours_batspeckle": ["Batspeckle"],
         "colours_singlestripe": ["Singlestripe"],
-        "colours_masked": ["Masked"]
+        "colours_masked": ["Masked"],
+        "colours_freckled": ["Freckled"],
+        "colours_countershade": ["Countershade"]
 
     },
     "sprite_list": [
@@ -87,7 +89,9 @@
             "Bengal",
             "Marbled",
             "Masked",
-            "Batspeckle"
+            "Batspeckle",
+            "Freckled",
+            "Countershade"
         ],
         "torties": [
             "Tortie",
