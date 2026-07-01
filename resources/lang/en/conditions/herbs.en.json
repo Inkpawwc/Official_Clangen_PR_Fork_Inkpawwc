@@ -105,8 +105,8 @@
             "many": "catmint piles"
         },
         "honey": {
-            "one": "honey",
-            "many": "honey"
+            "one": "dose of honey",
+            "many": "doses of honey"
         }
     }
 }
