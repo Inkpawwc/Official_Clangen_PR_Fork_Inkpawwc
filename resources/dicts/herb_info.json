@@ -728,14 +728,14 @@
         "expiration": 12,
         "rarity": {
             "forest": {
-                "newleaf": 5,
-                "greenleaf": 4,
+                "newleaf": 2,
+                "greenleaf": 3,
                 "leaf-fall": 5,
                 "leaf-bare": 6
             },
             "mountainous": {
                 "newleaf": 3,
-                "greenleaf": 2,
+                "greenleaf": 4,
                 "leaf-fall": 4,
                 "leaf-bare": 6
             },
