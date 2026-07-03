@@ -37706,5 +37706,224 @@
       "art": "gen_med_rainygathering"
     }
   ]
-}
+},
+  {
+     "patrol_id": "gen_med_gatheringhoneysolo",
+     "biome": [
+         "-desert"
+     ],
+     "season": [
+         "any"
+     ],
+     "types": [
+         "herb_gathering"
+     ],
+     "tags": [],
+     "patrol_art": "med_general_intro",
+     "min_cats": 1,
+     "max_cats": 1,
+     "min_max_status": {
+         "healer cats": [1, 1]
+     },
+     "frequency": 4,
+     "intro_text": "p_l is looking forward to today's herb gathering task: the search for succulent honey!",
+     "decline_text": "Before p_l can set out, {PRONOUN/p_l/subject} {VERB/p_l/hear/hears} {PRONOUN/p_l/poss} name being called from camp. Collecting honey will have to wait.",
+     "chance_of_success": 30,
+     "success_outcomes": [
+       {
+         "text": "p_l immediately {VERB/p_l/spot/spots} a hive not far from camp, and it isn't difficult to yank a delicious chunk from its side. {PRONOUN/p_l/subject/CAP} {VERB/p_l/purr/purrs} at the sweet taste of victory as {PRONOUN/p_l/subject} {VERB/p_l/dash/dashes} away from the buzzing bees back to camp.",
+         "exp": 10,
+         "herbs": [
+           "honey"
+         ],
+         "frequency": 4
+       }
+     ],
+     "fail_outcomes": [
+         {
+             "text": "When p_l finds a hive and makes {PRONOUN/p_l/poss} way over, {PRONOUN/p_l/subject} {VERB/p_l/are/is} descended upon by a furious swarm of bees before {PRONOUN/p_l/subject} {VERB/p_l/get/gets} the chance to swipe even a lick of honey.",
+             "exp": 0,
+             "injury": [
+                 {
+                     "cats": [
+                         "patrol"
+                     ],
+                     "injuries": [
+                         "bee sting"
+                     ]
+                 }
+             ],
+             "frequency": 4
+         }
+     ]
+ },
+ {
+     "patrol_id": "gen_med_gatheringhoneypatrol",
+     "biome": [
+         "-desert"
+     ],
+     "season": [
+         "any"
+     ],
+     "types": [
+         "herb_gathering"
+     ],
+     "tags": [],
+     "patrol_art": "med_general_intro",
+     "min_cats": 1,
+     "max_cats": 6,
+     "min_max_status": {},
+     "frequency": 4,
+     "intro_text": "p_l is looking forward to today's herb gathering task: the search for succulent honey!",
+     "decline_text": "Before p_l can set out, {PRONOUN/p_l/subject} {VERB/p_l/hear/hears} {PRONOUN/p_l/poss} name being called from camp. p_l calls off the patrol, collecting honey will have to wait.",
+     "chance_of_success": 30,
+     "success_outcomes": [
+       {
+         "text": "The patrol immediately spots a hive not far from camp, and it isn't difficult for each of them to yank a delicious chunk from its side. The air is filled with purrs as they dash back to camp with the sweet taste of victory on their tongues.",
+         "exp": 10,
+         "relationships": [
+                 {
+                     "cats_to": [
+                         "p_l"
+                     ],
+                     "cats_from": [
+                         "patrol"
+                     ],
+                     "mutual": false,
+                     "values": [
+                         "like"
+                     ],
+                     "amount": 10,
+                     "log": {
+                         "cats_from": "cat_from got to enjoy the taste of honey while helping cat_to"
+                     }
+                 }
+             ],
+         "herbs": [
+           "honey"
+         ],
+         "frequency": 4
+       }
+     ],
+     "fail_outcomes": [
+         {
+             "text": "When p_l finds a hive and makes {PRONOUN/p_l/poss} way over, {PRONOUN/p_l/subject} {VERB/p_l/are/is} descended upon by a furious swarm of bees before {PRONOUN/p_l/subject} {VERB/p_l/get/gets} the chance to swipe even a lick of honey.",
+             "exp": 0,
+             "relationships": [
+                 {
+                     "cats_to": [
+                         "p_l"
+                     ],
+                     "cats_from": [
+                         "patrol"
+                     ],
+                     "mutual": false,
+                     "values": [
+                         "comfort"
+                     ],
+                     "amount": -10,
+                     "log": {
+                         "cats_from": "cat_from didn't appreciate getting stung by bees while trying to help cat_to gather honey"
+                     }
+                 }
+             ],
+             "injury": [
+                 {
+                     "cats": [
+                         "patrol"
+                     ],
+                     "injuries": [
+                         "bee sting"
+                     ]
+                 }
+             ],
+             "frequency": 4
+         }
+     ]
+ },
+ {
+     "patrol_id": "gen_med_gatheringhoneydistraction",
+     "biome": [
+         "-desert"
+     ],
+     "season": [
+         "any"
+     ],
+     "types": [
+         "herb_gathering"
+     ],
+     "tags": [],
+     "patrol_art": "med_general_intro",
+     "min_cats": 1,
+     "max_cats": 6,
+     "min_max_status": {},
+     "frequency": 4,
+     "intro_text": "p_l is looking forward to today's herb gathering task: the search for succulent honey!",
+     "decline_text": "Before p_l can set out, {PRONOUN/p_l/subject} {VERB/p_l/hear/hears} {PRONOUN/p_l/poss} name being called from camp. p_l calls off the patrol, collecting honey will have to wait.",
+     "chance_of_success": 30,
+     "success_outcomes": [
+       {
+         "text": "The patrol immediately spots a hive not far from camp, and it isn't difficult for each of them to yank a delicious chunk from its side. The air is filled with purrs as they dash back to camp with the sweet taste of victory on their tongues.",
+         "exp": 10,
+         "relationships": [
+                 {
+                     "cats_to": [
+                         "p_l"
+                     ],
+                     "cats_from": [
+                         "patrol"
+                     ],
+                     "mutual": false,
+                     "values": [
+                         "like"
+                     ],
+                     "amount": 10,
+                     "log": {
+                         "cats_from": "cat_from got to enjoy the taste of honey while helping cat_to"
+                     }
+                 }
+             ],
+         "herbs": [
+           "honey"
+         ],
+         "frequency": 4
+       }
+     ],
+     "fail_outcomes": [
+         {
+             "text": "When p_l finds a hive and makes {PRONOUN/p_l/poss} way over, {PRONOUN/p_l/subject} {VERB/p_l/are/is} descended upon by a furious swarm of bees before {PRONOUN/p_l/subject} {VERB/p_l/get/gets} the chance to swipe even a lick of honey.",
+             "exp": 0,
+             "relationships": [
+                 {
+                     "cats_to": [
+                         "p_l"
+                     ],
+                     "cats_from": [
+                         "patrol"
+                     ],
+                     "mutual": false,
+                     "values": [
+                         "comfort"
+                     ],
+                     "amount": -10,
+                     "log": {
+                         "cats_from": "cat_from didn't appreciate getting stung by bees while trying to help cat_to gather honey"
+                     }
+                 }
+             ],
+             "injury": [
+                 {
+                     "cats": [
+                         "patrol"
+                     ],
+                     "injuries": [
+                         "bee sting"
+                     ]
+                 }
+             ],
+             "frequency": 4
+         }
+     ]
+ }
+
 ]
