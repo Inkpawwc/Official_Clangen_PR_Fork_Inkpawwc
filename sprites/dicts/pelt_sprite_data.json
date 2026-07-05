@@ -73,25 +73,25 @@
             "Classic",
             "Sokoke",
             "Agouti",
-            "Cape"
+            "Batspeckle"
         ],
         "spotted": [
             "Speckled",
-            "Rosette"
+            "Rosette",
+            "Freckled"
         ],
         "plain": [
             "SingleColour",
             "TwoColour",
             "Smoke",
-            "Singlestripe"
+            "Singlestripe",
+            "Cape",
+            "Countershade"
         ],
         "exotic": [
             "Bengal",
             "Marbled",
-            "Masked",
-            "Batspeckle",
-            "Freckled",
-            "Countershade"
+            "Masked"
         ],
         "torties": [
             "Tortie",
