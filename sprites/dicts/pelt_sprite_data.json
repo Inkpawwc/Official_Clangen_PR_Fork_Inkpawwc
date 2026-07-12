@@ -85,13 +85,13 @@
             "TwoColour",
             "Smoke",
             "Singlestripe",
-            "Cape",
-            "Countershade"
+            "Cape"
         ],
         "exotic": [
             "Bengal",
             "Marbled",
-            "Masked"
+            "Masked",
+            "Countershade"
         ],
         "torties": [
             "Tortie",
