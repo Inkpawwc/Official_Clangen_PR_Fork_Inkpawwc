@@ -2793,6 +2793,7 @@ class Cat:
             )
 
         setattr(rel1, chosen_rel, getattr(rel1, chosen_rel) + amount)
+
     @staticmethod
     def mediate_relationship(mediator, cat1, cat2, allow_romantic, sabotage=False):
         # Gather some important info
