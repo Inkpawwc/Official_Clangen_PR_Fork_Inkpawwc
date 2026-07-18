@@ -32,7 +32,9 @@
         "ceremony_deputy_lead_retireddep4": "m_c has been chosen as the new deputy. {PRONOUN/m_c/subject/CAP} {VERB/m_c/pray/prays} to StarClan that {PRONOUN/m_c/subject} {VERB/m_c/are/is} the right choice for the Clan.",
         "ceremony_deputy_lead_retireddep5": "m_c has been chosen as the new deputy. Although {PRONOUN/m_c/subject} {VERB/m_c/are/is} nervous, {PRONOUN/m_c/subject} {VERB/m_c/put/puts} on a brave face and {VERB/m_c/look/looks} forward to serving the Clan.",
         "ceremony_deputy_unsuitable": "No cat is truly fit to be deputy, but the position can't remain vacant. m_c is appointed as the new deputy.",
+        "ceremony_deputy_unsuitable_kin": "None of lead_name's kits are truly fit to be deputy, but {PRONOUN/lead_name/poss} kits are more adept for the role than anyone else. {PRONOUN/lead_name/subject/CAP} appoints m_c as the new deputy.",
         "ceremony_deputy_none": "There are no cats fit to become deputy.",
+        "ceremony_deputy_none_kin": "lead_name refuses to appoint a new deputy. Only {PRONOUN/lead_name/poss} lineage is fit to lead.",
         "adoption_kittens_single": {
             "one": "%{names} found a %{insert} and decides to adopt it.",
             "many": "%{names} found a %{insert} and decides to adopt them."
