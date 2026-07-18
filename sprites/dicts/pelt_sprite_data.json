@@ -13,7 +13,6 @@
         "colours_classic": ["Classic"],
         "colours_sokoke": ["Sokoke"],
         "colours_agouti": ["Agouti"],
-        "colours_batspeckle": ["Batspeckle"],
         "colours_singlestripe": ["Singlestripe"],
         "colours_masked": ["Masked"],
         "colours_freckled": ["Freckled"],
@@ -62,7 +61,6 @@
         "classic",
         "sokoke",
         "agouti",
-        "batspeckle",
         "singlestripe",
         "masked"
     ],
@@ -73,8 +71,7 @@
             "Mackerel",
             "Classic",
             "Sokoke",
-            "Agouti",
-            "Batspeckle"
+            "Agouti"
         ],
         "spotted": [
             "Speckled",
