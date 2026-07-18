@@ -153,11 +153,13 @@ class RelationshipEditorScreen(Screens):
                 self.update_checkboxes()
                 self.apply_cat_filter()
                 self.update_page()
+                self.update_list_cats()
             elif event.ui_element == self.checkboxes["show_outsiders"]:
                 switch_clan_setting("show outsiders")
                 self.update_checkboxes()
                 self.apply_cat_filter()
                 self.update_page()
+                self.update_list_cats()
 
             elif event.ui_element == self.rel_change_inc["like_increase"]:
                 Cat.edit_relationship(
@@ -444,12 +446,12 @@ class RelationshipEditorScreen(Screens):
 
 
         self.rel_type_buttons["rel_choices_frame"] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((275, 80), (252, 252))),
+                ui_scale(pygame.Rect((274, 80), (252, 252))),
                 get_box(BoxStyles.ROUNDED_BOX, (252, 252)),
             )
 
         self.rel_button_container = UIContainer(
-                ui_scale(pygame.Rect((275, 80), (252, 252))),
+                ui_scale(pygame.Rect((274, 80), (252, 252))),
                 manager=MANAGER,
             )
         self.rel_type_box["like"] = UISurfaceImageButton(
@@ -619,7 +621,7 @@ class RelationshipEditorScreen(Screens):
 
         x = 65
         y = 485
-        chunked_cats = self.chunks(self.current_listed_cats, 24)
+        chunked_cats = self.get_list_chunks(self.current_listed_cats, items_allowed_in_chunk=24)
         if chunked_cats:
             for cat in chunked_cats[self.page - 1]:
                 if get_clan_setting("show fav") and cat.favourite:
@@ -768,7 +770,7 @@ class RelationshipEditorScreen(Screens):
                 for i in Cat.all_cats_list
             ]
 
-        self.all_cats = self.chunks(self.all_cats_list, 24)
+        self.all_cats = self.get_list_chunks(self.all_cats_list, items_allowed_in_chunk=24)
         self.current_listed_cats = self.all_cats_list
         self.all_pages = (
             int(ceil(len(self.current_listed_cats) / 24.0))
@@ -1080,7 +1082,7 @@ class RelationshipEditorScreen(Screens):
                 self.rel_change_dec["romance_decrease"].enable()
 
             self.selected_cat_elements[f"display{tag}"] = UIRelationDisplay(
-                position=(x + 50, y - 100),
+                (x + 50, y - 100),
                 relationship=the_relationship,
                 romance=allow_romance,
                 manager=MANAGER,
