@@ -2769,26 +2769,6 @@ class Cat:
                 print(
                     f"WARNING: There was an error reading the relationship file of cat #{self}."
                 )
-    @staticmethod
-    def edit_relationship(cat1, cat2, allow_romantic, chosen_rel=None, decrease=False):
-
-        # Gathering the relationships.
-        if cat1.ID in cat2.relationships:
-            rel1 = cat1.relationships[cat2.ID]
-        else:
-            rel1 = cat1.create_one_relationship(cat2)
-
-        if cat2.ID in cat1.relationships:
-            rel2 = cat2.relationships[cat1.ID]
-        else:
-            rel2 = cat2.create_one_relationship(cat1)
-
-        # amount the chosen relationship type is increased or decreased by
-        amount = 10  * (
-            -1 if decrease else 1
-            )
-
-        setattr(rel1, chosen_rel, getattr(rel1, chosen_rel) + amount)
 
     @staticmethod
     def mediate_relationship(mediator, cat1, cat2, allow_romantic, sabotage=False):

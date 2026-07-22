@@ -130,6 +130,7 @@ def adjust_row(
     index = max(0, min(index, len(row) - 1))
 
     row.insert(index, element)
+    row.pop(index + 1)
 
     return row
 

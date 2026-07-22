@@ -248,8 +248,6 @@ class ProfileScreen(Screens):
                     self.change_screen(GameScreen.CHOOSE_MATE)
             elif event.ui_element == self.change_adoptive_parent_button:
                 self.change_screen(GameScreen.CHOOSE_ADOPTIVE_PARENT)
-            elif event.ui_element == self.relationship_editor_button:
-                self.change_screen(GameScreen.RELATIONSHIP_EDITOR)
 
         # Roles Tab
         elif self.open_tab == "roles":
@@ -2052,14 +2050,6 @@ class ProfileScreen(Screens):
             self.choose_mate_button = UISurfaceImageButton(
                 ui_scale(pygame.Rect((50, 558), (172, 36))),
                 "screens.profile.mate",
-                get_button_dict(ButtonStyles.LADDER_MIDDLE, (172, 36)),
-                object_id="@buttonstyles_ladder_middle",
-                starting_height=2,
-                manager=MANAGER,
-            )
-            self.relationship_editor_button = UISurfaceImageButton(
-                ui_scale(pygame.Rect((50, 594), (172, 36))),
-                "screens.profile.relationship_editor",
                 get_button_dict(ButtonStyles.LADDER_BOTTOM, (172, 36)),
                 object_id="@buttonstyles_ladder_bottom",
                 starting_height=2,
@@ -2489,7 +2479,6 @@ class ProfileScreen(Screens):
             self.see_relationships_button.kill()
             self.choose_mate_button.kill()
             self.change_adoptive_parent_button.kill()
-            self.relationship_editor_button.kill()
         elif self.open_tab == "roles":
             self.manage_roles.kill()
             self.change_mentor_button.kill()

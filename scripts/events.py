@@ -81,8 +81,6 @@ ceremony_lang = None
 war_lang = None
 ceremony_id_by_tag = {}
 
-leaders_kits = []
-
 
 def one_moon():
     """
@@ -115,11 +113,6 @@ def one_moon():
     update_afterlife_temper()
     Pregnancy_Events.handle_pregnancy_age(game.clan)
     check_war()
-
-    for cat in Cat.all_cats_list:
-        if game.clan.leader is not None and game.clan.leader.is_parent(cat):
-            leaders_kits.append(cat)
-
 
     if game.clan.game_mode in ("expanded", "cruel_season") and game.clan.freshkill_pile:
         # feed the cats and update the nutrient status
@@ -2508,24 +2501,14 @@ def check_and_promote_deputy():
             game.cur_events_list.insert(0, Single_Event("defaults.warn_no_deputy"))
             return
         # This determines all the cats who are eligible to be deputy.
-        if get_config("ranks.only_leader_kits_deputy"):
-            possible_deputies = list(
-                filter(
-                    lambda x: x.status.alive_in_player_clan
-                    and x.status.rank == CatRank.WARRIOR
-                    and (x.apprentice or x.former_apprentices),
-                    leaders_kits,
-                )
+        possible_deputies = list(
+            filter(
+                lambda x: x.status.alive_in_player_clan
+                and x.status.rank == CatRank.WARRIOR
+                and (x.apprentice or x.former_apprentices),
+                Cat.all_cats_list,
             )
-        else:
-            possible_deputies = list(
-                filter(
-                    lambda x: x.status.alive_in_player_clan
-                    and x.status.rank == CatRank.WARRIOR
-                    and (x.apprentice or x.former_apprentices),
-                    Cat.all_cats_list,
-                )
-            )
+        )
 
         # If there are possible deputies, choose from that list.
         if possible_deputies:
@@ -2582,75 +2565,25 @@ def check_and_promote_deputy():
                 # This should never happen. Failsafe.
                 text = i18n.t("defaults.deputy_event")
         else:
-
-            if get_config("ranks.only_leader_kits_deputy"):
-                if game.clan.leader is not None:
-                    # If none of the leader's kits meet all the requirements for deputy, choose one randomly, with special text.
-                    all_warriors = list(
-                        filter(
-                            lambda x: x.status.alive_in_player_clan
-                            and x.status.rank == CatRank.WARRIOR,
-                            leaders_kits,
-                        )
-                    )
-                    if all_warriors:
-                        random_cat = random.choice(all_warriors)
-                        involved_cats = [random_cat.ID]
-                        text = i18n.t("hardcoded.ceremony_deputy_unsuitable_kin")
-
-                    else:
-                        # If the leader has no kits, no one is named deputy.
-                        game.cur_events_list.append(
-                            Single_Event(
-                                i18n.t("hardcoded.ceremony_deputy_none_kin"), "ceremony"
-                            )
-                        )
-                        return
-                else:
-                    # If there are no possible deputies, choose someone else, with special text.
-                    all_warriors = list(
-                        filter(
-                            lambda x: x.status.alive_in_player_clan
-                            and x.status.rank == CatRank.WARRIOR,
-                            Cat.all_cats_list,
-                        )
-                    )
-                    if all_warriors:
-                        random_cat = random.choice(all_warriors)
-                        involved_cats = [random_cat.ID]
-                        text = i18n.t("hardcoded.ceremony_deputy_unsuitable")
-
-                    else:
-                        # If there are no warriors at all, no one is named deputy.
-                        game.cur_events_list.append(
-                            Single_Event(
-                                i18n.t("hardcoded.ceremony_deputy_none"), "ceremony"
-                            )
-                        )
-                        return
+            # If there are no possible deputies, choose someone else, with special text.
+            all_warriors = list(
+                filter(
+                    lambda x: x.status.alive_in_player_clan
+                    and x.status.rank == CatRank.WARRIOR,
+                    Cat.all_cats_list,
+                )
+            )
+            if all_warriors:
+                random_cat = random.choice(all_warriors)
+                involved_cats = [random_cat.ID]
+                text = i18n.t("hardcoded.ceremony_deputy_unsuitable")
 
             else:
-                # If there are no possible deputies, choose someone else, with special text.
-                all_warriors = list(
-                    filter(
-                        lambda x: x.status.alive_in_player_clan
-                        and x.status.rank == CatRank.WARRIOR,
-                        Cat.all_cats_list,
-                    )
+                # If there are no warriors at all, no one is named deputy.
+                game.cur_events_list.append(
+                    Single_Event(i18n.t("hardcoded.ceremony_deputy_none"), "ceremony")
                 )
-                if all_warriors:
-                    random_cat = random.choice(all_warriors)
-                    involved_cats = [random_cat.ID]
-                    text = i18n.t("hardcoded.ceremony_deputy_unsuitable")
-
-                else:
-                    # If there are no warriors at all, no one is named deputy.
-                    game.cur_events_list.append(
-                        Single_Event(
-                            i18n.t("hardcoded.ceremony_deputy_none"), "ceremony"
-                        )
-                    )
-                    return
+                return
 
         text = event_text_adjust(Cat, text, main_cat=random_cat, clan=game.clan)
         random_cat.rank_change(CatRank.DEPUTY)

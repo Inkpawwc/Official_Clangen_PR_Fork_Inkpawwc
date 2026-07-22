@@ -47,10 +47,7 @@ class PatrolScreen(Screens):
         super().__init__(name)
 
         self.in_progress_data = None
-        self.able_box = pygame.transform.scale(
-            image_cache.load_image("resources/images/patrol_able_cats.png"),
-            ui_scale_dimensions((270, 201)),
-        )
+
         self.app_frame = pygame.transform.scale(
             image_cache.load_image("resources/images/patrol_app_frame.png"),
             ui_scale_dimensions((166, 170)),
@@ -908,8 +905,8 @@ class PatrolScreen(Screens):
         self.elements["proceed"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((550, 433), (172, 30))),
             "screens.patrol.proceed",
-            get_button_dict(ButtonStyles.DROPDOWN, (172, 30)),
-            object_id="@buttonstyles_dropdown",
+            get_button_dict(ButtonStyles.PROFILE_MIDDLE, (172, 30)),
+            object_id="@buttonstyles_profile_middle",
             starting_height=2,
             manager=MANAGER,
         )
@@ -1285,14 +1282,15 @@ class PatrolScreen(Screens):
                     object_id=get_text_box_theme("#text_box_22_horizcenter"),
                     text_kwargs={"count": 1},
                 )
-                self.elements["mate_button"] = UIImageButton(
-                    ui_scale(pygame.Rect((148, -4), (104, 26))),
+                self.elements["mate_button"] = UISurfaceImageButton(
+                    ui_scale(pygame.Rect((148, -7), (104, 26))),
                     (
                         "screens.patrol.select"
                         if self.mate in self.able_cats
                         else "screens.patrol.unavailable"
                     ),
-                    object_id="#patrol_select_button",
+                    get_button_dict(ButtonStyles.HORIZONTAL_TAB_MIRRORED, (104, 26)),
+                    object_id="@buttonstyles_horizontal_tab_mirrored",
                     manager=MANAGER,
                     anchors={"top_target": self.elements["mate_frame"]},
                 )
@@ -1382,14 +1380,17 @@ class PatrolScreen(Screens):
                     )
 
                     # Button to switch to that cat
-                    self.elements["app_mentor_button"] = UIImageButton(
-                        ui_scale(pygame.Rect((548, -4), (104, 26))),
+                    self.elements["app_mentor_button"] = UISurfaceImageButton(
+                        ui_scale(pygame.Rect((548, -7), (104, 26))),
                         (
                             "screens.patrol.select"
                             if self.app_mentor in self.able_cats
                             else "screens.patrol.unavailable"
                         ),
-                        object_id="#patrol_select_button",
+                        get_button_dict(
+                            ButtonStyles.HORIZONTAL_TAB_MIRRORED, (104, 26)
+                        ),
+                        object_id="@buttonstyles_horizontal_tab_mirrored",
                         manager=MANAGER,
                         anchors={"top_target": self.elements["app_mentor_frame"]},
                     )

@@ -8,16 +8,13 @@
         "colours_ticked": ["Ticked"],
         "colours_speckled": ["Speckled"],
         "colours_bengal": ["Bengal"],
-        "colours_cape": ["Cape"],
         "colours_mackerel": ["Mackerel"],
         "colours_classic": ["Classic"],
         "colours_sokoke": ["Sokoke"],
         "colours_agouti": ["Agouti"],
         "colours_singlestripe": ["Singlestripe"],
         "colours_masked": ["Masked"],
-        "colours_freckled": ["Freckled"],
-        "colours_countershade": ["Countershade"]
-
+        "colours_freckled": ["Freckled"]
     },
     "sprite_list": [
         {
@@ -50,7 +47,6 @@
         "single",
         "tabby",
         "bengal",
-        "cape",
         "marbled",
         "ticked",
         "smoke",
@@ -82,14 +78,12 @@
             "SingleColour",
             "TwoColour",
             "Smoke",
-            "Singlestripe",
-            "Cape"
+            "Singlestripe"
         ],
         "exotic": [
             "Bengal",
             "Marbled",
-            "Masked",
-            "Countershade"
+            "Masked"
         ],
         "torties": [
             "Tortie",

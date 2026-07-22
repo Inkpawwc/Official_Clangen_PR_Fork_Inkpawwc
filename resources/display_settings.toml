@@ -115,12 +115,6 @@
         "show_negative" = [
             true, false
         ]
-        "show dead" = [
-            false, true
-        ]
-        "show outsiders" = [
-            false, true
-        ]
         "den labels" = [
             true, false
         ]
