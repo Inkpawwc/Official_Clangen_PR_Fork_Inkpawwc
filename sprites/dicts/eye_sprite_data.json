@@ -3,20 +3,7 @@
     "palette_map": true,
     "colour_data": [
         {
-            "BLUE1": [
-                "blue",
-                "darkblue",
-                "grey",
-                "cyan",
-                "heatherblue",
-                "sunlitice",
-                "cobalt",
-                "paleblue",
-                "aurora",
-                "sea",
-                "bluebell"
-            ],
-            "BLUE2": [
+            "BLUE": [
                 "blue",
                 "darkblue",
                 "grey",
@@ -31,15 +18,7 @@
             ]
         },
         {
-            "GREEN1": [
-                "hazel",
-                "palegreen",
-                "green",
-                "emerald",
-                "sage",
-                "forest"
-            ],
-            "GREEN2": [
+            "GREEN": [
                 "hazel",
                 "palegreen",
                 "green",
@@ -49,22 +28,7 @@
             ]
         },
         {
-            "YELLOW1": [
-                "yellow",
-                "amber",
-                "copper",
-                "bronze",
-                "silver",
-                "paleyellow",
-                "gold",
-                "greenyellow",
-                "orange",
-                "dawn",
-                "dusk",
-                "mustard",
-                "earthy"
-            ],
-            "YELLOW2": [
+            "YELLOW": [
                 "yellow",
                 "amber",
                 "copper",

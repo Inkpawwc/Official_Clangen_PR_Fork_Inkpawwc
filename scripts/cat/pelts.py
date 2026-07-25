@@ -115,13 +115,12 @@ class Pelt:
     if sprites.EYE_DATA["palette_map"]:
         for colour_type in sprites.EYE_DATA["colour_data"]:
             for colour, colour_list in colour_type.items():
-                if colour == "GREEN":
-                    green_eyes.append(f"{colour}_{colour_list}")
-                elif colour == "YELLOW":
-                    yellow_eyes.append(f"{colour}_{colour_list}")
-
                 for c in colour_list:
-                    if colour == "BLUE":
+                    if colour == "GREEN":
+                        green_eyes.append(f"{colour}_{c}")
+                    elif colour == "YELLOW":
+                        yellow_eyes.append(f"{colour}_{c}")
+                    elif colour == "BLUE":
                         blue_eyes.append(f"{colour}_{c}")
                     all_eye_colours.append(f"{colour}_{c}")
 
