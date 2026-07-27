@@ -124,15 +124,28 @@ class Pelt:
     yellow_eyes: list = []
     green_eyes: list = []
     blue_eyes: list = []
-    for sprite_list in sprites.EYE_DATA["sprite_list"]:
-        all_eye_colours.extend(sprite_list.keys())
-        for colour in sprite_list:
-            if sprite_list[colour] == "yellow":
-                yellow_eyes.append(colour)
-            elif sprite_list[colour] == "green":
-                green_eyes.append(colour)
-            elif sprite_list[colour] == "blue":
-                blue_eyes.append(colour)
+    if sprites.EYE_DATA["palette_map"]:
+        for colour_type in sprites.EYE_DATA["colour_data"]:
+            for colour, colour_list in colour_type.items():
+                for c in colour_list:
+                    if colour == "GREEN":
+                        green_eyes.append(f"{colour}_{c}")
+                    elif colour == "YELLOW":
+                        yellow_eyes.append(f"{colour}_{c}")
+                    elif colour == "BLUE":
+                        blue_eyes.append(f"{colour}_{c}")
+                    all_eye_colours.append(f"{colour}_{c}")
+
+    else:
+        for sprite_list in sprites.EYE_DATA["sprite_list"]:
+            all_eye_colours.extend(sprite_list.keys())
+            for colour in sprite_list:
+                if sprite_list[colour] == "yellow":
+                    yellow_eyes.append(colour)
+                elif sprite_list[colour] == "green":
+                    green_eyes.append(colour)
+                elif sprite_list[colour] == "blue":
+                    blue_eyes.append(colour)
 
     # SKIN
     skin_sprites: list = []
@@ -187,9 +200,9 @@ class Pelt:
     collar_styles = []
     if sprites.COLLAR_DATA["palette_map"]:
         for style_type in sprites.COLLAR_DATA["style_data"]:
-            for style, color_list in style_type.items():
+            for style, colour_list in style_type.items():
                 collar_styles.append(style)
-                for colour in color_list:
+                for colour in colour_list:
                     collar_accessories.append(f"{style}_{colour}")
     else:
         for sprite_list in sprites.COLLAR_DATA["sprite_list"]:
@@ -211,7 +224,7 @@ class Pelt:
         length: str = "short",
         colour: str = "WHITE",
         white_patches: str = None,
-        eye_color: str = "BLUE",
+        eye_colour: str = "BLUE",
         eye_colour2: str = None,
         tortie_base: str = None,
         tortie_colour: str = None,
@@ -237,7 +250,7 @@ class Pelt:
         self.name = name
         self.colour = colour
         self.white_patches = white_patches
-        self.eye_colour = eye_color
+        self.eye_colour = eye_colour
         self.eye_colour2 = eye_colour2
         self.tortie_base = tortie_base
         self.tortie_marking = tortie_marking

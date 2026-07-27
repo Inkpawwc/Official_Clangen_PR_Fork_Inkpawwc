@@ -134,7 +134,7 @@ def json_load():
                 name=cat["pelt_name"],
                 length=cat["pelt_length"],
                 colour=cat["pelt_color"],
-                eye_color=cat["eye_colour"],
+                eye_colour=cat["eye_colour"],
                 eye_colour2=cat["eye_colour2"] if "eye_colour2" in cat else None,
                 paralyzed=cat["paralyzed"],
                 newborn_sprite=cat.get("sprite_newborn"),
@@ -417,7 +417,7 @@ def csv_load(all_cats):
                     f"There was an error loading cat # {str(attr[0])} (code: 1)",
                 )
                 the_pelt = Pelt(
-                    colour=attr[2], name=attr[11], length=attr[9], eye_color=attr[17]
+                    colour=attr[2], name=attr[11], length=attr[9], eye_colour=attr[17]
                 )
                 switch_set_value(
                     Switch.error_message,
