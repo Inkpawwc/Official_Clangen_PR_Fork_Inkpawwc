@@ -12,6 +12,7 @@
         "BLUE_sea": "sea blue",
         "BLUE_bluebell": "bluebell",
         "BLUE_periwinkle": "periwinkle",
+        "BLUE_lavender": "lavender",
 
         "GREEN_hazel": "hazel",
         "GREEN_palegreen": "pale green",
@@ -44,6 +45,7 @@
         "YELLOW_earthy": "earthy brown",
         "YELLOW_maple": "light maple",
         "YELLOW_sand": "sand brown",
-        "YELLOW_wildfire": "wildfire orange"
+        "YELLOW_wildfire": "wildfire orange",
+        "YELLOW_yew": "yew red"
     }
 }
