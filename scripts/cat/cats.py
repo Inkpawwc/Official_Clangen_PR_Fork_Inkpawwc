@@ -2557,6 +2557,55 @@ class Cat:
             other_relationship.comfort += 20
             other_relationship.trust += 10
 
+    def set_birthing_parent(self, birthing_parent: Cat):
+        """Sets up a parent-child relationship between self and other_cat."""
+        if self.parent2 == birthing_parent.ID:
+            self.parent2 = None
+        self.parent1 = birthing_parent.ID
+        inheritance_db.load_inheritances(Cat)
+
+        # Set starting relationship values
+        if not self.dead:
+            if birthing_parent.ID not in self.relationships:
+                self.create_one_relationship(birthing_parent)
+            self_relationship = self.relationships[birthing_parent.ID]
+            self_relationship.like += 1
+            self_relationship.comfort += 1
+            self_relationship.trust += 1
+
+        if not birthing_parent.dead:
+            if self.ID not in birthing_parent.relationships:
+                birthing_parent.create_one_relationship(self)
+            other_relationship = birthing_parent.relationships[self.ID]
+            other_relationship.like += 1
+            other_relationship.comfort += 1
+            other_relationship.trust += 1
+
+    def set_bio_parent(self, parent_cat: Cat):
+        """Sets up a parent-child relationship between self and other_cat."""
+        if self.parent1 == parent_cat.ID:
+            self.parent1 = None
+
+        self.parent2 = parent_cat.ID
+        inheritance_db.load_inheritances(Cat)
+
+        # Set starting relationship values
+        if not self.dead:
+            if parent_cat.ID not in self.relationships:
+                self.create_one_relationship(parent_cat)
+            self_relationship = self.relationships[parent_cat.ID]
+            self_relationship.like += 1
+            self_relationship.comfort += 1
+            self_relationship.trust += 1
+
+        if not parent_cat.dead:
+            if self.ID not in parent_cat.relationships:
+                parent_cat.create_one_relationship(self)
+            other_relationship = parent_cat.relationships[self.ID]
+            other_relationship.like += 1
+            other_relationship.comfort += 1
+            other_relationship.trust += 1
+
     def create_inheritance_new_cat(self):
         """Creates the inheritance class for a new cat."""
         # set the born status to true, just for safety

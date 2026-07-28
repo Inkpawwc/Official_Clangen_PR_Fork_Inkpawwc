@@ -38,8 +38,6 @@ from ..ui.generate_box import get_box, BoxStyles
 from ..ui.elements.text_box_tweaked import UITextBoxTweaked
 
 
-
-
 class RelationshipEditorScreen(Screens):
     checkboxes = {}
     focus_cat_elements = {}
@@ -136,7 +134,6 @@ class RelationshipEditorScreen(Screens):
                 for ele in self.rel_change_dec:
                     self.rel_change_dec[ele].disable()
 
-
             elif event.ui_element == self.remove_cat:
                 self.selected_cat = None
                 self.update_selected_cat()
@@ -147,6 +144,32 @@ class RelationshipEditorScreen(Screens):
                     self.rel_change_inc[ele].disable()
                 for ele in self.rel_change_dec:
                     self.rel_change_dec[ele].disable()
+
+            elif event.ui_element == self.rel_type_buttons["set_birthing_parent"]:
+                Cat.set_birthing_parent(
+                    self.the_cat,
+                    self.selected_cat
+                )
+                self.rel_type_buttons["set_birthing_parent"].disable()
+                self.rel_type_buttons["unset_birthing_parent"].show()
+
+            elif event.ui_element == self.rel_type_buttons["set_bio_parent"]:
+                Cat.set_bio_parent(
+                    self.the_cat,
+                    self.selected_cat
+                )
+                self.rel_type_buttons["set_bio_parent"].hide()
+                self.rel_type_buttons["unset_bio_parent"].show()
+
+            elif event.ui_element == self.rel_type_buttons["unset_birthing_parent"]:
+                self.the_cat.parent1 = None
+                self.rel_type_buttons["set_birthing_parent"].show()
+                self.rel_type_buttons["unset_birthing_parent"].hide()
+
+            elif event.ui_element == self.rel_type_buttons["unset_bio_parent"]:
+                self.the_cat.parent2 = None
+                self.rel_type_buttons["set_birthing_parent"].show()
+                self.rel_type_buttons["unset_birthing_parent"].hide()
 
             elif event.ui_element == self.checkboxes["show_dead"]:
                 switch_clan_setting("show dead")
@@ -262,7 +285,6 @@ class RelationshipEditorScreen(Screens):
                     self.the_cat = self.random_cat()
                 self.update_both()
 
-
             elif event.ui_element in self.cat_buttons:
                 if event.ui_element.return_cat_object() not in (
                     self.the_cat,
@@ -281,7 +303,6 @@ class RelationshipEditorScreen(Screens):
                     else:
                         self.selected_cat = event.ui_element.return_cat_object()
                     self.update_selected_cat()
-
 
     def screen_switches(self):
         super().screen_switches()
@@ -379,8 +400,6 @@ class RelationshipEditorScreen(Screens):
         # Draw the checkboxes
         self.update_checkboxes()
 
-
-
         self.search_bar_image = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((55, 625), (118, 34))),
             pygame.image.load("resources/images/search_bar.png").convert_alpha(),
@@ -407,7 +426,6 @@ class RelationshipEditorScreen(Screens):
             object_id="@buttonstyles_icon",
             manager=MANAGER,
         )
-
 
         self.update_list_cats()
         self.update_focus_cat()
@@ -444,7 +462,6 @@ class RelationshipEditorScreen(Screens):
             self.rel_change_dec[ele].kill()
         self.rel_change_dec = {}
 
-
         self.rel_type_buttons["rel_choices_frame"] = pygame_gui.elements.UIImage(
                 ui_scale(pygame.Rect((274, 80), (252, 252))),
                 get_box(BoxStyles.ROUNDED_BOX, (252, 252)),
@@ -454,6 +471,50 @@ class RelationshipEditorScreen(Screens):
                 ui_scale(pygame.Rect((274, 80), (252, 252))),
                 manager=MANAGER,
             )
+
+        self.rel_type_buttons["set_birthing_parent"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((274, 0), (84, 28))),
+            "Set Parent1",
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (84, 28)),
+            object_id="@buttonstyles_rounded_rect",
+            anchors={"top": "top", "top_target": self.rel_type_buttons["rel_choices_frame"]}
+        )
+
+        self.rel_type_buttons["set_bio_parent"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((274, 0), (84, 28))),
+            "Set Parent2",
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (84, 28)),
+            object_id="@buttonstyles_rounded_rect",
+            anchors={
+                "top": "top",
+                "top_target": self.rel_type_buttons["set_birthing_parent"],
+            },
+        )
+
+        self.rel_type_buttons["unset_birthing_parent"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((274, 0), (84, 28))),
+            "Unset Parent1",
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (84, 28)),
+            object_id="@buttonstyles_rounded_rect",
+            anchors={
+                "top": "top",
+                "top_target": self.rel_type_buttons["rel_choices_frame"],
+            },
+        )
+        self.rel_type_buttons["unset_birthing_parent"].hide()
+
+        self.rel_type_buttons["unset_bio_parent"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((274, 0), (84, 28))),
+            "Unset Parent2",
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (84, 28)),
+            object_id="@buttonstyles_rounded_rect",
+            anchors={
+                "top": "top",
+                "top_target": self.rel_type_buttons["set_birthing_parent"],
+            },
+        )
+        self.rel_type_buttons["unset_bio_parent"].hide()
+
         self.rel_type_box["like"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((63, 36), (126, 36))),
             "Like",
@@ -508,7 +569,6 @@ class RelationshipEditorScreen(Screens):
                 container=self.rel_button_container,
             )
 
-
         self.rel_type_box["trust"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((63, 0), (126, 36))),
             "Trust",
@@ -537,7 +597,6 @@ class RelationshipEditorScreen(Screens):
                 container=self.rel_button_container,
             )
 
-
         self.rel_type_box["comfort"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((63, 0), (126, 36))),
             "Comfort",
@@ -565,7 +624,6 @@ class RelationshipEditorScreen(Screens):
                 anchors={"left": "left", "left_target": self.rel_type_box["comfort"], "top_target": self.rel_type_box["trust"]},
                 container=self.rel_button_container,
             )
-
 
         self.rel_type_box["romance"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((63, -7), (126, 56))),
@@ -598,7 +656,6 @@ class RelationshipEditorScreen(Screens):
             )
 
         self.update_list_cats()
-
 
     def update_page(self):
         for cat in self.cat_buttons:
@@ -685,8 +742,6 @@ class RelationshipEditorScreen(Screens):
             self.selected_cat_elements[ele].kill()
         self.selected_cat_elements = {}
 
-
-
         (
             self.next_cat,
             self.previous_cat,
@@ -707,14 +762,12 @@ class RelationshipEditorScreen(Screens):
         self.update_selected_cat()
         self.update_page()
 
-
         if reset_selected_cat:
             self.selected_cat = None
             self.remove_cat.hide()
             self.switch_focus_button.hide()
 
         self.update_selected_cat()
-
 
     def update_selected_cat(self):
         """Updates all elements of the selected cat"""
@@ -726,7 +779,6 @@ class RelationshipEditorScreen(Screens):
         if not isinstance(self.selected_cat, Cat):
             self.selected_cat = None
             return
-
 
         self.selected_cat_elements["image"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((590, 107), (100, 100))),
@@ -740,7 +792,6 @@ class RelationshipEditorScreen(Screens):
             self.rel_change_dec[ele].enable()
         self.draw_info_block(self.the_cat, starting_pos=(60, 100))
         self.draw_info_block(self.selected_cat, starting_pos=(540, 100))
-
 
     def update_list_cats(self):
         if (not get_clan_setting("show outsiders")
@@ -794,7 +845,6 @@ class RelationshipEditorScreen(Screens):
         self.the_cat = Cat.all_cats[switch_get_value(Switch.cat)]
         if not self.the_cat.inheritance:
             self.the_cat.create_inheritance_new_cat()
-
 
         other_cat = [Cat.fetch_cat(i) for i in self.selected_cat_list() if i != cat.ID]
         if other_cat:
@@ -891,7 +941,6 @@ class RelationshipEditorScreen(Screens):
                         ui_scale_dimensions((18, 18)),
                     ),
                 )
-
 
         col1 = i18n.t("general.moons_age", count=cat.moons)
         t = i18n.t(f"cat.personality.{cat.personality.trait}")
@@ -1081,6 +1130,28 @@ class RelationshipEditorScreen(Screens):
                 self.rel_change_inc["romance_increase"].enable()
                 self.rel_change_dec["romance_decrease"].enable()
 
+            if self.the_cat.parent1 == self.selected_cat.ID:
+                self.rel_type_buttons["set_birthing_parent"].hide()
+                self.rel_type_buttons["unset_birthing_parent"].show()
+            else:
+                self.rel_type_buttons["set_birthing_parent"].show()
+                self.rel_type_buttons["unset_birthing_parent"].hide()
+
+            if self.the_cat.parent2 == self.selected_cat.ID:
+                self.rel_type_buttons["set_bio_parent"].hide()
+                self.rel_type_buttons["unset_bio_parent"].show()
+            else:
+                self.rel_type_buttons["set_bio_parent"].show()
+                self.rel_type_buttons["unset_bio_parent"].hide()
+
+            if self.selected_cat.ID != (self.the_cat.parent1 and self.the_cat.parent2):
+                if self.the_cat.is_related(self.selected_cat, False):
+                    self.rel_type_buttons["set_birthing_parent"].disable()
+                    self.rel_type_buttons["set_bio_parent"].disable()
+                else:
+                    self.rel_type_buttons["set_birthing_parent"].enable()
+                    self.rel_type_buttons["set_bio_parent"].enable()
+
             self.selected_cat_elements[f"display{tag}"] = UIRelationDisplay(
                 (x + 50, y - 100),
                 relationship=the_relationship,
@@ -1094,11 +1165,9 @@ class RelationshipEditorScreen(Screens):
         self.switch_focus_button.show()
         self.remove_cat.show()
 
-
     def apply_cat_filter(self, search_text=""):
 
         self.filtered_cats = self.all_cats_list.copy()
-
 
         # Filter for search
         search_cats = []

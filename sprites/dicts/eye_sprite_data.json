@@ -35,7 +35,8 @@
                 "mossy",
                 "leaf",
                 "aquamarine",
-                "cactus"
+                "cactus",
+                "lime"
             ]
         },
         {
@@ -48,15 +49,23 @@
                 "paleyellow",
                 "gold",
                 "greenyellow",
-                "orange",
-                "dawn",
-                "dusk",
                 "mustard",
                 "earthy",
                 "maple",
-                "sand",
+                "sand"
+            ]
+        },
+        {
+            "RED": [
+                "orange",
+                "dawn",
+                "dusk",
                 "wildfire",
-                "yew"
+                "yew",
+                "coralberry",
+                "boysenberry",
+                "cinnabar",
+                "petalpink"
             ]
         }
     ]

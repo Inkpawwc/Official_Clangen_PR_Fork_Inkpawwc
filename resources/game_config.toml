@@ -48,7 +48,7 @@ dev_tools = true
     # amount a relationship changes for "high", "medium", and "low" effects for interactions
     low = 8
     medium = 12
-    high = 16
+    high = 22
 
   [relationship.pair_events]
     # weights for each type of intensity
@@ -340,19 +340,19 @@ dev_tools = true
   base_female_tortie = 4
 
   # base 1/(chance + 1) that a cat will have heterochromia. gets modified further in code
-  base_heterochromia = 1
+  base_heterochromia = 120
 
   # 1/(chance + 1) for a cat to have same pelt as one of their parents
   direct_inheritance = 15
 
   # 1/2^(chance) that a cat will be a wildcard tortie
-  wildcard_tortie = 9
+  wildcard_tortie = 3
 
   # base 1/2^(chance) that a cat will have vitiligo
-  vit_chance = 8
+  vit_chance = 4
 
   # 1/2^(chance) that a cat will have colourpoint
-  random_point_chance = 5
+  random_point_chance = 3
 
 [cat_name_controls]
   # set to true if you always want cats named after the color of their pelt
@@ -396,7 +396,7 @@ dev_tools = true
   grumpy_trait_modifier = 30
 
   # modifies accessory chance based on if cat had a ceremony
-  ceremony_modifier = -20
+  ceremony_modifier = -100
 
   # modifies accessory chance based on if cat already has at least one other accessory
   multiple_acc_modifier = 50
@@ -526,7 +526,7 @@ dev_tools = true
   max_leader_lives = 9
 
   # base 1/chance that leader will die
-  leader_death_chance = 50
+  leader_death_chance = 35
 
   # base 1/chance a cat will die
   classic_death_chance = 500
@@ -534,7 +534,7 @@ dev_tools = true
 
   # modifiers for death chance based on if a war is going badly
   # SUBTRACTS from the denominator so higher = more likely to die
-  war_death_modifier_leader = 35
+  war_death_modifier_leader = 25
   war_death_modifier = 330
 
 
@@ -545,7 +545,7 @@ dev_tools = true
   # multiplier that affects the chances of cats dying once they are over old_age_death_start moons
   # Average life expectancy with default old_age_death_start of 150 moons:
   #   1 = 189 moons, 2 = 178, 3 = 172, 4.5 (default) = 168, 8 = 163, 20 = 158
-  old_age_death_curve = 4.5
+  old_age_death_curve = 35
 
   [death_related.murder]
     # base 1/2^(chance) a completely random murder occurs
@@ -627,13 +627,13 @@ dev_tools = true
   base_med_app_timeskip_ex = [[2, 7], [2, 3]]
 
   # minimum age required for a cat to graduate
-  min_graduating_age = 10
+  min_graduating_age = 9
 
   [graduation.max_apprentice_age]
     # max apprentice ages. after this, they're forcibly promoted
-    "medicine cat apprentice" = 30
-    apprentice = 25
-    "mediator apprentice" = 25
+    "medicine cat apprentice" = 100
+    apprentice = 100
+    "mediator apprentice" = 100
 
 [outsiders]
   max_reputation = 100
@@ -820,7 +820,7 @@ dev_tools = true
 
     # base effects for herbs that have specified effects
     base_mortality_effect = 3
-    base_duration_effect = 1
+    base_duration_effect = 3
     base_risk_effect = 3
 
     # herb bonus applied when cats should gather a boosted number of herbs
@@ -874,7 +874,7 @@ dev_tools = true
   activate_events = true
   # determines when the freshkill pile amount is considered "full" or "excessive" for the purpose of events
   # the higher this number, the more freshkill is required before the pile is "full/excessive"
-  base_event_trigger_factor = 4
+  base_event_trigger_factor = 2
 
   # defines the amount of prey a Clan begins with
   start_amount = 60

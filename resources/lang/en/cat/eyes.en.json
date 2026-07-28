@@ -38,14 +38,19 @@
         "YELLOW_greenyellow": "green-yellow",
         "YELLOW_bronze": "bronze",
         "YELLOW_silver": "silver",
-		"YELLOW_orange": "orange",
-        "YELLOW_dawn": "dawn",
-        "YELLOW_dusk": "dusk",
-        "YELLOW_mustard": "mustard-yellow",
+        "YELLOW_mustard": "mustard yellow",
         "YELLOW_earthy": "earthy brown",
         "YELLOW_maple": "light maple",
         "YELLOW_sand": "sand brown",
-        "YELLOW_wildfire": "wildfire orange",
-        "YELLOW_yew": "yew red"
+
+        "RED_orange": "orange",
+        "RED_dawn": "dawn",
+        "RED_dusk": "dusk",
+        "RED_wildfire": "wildfire orange",
+        "RED_yew": "yew red",
+        "RED_coralberry": "coralberry pink",
+        "RED_boysenberry": "boysenberry red",
+        "RED_cinnabar": "cinnabar",
+        "RED_petalpink": "petal pink"
     }
 }

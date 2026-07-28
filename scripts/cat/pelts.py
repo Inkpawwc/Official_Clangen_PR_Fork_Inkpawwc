@@ -122,6 +122,7 @@ class Pelt:
     # EYES
     all_eye_colours: list = []
     yellow_eyes: list = []
+    red_eyes: list = []
     green_eyes: list = []
     blue_eyes: list = []
     if sprites.EYE_DATA["palette_map"]:
@@ -134,6 +135,8 @@ class Pelt:
                         yellow_eyes.append(f"{colour}_{c}")
                     elif colour == "BLUE":
                         blue_eyes.append(f"{colour}_{c}")
+                    elif colour == "RED":
+                        red_eyes.append(f"{colour}_{c}")
                     all_eye_colours.append(f"{colour}_{c}")
 
     else:
@@ -146,6 +149,8 @@ class Pelt:
                     green_eyes.append(colour)
                 elif sprite_list[colour] == "blue":
                     blue_eyes.append(colour)
+                elif sprite_list[colour] == "red":
+                    red_eyes.append(colour)
 
     # SKIN
     skin_sprites: list = []
@@ -579,7 +584,7 @@ class Pelt:
             num = 1
 
         if not random.randint(0, num):
-            colour_wheel = [Pelt.yellow_eyes, Pelt.blue_eyes, Pelt.green_eyes]
+            colour_wheel = [Pelt.yellow_eyes, Pelt.blue_eyes, Pelt.green_eyes, Pelt.red_eyes]
             for colour in colour_wheel[:]:
                 if self.eye_colour in colour:
                     colour_wheel.remove(
