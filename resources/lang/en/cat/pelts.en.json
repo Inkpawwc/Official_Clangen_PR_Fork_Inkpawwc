@@ -1,82 +1,50 @@
 {
     "en": {
-        "WHITE": {
-            "one": "pale",
-            "many": "pale"
-        },
+        "WHITE": "white",
+        "PALEGREY": "pale grey",
+        "SILVER": "silver",
+        "GREY": "grey",
+        "DARKGREY": "dark grey",
+        "GHOST": "ghost",
+        "BLACK": "black",
+        "CREAM": "cream",
+        "PALEGINGER": "pale ginger",
+        "GOLDEN": "golden",
+        "GINGER": "ginger",
+        "DARKGINGER": "dark ginger",
+        "SIENNA": "sienna",
+        "LIGHTBROWN": "light brown",
+        "LILAC": "lilac",
+        "BROWN": "brown",
+        "GOLDEN-BROWN": "golden brown",
+        "DARKBROWN": "dark brown",
+        "CHOCOLATE": "chocolate",
+
+        "pink": "pink",
+        "gray": "grey",
+        "red": "red",
+        "black": "black",
+        "orange": "orange",
+        "yellow": "yellow",
+        "purple": "purple",
+        "blue": "blue",
+        "inklavender": "lavender",
+        "lightgold": "light gold",
+        "dilute": "dilute",
+        "warmdilute": "warm dilute",
+        "cooldilute": "cool dilute",
+        "purpledilute": "lavender dilute",
+        "None": "none",
+
+        "darkcream": "dark cream",
+        "cream": "cream",
+        "offwhite": "off-white",
+        "gray": "grey",
+        "pink": "pink",
+        "dark": "black",
+
         "FULLWHITE": "white",
-        "PALEGREY": {
-            "one": "gray",
-            "many": "pale gray"
-        },
-        "SILVER": {
-            "one": "silver",
-            "many": "silver"
-        },
-        "GREY": {
-            "one": "gray",
-            "many": "gray"
-        },
-        "DARKGREY": {
-            "one": "gray",
-            "many": "dark gray"
-        },
-        "GHOST": {
-            "one": "black",
-            "many": "black"
-        },
-        "BLACK": {
-            "one": "black",
-            "many": "black"
-        },
-        "CREAM": {
-            "one": "cream",
-            "many": "cream"
-        },
-        "PALEGINGER": {
-            "one": "ginger",
-            "many": "pale ginger"
-        },
-        "GOLDEN": {
-            "one": "golden",
-            "many": "golden"
-        },
-        "GINGER": {
-            "one": "ginger",
-            "many": "ginger"
-        },
-        "DARKGINGER": {
-            "one": "ginger",
-            "many": "dark ginger"
-        },
-        "SIENNA": {
-            "one": "ginger",
-            "many": "dark ginger"
-        },
-        "LIGHTBROWN": {
-            "one": "brown",
-            "many": "light brown"
-        },
-        "LILAC": {
-            "one": "brown",
-            "many": "light brown"
-        },
-        "BROWN": {
-            "one": "brown",
-            "many": "brown"
-        },
-        "GOLDEN-BROWN": {
-            "one": "brown",
-            "many": "golden brown"
-        },
-        "DARKBROWN": {
-            "one": "brown",
-            "many": "dark brown"
-        },
-        "CHOCOLATE": {
-            "one": "brown",
-            "many": "dark brown"
-        },
+
         "SingleColour": "single color",
         "SingleColour_long": "%{color}",
         "TwoColour": "two color",
@@ -109,8 +77,6 @@
         "Sokoke_long": "%{color} tabby",
         "Masked": "masked",
         "Masked_long": "masked %{color} tabby",
-        "Freckled": "freckled",
-        "Freckled_long": "freckled %{color} tabby",
         "Cape":"cape",
         "Cape_long": "cape %{color} tabby",
         "Batspeckle": "striped cape",

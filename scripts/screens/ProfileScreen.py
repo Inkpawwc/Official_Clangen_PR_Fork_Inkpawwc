@@ -781,10 +781,30 @@ class ProfileScreen(Screens):
 
         # PELT TYPE
         output += i18n.t(
+            "screens.profile.pelt_colour_label",
+            colour =i18n.t(f"cat.pelts.{the_cat.pelt.colour}").lower(),
+        )
+        output += i18n.t(
             "screens.profile.pelt_label",
             pelt=i18n.t(f"cat.pelts.{the_cat.pelt.name}").lower(),
         )
         # NEWLINE ----------
+        output += "\n"
+
+        # PELT TINT
+        output += i18n.t(
+            "screens.profile.pelt_tint_label",
+            tint=i18n.t(f"cat.pelts.{the_cat.pelt.tint}").lower(),
+        )
+
+        output += "\n"
+
+        # WHITE PATCH TINT
+        output += i18n.t(
+            "screens.profile.white_patches_tint_label",
+            white_patches_tint=i18n.t(f"cat.pelts.{the_cat.pelt.white_patches_tint}"),
+        )
+
         output += "\n"
 
         # PELT LENGTH

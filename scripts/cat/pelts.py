@@ -158,7 +158,6 @@ class Pelt:
         skin_sprites.extend(sprite_list)
 
     # SCARS
-    # bite scars by @wood pank on discord
     general_scars = []
     for sprite_list in sprites.SCAR_DATA["sprite_list"]:
         general_scars.extend(sprite_list)
