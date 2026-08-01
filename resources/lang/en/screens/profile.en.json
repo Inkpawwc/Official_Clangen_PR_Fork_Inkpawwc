@@ -38,7 +38,7 @@
         "pelt_colour_label": "pelt: %{colour} ",
         "pelt_label": "%{pelt}",
         "pelt_tint_label": "pelt tint: %{tint}",
-        "white_patches_tint_label": "white patch tint: %{white_patches_tint}",
+        "white_patches_tint_label": "patch tint: %{white_patches_tint}",
         "fur_label": "fur length: %{length}",
         "accessory_label": "accessory: %{accessory}",
         "parent_label": {
