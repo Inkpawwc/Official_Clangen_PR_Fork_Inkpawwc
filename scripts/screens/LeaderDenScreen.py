@@ -1061,7 +1061,6 @@ class LeaderDenScreen(Screens):
             self.screen_elements["outsider_rep"].set_text(
                 "screens.leader_den.outsider_rep",
                 text_kwargs={"reputation": i18n.t(f"screens.leader_den.{reputation}")},
-                anchors={"top_target": self.screen_elements["outsider_notice_text"]},
             )
 
     def update_outsider_cats(self):
