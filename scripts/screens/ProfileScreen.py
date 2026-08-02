@@ -779,31 +779,36 @@ class ProfileScreen(Screens):
         # NEWLINE ----------
         output += "\n"
 
-        # PELT TYPE
+        # PELT TYPE + COLOUR + TINT
         output += i18n.t(
             "screens.profile.pelt_colour_label",
-            colour =i18n.t(f"cat.pelts.{the_cat.pelt.colour}").lower(),
-        )
-        output += i18n.t(
-            "screens.profile.pelt_label",
+            tint=i18n.t(f"cat.pelts.{the_cat.pelt.tint}").lower(),
+            colour=i18n.t(f"cat.pelts.{the_cat.pelt.colour}").lower(),
             pelt=i18n.t(f"cat.pelts.{the_cat.pelt.name}").lower(),
         )
-        # NEWLINE ----------
-        output += "\n"
 
-        # PELT TINT
-        output += i18n.t(
-            "screens.profile.pelt_tint_label",
-            tint=i18n.t(f"cat.pelts.{the_cat.pelt.tint}").lower(),
-        )
 
         output += "\n"
 
-        # WHITE PATCH TINT
-        output += i18n.t(
-            "screens.profile.white_patches_tint_label",
-            white_patches_tint=i18n.t(f"cat.pelts.{the_cat.pelt.white_patches_tint}"),
-        )
+        # WHITE PATCH + TINT
+
+        if the_cat.pelt.white_patches in Pelt.mostly_white:
+            patch = "cat.pelts.mostly_white"
+        elif the_cat.pelt.white_patches in Pelt.high_white:
+            patch = "cat.pelts.high_white"
+        elif the_cat.pelt.white_patches in Pelt.mid_white:
+            patch = "cat.pelts.mid_white"
+        elif the_cat.pelt.white_patches in Pelt.little_white:
+            patch = "cat.pelts.little_white"
+
+        if the_cat.pelt.white_patches is not None:
+            output += i18n.t(
+                "screens.profile.white_patches_label",
+                patch=i18n.t(patch),
+                white_patches_tint=i18n.t(f"cat.pelts.{the_cat.pelt.white_patches_tint}"),
+            )
+        else:
+            output += i18n.t("screens.profile.no_white_patches_label",)
 
         output += "\n"
 

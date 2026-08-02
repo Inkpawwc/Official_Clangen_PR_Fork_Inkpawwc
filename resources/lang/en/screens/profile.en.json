@@ -35,10 +35,9 @@
             "many": "%{age} (%{count} moons)"
         },
         "eyes_label": "eyes: %{eyes}",
-        "pelt_colour_label": "pelt: %{colour} ",
-        "pelt_label": "%{pelt}",
-        "pelt_tint_label": "pelt tint: %{tint}",
-        "white_patches_tint_label": "patch tint: %{white_patches_tint}",
+        "pelt_colour_label": "pelt: %{tint} tinted %{colour} %{pelt}",
+        "white_patches_label": "patch: %{patch} %{white_patches_tint} spotting",
+        "no_white_patches_label": "patch: no spotting",
         "fur_label": "fur length: %{length}",
         "accessory_label": "accessory: %{accessory}",
         "parent_label": {
