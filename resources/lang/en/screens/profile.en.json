@@ -39,6 +39,7 @@
         "white_patches_label": "patch: %{patch} %{white_patches_tint} spotting",
         "no_white_patches_label": "patch: no spotting",
         "fur_label": "fur length: %{length}",
+
         "accessory_label": "accessory: %{accessory}",
         "parent_label": {
             "one": "parent: %{parents}",
