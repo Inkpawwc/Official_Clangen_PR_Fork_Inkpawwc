@@ -779,16 +779,22 @@ class ProfileScreen(Screens):
         # NEWLINE ----------
         output += "\n"
 
-        # PELT TYPE + COLOUR + TINT
+        # PELT TYPE
         output += i18n.t(
             "screens.profile.pelt_colour_label",
-            tint=i18n.t(f"cat.pelts.{the_cat.pelt.tint}").lower(),
             colour=i18n.t(f"cat.pelts.{the_cat.pelt.colour}").lower(),
+        )
+        output += i18n.t(
+            "screens.profile.pelt_label",
             pelt=i18n.t(f"cat.pelts.{the_cat.pelt.name}").lower(),
         )
 
-
-        output += "\n"
+        # PELT TINT
+        if the_cat.pelt.tint is not None:
+            output += i18n.t(
+                "screens.profile.pelt_tint_label",
+                tint=i18n.t(f"cat.pelts.{the_cat.pelt.tint}").lower(),
+            )
 
         # WHITE PATCH + TINT
 
@@ -805,12 +811,27 @@ class ProfileScreen(Screens):
             output += i18n.t(
                 "screens.profile.white_patches_label",
                 patch=i18n.t(patch),
-                white_patches_tint=i18n.t(f"cat.pelts.{the_cat.pelt.white_patches_tint}"),
+                white_patches_tint=i18n.t(
+                    f"cat.pelts.{the_cat.pelt.white_patches_tint}"
+                ),
             )
-        else:
-            output += i18n.t("screens.profile.no_white_patches_label",)
+
+        if the_cat.pelt.vitiligo is not None:
+            output += i18n.t("screens.profile.vitiligo_label")
 
         output += "\n"
+
+        # SKIN COLOR
+
+        output += i18n.t(
+            "screens.profile.skin_colour_label",
+            skin=i18n.t(
+                f"cat.pelts.{the_cat.pelt.skin}"
+            )
+        )
+
+        output += "\n"
+
 
         # PELT LENGTH
         output += i18n.t(

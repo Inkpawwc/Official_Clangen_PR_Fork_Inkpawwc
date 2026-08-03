@@ -35,9 +35,13 @@
             "many": "%{age} (%{count} moons)"
         },
         "eyes_label": "eyes: %{eyes}",
-        "pelt_colour_label": "pelt: %{tint} tinted %{colour} %{pelt}",
-        "white_patches_label": "patch: %{patch} %{white_patches_tint} spotting",
-        "no_white_patches_label": "patch: no spotting",
+        "pelt_colour_label": "pelt: %{colour} ",
+        "pelt_label": "%{pelt}",
+        "pelt_tint_label": " (%{tint})",
+        "white_patches_label": " with %{patch} %{white_patches_tint} spotting",
+        "no_white_patches_label": "",
+        "vitiligo_label": " with vitiligo",
+        "skin_colour_label": "skin color: %{skin}",
         "fur_label": "fur length: %{length}",
 
         "accessory_label": "accessory: %{accessory}",

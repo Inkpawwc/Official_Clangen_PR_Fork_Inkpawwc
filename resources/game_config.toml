@@ -354,6 +354,10 @@ dev_tools = true
   # 1/2^(chance) that a cat will have colourpoint
   random_point_chance = 3
 
+  max_white_amount = 2
+
+  base_extra_white = 5
+
 [cat_name_controls]
   # set to true if you always want cats named after the color of their pelt
   # if cats can't find a pelt color, they will choose from normal_prefixes
