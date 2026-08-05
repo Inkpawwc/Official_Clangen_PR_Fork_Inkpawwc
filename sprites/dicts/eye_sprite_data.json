@@ -18,7 +18,10 @@
                 "periwinkle",
                 "lavender",
                 "glacierblue",
-                "labradorite"
+                "labradorite",
+                "lake",
+                "winter",
+                "viola"
             ]
         },
         {
@@ -67,7 +70,10 @@
                 "coralberry",
                 "boysenberry",
                 "cinnabar",
-                "petalpink"
+                "petalpink",
+                "rose",
+                "amaranth",
+                "sunset"
             ]
         }
     ]
