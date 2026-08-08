@@ -49,6 +49,7 @@
         "clan_saved": "saved!",
         "switch_focus": "focus cat",
         "keep_cards": "keep",
-        "replace_cards": "replace"
+        "replace_cards": "replace",
+        "confirm": "confirm"
     }
 }
