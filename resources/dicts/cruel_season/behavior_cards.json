@@ -34,7 +34,7 @@
     "card_art": "behavior/underpopulated.png",
     "modifiers": {
       "pregnancy.birth_cooldown": 2,
-      "pregnancy.primary_chance_mated": 10,
+      "pregnancy.primary_chance_mated": 5,
       "pregnancy.primary_chance_unmated": 30
     }
   },
