@@ -18,6 +18,7 @@
         "BLUE_lake": "lake blue",
         "BLUE_winter": "winter blue",
         "BLUE_viola": "viola",
+        "BLUE_storm": "stormy gray",
 
         "GREEN_hazel": "hazel",
         "GREEN_palegreen": "pale green",
@@ -34,6 +35,9 @@
         "GREEN_aquamarine": "aquamarine",
         "GREEN_cactus": "cactus green",
         "GREEN_lime": "lime green",
+        "GREEN_swamp": "swamp green",
+        "GREEN_algae": "algae green",
+        "GREEN_peridot": "peridot green",
 
         "YELLOW_yellow": "yellow",
         "YELLOW_amber": "amber",
@@ -47,6 +51,7 @@
         "YELLOW_earthy": "earthy brown",
         "YELLOW_maple": "light maple",
         "YELLOW_sand": "sand brown",
+        "YELLOW_walnut": "walnut brown",
 
         "RED_orange": "orange",
         "RED_dawn": "dawn",
