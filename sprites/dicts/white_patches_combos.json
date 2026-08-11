@@ -1,6 +1,13 @@
 {
-    "little": {},
+    "little": {
+        "SPARKLESTAR": ["littleSPARKLE", "midSTAR"]
+    },
     "mid": {},
-    "high": {},
-    "mostly": {}
+    "high": {
+        "BARNOWL": ["highOWL", "midWINGS"],
+        "SAVANNAHBLOSSOM": ["highBLOSSOMSTEP", "midSAVANNAH"]
+    },
+    "mostly": {
+        "GLASSSKUNK": ["highGLASS", "midSKUNK"]
+    }
 }
