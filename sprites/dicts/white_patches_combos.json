@@ -2,11 +2,18 @@
     "little": {
         "SPARKLESTAR": ["littleSPARKLE", "midSTAR"]
     },
-    "mid": {},
+    "mid": {
+        "PRINCESSHONEY": ["midPRINCESS", "littleBROKENBLAZE", "littleHONEY"]
+    },
     "high": {
         "BARNOWL": ["highOWL", "midWINGS"],
         "SAVANNAHBLOSSOM": ["highBLOSSOMSTEP", "midSAVANNAH"],
-        "BROKENRING": ["highBROKEN", "highRINGTAIL"]
+        "BROKENRING": ["highBROKEN", "highRINGTAIL"],
+        "BUNN": ["highSAMMY", "highBUSTER", "midUNDERS"],
+        "ROYALPRINCE": ["highPRINCE", "midBOWTIE", "midVEST"],
+        "HONEYTUX": ["highPANTS", "midTUXEDO", "littleHONEY"],
+        "FAROFATIPS": ["highFAROFA", "littlePAWS", "littleTAILTIP"],
+        "MISTERGLASS": ["highMISTER", "highGLASS", "littleBUZZARDFANG"]
     },
     "mostly": {
         "GLASSSKUNK": ["highGLASS", "midSKUNK"]
