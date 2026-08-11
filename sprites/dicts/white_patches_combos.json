@@ -5,7 +5,8 @@
     "mid": {},
     "high": {
         "BARNOWL": ["highOWL", "midWINGS"],
-        "SAVANNAHBLOSSOM": ["highBLOSSOMSTEP", "midSAVANNAH"]
+        "SAVANNAHBLOSSOM": ["highBLOSSOMSTEP", "midSAVANNAH"],
+        "BROKENRING": ["highBROKEN", "highRINGTAIL"]
     },
     "mostly": {
         "GLASSSKUNK": ["highGLASS", "midSKUNK"]

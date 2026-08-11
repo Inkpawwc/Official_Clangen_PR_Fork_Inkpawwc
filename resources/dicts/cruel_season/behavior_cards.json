@@ -42,33 +42,63 @@
     "card_art": "behavior/underpopulated.png",
     "modifiers": {
       "pregnancy.one_kit_possibility.young adult": 0,
-      "pregnancy.one_kit_possibility.adult": 1,
+      "pregnancy.one_kit_possibility.adult": 0,
       "pregnancy.one_kit_possibility.senior adult": 4,
       "pregnancy.one_kit_possibility.senior": 2,
 
       "pregnancy.two_kit_possibility.young adult": 0,
-      "pregnancy.two_kit_possibility.adult": 2,
+      "pregnancy.two_kit_possibility.adult": 1,
       "pregnancy.two_kit_possibility.senior adult": 5,
       "pregnancy.two_kit_possibility.senior": 2,
 
       "pregnancy.three_kit_possibility.young adult": 4,
-      "pregnancy.three_kit_possibility.adult": 8,
+      "pregnancy.three_kit_possibility.adult": 5,
       "pregnancy.three_kit_possibility.senior adult": 8,
       "pregnancy.three_kit_possibility.senior": 3,
 
-      "pregnancy.four_kit_possibility.young adult": 15,
-      "pregnancy.four_kit_possibility.adult": 16,
+      "pregnancy.four_kit_possibility.young adult": 5,
+      "pregnancy.four_kit_possibility.adult": 13,
       "pregnancy.four_kit_possibility.senior adult": 8,
       "pregnancy.four_kit_possibility.senior": 1,
 
-      "pregnancy.five_kit_possibility.young adult": 17,
+      "pregnancy.five_kit_possibility.young adult": 15,
       "pregnancy.five_kit_possibility.adult": 10,
       "pregnancy.five_kit_possibility.senior adult": 5,
       "pregnancy.five_kit_possibility.senior": 0,
 
-      "pregnancy.max_kit_possibility.young adult": 18,
-      "pregnancy.max_kit_possibility.adult": 9,
-      "pregnancy.max_kit_possibility.senior adult": 2,
+      "pregnancy.six_kit_possibility.young adult": 16,
+      "pregnancy.six_kit_possibility.adult": 9,
+      "pregnancy.six_kit_possibility.senior adult": 2,
+      "pregnancy.six_kit_possibility.senior": 0,
+
+      "pregnancy.seven_kit_possibility.young adult": 4,
+      "pregnancy.seven_kit_possibility.adult": 5,
+      "pregnancy.seven_kit_possibility.senior adult": 0,
+      "pregnancy.seven_kit_possibility.senior": 0,
+
+      "pregnancy.eight_kit_possibility.young adult": 3,
+      "pregnancy.eight_kit_possibility.adult": 1,
+      "pregnancy.eight_kit_possibility.senior adult": 0,
+      "pregnancy.eight_kit_possibility.senior": 0,
+
+      "pregnancy.nine_kit_possibility.young adult": 2,
+      "pregnancy.nine_kit_possibility.adult": 1,
+      "pregnancy.nine_kit_possibility.senior adult": 0,
+      "pregnancy.nine_kit_possibility.senior": 0,
+
+      "pregnancy.ten_kit_possibility.young adult": 2,
+      "pregnancy.ten_kit_possibility.adult": 0,
+      "pregnancy.ten_kit_possibility.senior adult": 0,
+      "pregnancy.ten_kit_possibility.senior": 0,
+
+      "pregnancy.eleven_kit_possibility.young adult": 2,
+      "pregnancy.eleven_kit_possibility.adult": 0,
+      "pregnancy.eleven_kit_possibility.senior adult": 0,
+      "pregnancy.eleven_kit_possibility.senior": 0,
+
+      "pregnancy.max_kit_possibility.young adult": 1,
+      "pregnancy.max_kit_possibility.adult": 0,
+      "pregnancy.max_kit_possibility.senior adult": 0,
       "pregnancy.max_kit_possibility.senior": 0
     }
   },

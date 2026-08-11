@@ -354,7 +354,7 @@ dev_tools = true
   # As in, your max kits number should probably be 5 more than the min kits number.
   # But that's not required - just makes more sense that way with how the litters are generated.
   min_kits = 1
-  max_kits = 8
+  max_kits = 12
 
   # number / total for that age across all kit amounts = chance of having that many kits for that age
   [pregnancy.one_kit_possibility]
@@ -399,8 +399,32 @@ dev_tools = true
     "senior adult" = 0
     senior = 0
 
-  [pregnancy.max_kit_possibility]
+  [pregnancy.eight_kit_possibility]
     "young adult" = 2
+    adult = 0
+    "senior adult" = 0
+    senior = 0
+
+  [pregnancy.nine_kit_possibility]
+    "young adult" = 0
+    adult = 0
+    "senior adult" = 0
+    senior = 0
+
+  [pregnancy.ten_kit_possibility]
+    "young adult" = 0
+    adult = 0
+    "senior adult" = 0
+    senior = 0
+
+  [pregnancy.eleven_kit_possibility]
+    "young adult" = 0
+    adult = 0
+    "senior adult" = 0
+    senior = 0
+
+  [pregnancy.max_kit_possibility]
+    "young adult" = 0
     adult = 0
     "senior adult" = 0
     senior = 0
@@ -520,7 +544,7 @@ dev_tools = true
   threshold_percentage_seniors = 30
 
   # how many moons is considered "very old"
-  threshold_moons_ancient = 150
+  threshold_moons_ancient = 130
 
   # minimum percentage of medcat population that are ancient for buff to app chance
   threshold_percentage_ancient = 30
@@ -532,7 +556,7 @@ dev_tools = true
 
 [lost_cat]
   # 1/chance that a lost cat will return on their own
-  rejoin_chance = 10
+  rejoin_chance = 5
 
 [cat_ages]
   # represents ranges for cat ages
