@@ -46,6 +46,7 @@
         "high_white": "high",
         "mid_white": "mid",
         "little_white": "little",
+        "error": "ERROR",
 
         "BLACK": "black",
         "RED": "red",

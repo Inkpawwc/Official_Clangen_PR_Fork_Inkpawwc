@@ -805,6 +805,8 @@ class ProfileScreen(Screens):
             patch = "cat.pelts.mid_white"
         elif the_cat.pelt.white_patches in Pelt.little_white:
             patch = "cat.pelts.little_white"
+        else:
+            patch = "cat.pelts.error"
 
         if the_cat.pelt.white_patches is not None:
             output += i18n.t(
