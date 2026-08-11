@@ -383,6 +383,19 @@ class ProfileScreen(Screens):
                     self.history_text_box.kill()
                 self.open_sub_tab = "user notes"
                 self.toggle_history_sub_tab()
+            if event.ui_element == self.sub_tab_3:
+                if self.open_sub_tab == "user notes":
+                    self.notes_entry.kill()
+                    self.display_notes.kill()
+                    if self.edit_text:
+                        self.edit_text.kill()
+                    if self.save_text:
+                        self.save_text.kill()
+                    self.help_button.kill()
+                elif self.open_sub_tab == "life events":
+                    self.history_text_box.kill()
+                self.open_sub_tab = "extra details"
+                self.toggle_extra_details_tab
             elif event.ui_element == self.fav_tab:
                 switch_set_value(Switch.favorite_sub_tab, None)
                 self.fav_tab.hide()
@@ -833,7 +846,6 @@ class ProfileScreen(Screens):
 
         output += "\n"
 
-
         # PELT LENGTH
         output += i18n.t(
             "screens.profile.fur_label",
@@ -1272,6 +1284,19 @@ class ProfileScreen(Screens):
 
         self.update_disabled_buttons_and_text()
 
+    def toggle_extra_details_tab(self):
+        """Opens the Extra Details portion of the History Tab"""
+
+        self.extra_details_textbox = UITextBoxTweaked(
+            self.user_notes,
+            ui_scale(pygame.Rect((100, 473), (60, 149))),
+            object_id="#text_box_26_horizleft_pad_10_14",
+            line_spacing=1,
+            manager=MANAGER,
+        )
+
+        self.update_disabled_buttons_and_text()
+
     def save_user_notes(self):
         """Saves user-entered notes."""
         save_id = game.clan.save_id
@@ -1322,6 +1347,9 @@ class ProfileScreen(Screens):
         elif self.open_sub_tab == "user notes":
             self.toggle_user_notes_tab()
 
+        elif self.open_sub_tab == "extra details":
+            self.toggle_extra_details_tab()
+
     def get_all_history_text(self):
         """Generates a string with all important history information."""
         output = ""
@@ -1353,6 +1381,10 @@ class ProfileScreen(Screens):
             murder = self.get_murder_text()
             if murder:
                 life_history.append(murder)
+
+            white_patch = f"{self.the_cat.pelt.white_patches} white patch"
+            if white_patch:
+                life_history.append(white_patch)
 
             afterlife_acceptance = self.get_afterlife_acceptance_text()
             if afterlife_acceptance:
@@ -2494,6 +2526,19 @@ class ProfileScreen(Screens):
                         line_spacing=1,
                         manager=MANAGER,
                     )
+
+            elif self.open_sub_tab == "extra details":
+                self.sub_tab_1.enable()
+                self.sub_tab_2.enable()
+                self.sub_tab_3.disable()
+                self.history_text_box.kill()
+                self.extra_details_textbox = UITextBoxTweaked(
+                    self.get_all_history_text(),
+                    ui_scale(pygame.Rect((100, 473), (600, 149))),
+                    object_id="#text_box_26_horizleft_pad_10_14",
+                    line_spacing=1,
+                    manager=MANAGER,
+                )
 
         # Conditions Tab
         elif self.open_tab == "conditions":

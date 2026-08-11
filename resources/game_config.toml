@@ -358,73 +358,73 @@ dev_tools = true
 
   # number / total for that age across all kit amounts = chance of having that many kits for that age
   [pregnancy.one_kit_possibility]
-    "young adult" = 8
-    adult = 9
+    "young adult" = 0
+    adult = 0
     "senior adult" = 10
     senior = 4
 
   [pregnancy.two_kit_possibility]
-    "young adult" = 10
-    adult = 13
+    "young adult" = 0
+    adult = 1
     "senior adult" = 15
     senior = 3
 
   [pregnancy.three_kit_possibility]
-    "young adult" = 17
-    adult = 15
+    "young adult" = 4
+    adult = 5
     "senior adult" = 5
     senior = 1
 
   [pregnancy.four_kit_possibility]
-    "young adult" = 12
-    adult = 8
+    "young adult" = 5
+    adult = 13
     "senior adult" = 2
     senior = 0
 
   [pregnancy.five_kit_possibility]
-    "young adult" = 6
-    adult = 2
+    "young adult" = 10
+    adult = 10
     "senior adult" = 0
     senior = 0
 
   [pregnancy.six_kit_possibility]
-    "young adult" = 5
-    adult = 2
+    "young adult" = 15
+    adult = 9
     "senior adult" = 0
     senior = 0
 
   [pregnancy.seven_kit_possibility]
+    "young adult" = 10
+    adult = 3
+    "senior adult" = 0
+    senior = 0
+
+  [pregnancy.eight_kit_possibility]
+    "young adult" = 7
+    adult = 2
+    "senior adult" = 0
+    senior = 0
+
+  [pregnancy.nine_kit_possibility]
     "young adult" = 5
     adult = 1
     "senior adult" = 0
     senior = 0
 
-  [pregnancy.eight_kit_possibility]
-    "young adult" = 2
-    adult = 0
-    "senior adult" = 0
-    senior = 0
-
-  [pregnancy.nine_kit_possibility]
-    "young adult" = 0
-    adult = 0
-    "senior adult" = 0
-    senior = 0
-
   [pregnancy.ten_kit_possibility]
-    "young adult" = 0
+    "young adult" = 4
     adult = 0
     "senior adult" = 0
     senior = 0
 
   [pregnancy.eleven_kit_possibility]
-    "young adult" = 0
+    "young adult" = 3
     adult = 0
     "senior adult" = 0
     senior = 0
 
   [pregnancy.max_kit_possibility]
-    "young adult" = 0
+    "young adult" = 2
     adult = 0
     "senior adult" = 0
     senior = 0
