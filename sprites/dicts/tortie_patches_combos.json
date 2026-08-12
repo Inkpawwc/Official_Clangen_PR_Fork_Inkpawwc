@@ -156,5 +156,30 @@
     "PATCHY_OREO": [
         "OREO",
         "ONE"
+    ],
+    "DELILAH_DAPPLE": [
+        "DAPPLENIGHT",
+        "DELILAH"
+    ],
+    "SHATTER_SPIRAL": [
+        "BRIE",
+        "ARMTAIL",
+        "DAPPLENIGHT",
+        "DAUB",
+        "HEARTBEAT",
+        "SIDEMASK"
+    ],
+    "SMOKE_TABBY": [
+        "TABBY",
+        "SMOKE"
+    ],
+    "STRIKE_SWOOP": [
+        "STREAMSTRIKE",
+        "STREAK",
+        "SWOOP"
+    ],
+    "DAUB_DOT": [
+        "DAUB",
+        "EYEDOT"
     ]
 }
