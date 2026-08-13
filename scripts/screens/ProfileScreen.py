@@ -376,11 +376,15 @@ class ProfileScreen(Screens):
                     if self.save_text:
                         self.save_text.kill()
                     self.help_button.kill()
+                if self.open_sub_tab == "extra details":
+                    self.extra_details_text_box.kill()
                 self.open_sub_tab = "life events"
                 self.toggle_history_sub_tab()
             elif event.ui_element == self.sub_tab_2:
                 if self.open_sub_tab == "life events":
                     self.history_text_box.kill()
+                if self.open_sub_tab == "extra details":
+                    self.extra_details_text_box.kill()
                 self.open_sub_tab = "user notes"
                 self.toggle_history_sub_tab()
             if event.ui_element == self.sub_tab_3:
@@ -395,7 +399,7 @@ class ProfileScreen(Screens):
                 elif self.open_sub_tab == "life events":
                     self.history_text_box.kill()
                 self.open_sub_tab = "extra details"
-                self.toggle_extra_details_tab
+                self.toggle_extra_details_tab()
             elif event.ui_element == self.fav_tab:
                 switch_set_value(Switch.favorite_sub_tab, None)
                 self.fav_tab.hide()
@@ -547,6 +551,9 @@ class ProfileScreen(Screens):
 
         if self.user_notes:
             self.user_notes = i18n.t("screens.profile.user_notes")
+
+        if self.extra_details_text_box:
+            self.extra_details_text_box.kill()
 
         for box in self.checkboxes:
             self.checkboxes[box].kill()
@@ -793,55 +800,9 @@ class ProfileScreen(Screens):
 
         # PELT TYPE
         output += i18n.t(
-            "screens.profile.pelt_colour_label",
-            colour=i18n.t(f"cat.pelts.{the_cat.pelt.colour}").lower(),
-        )
-        output += i18n.t(
             "screens.profile.pelt_label",
+            colour=i18n.t(f"cat.pelts.{the_cat.pelt.colour}").lower(),
             pelt=i18n.t(f"cat.pelts.{the_cat.pelt.name}").lower(),
-        )
-
-        # PELT TINT
-        if the_cat.pelt.tint is not None:
-            output += i18n.t(
-                "screens.profile.pelt_tint_label",
-                tint=i18n.t(f"cat.pelts.{the_cat.pelt.tint}").lower(),
-            )
-
-        # WHITE PATCH + TINT
-
-        if the_cat.pelt.white_patches in Pelt.mostly_white:
-            patch = "cat.pelts.mostly_white"
-        elif the_cat.pelt.white_patches in Pelt.high_white:
-            patch = "cat.pelts.high_white"
-        elif the_cat.pelt.white_patches in Pelt.mid_white:
-            patch = "cat.pelts.mid_white"
-        elif the_cat.pelt.white_patches in Pelt.little_white:
-            patch = "cat.pelts.little_white"
-        else:
-            patch = "cat.pelts.error"
-
-        if the_cat.pelt.white_patches is not None:
-            output += i18n.t(
-                "screens.profile.white_patches_label",
-                patch=i18n.t(patch),
-                white_patches_tint=i18n.t(
-                    f"cat.pelts.{the_cat.pelt.white_patches_tint}"
-                ),
-            )
-
-        if the_cat.pelt.vitiligo is not None:
-            output += i18n.t("screens.profile.vitiligo_label")
-
-        output += "\n"
-
-        # SKIN COLOR
-
-        output += i18n.t(
-            "screens.profile.skin_colour_label",
-            skin=i18n.t(
-                f"cat.pelts.{the_cat.pelt.skin}"
-            )
         )
 
         output += "\n"
@@ -1286,14 +1247,10 @@ class ProfileScreen(Screens):
 
     def toggle_extra_details_tab(self):
         """Opens the Extra Details portion of the History Tab"""
-
-        self.extra_details_textbox = UITextBoxTweaked(
-            self.user_notes,
-            ui_scale(pygame.Rect((100, 473), (60, 149))),
-            object_id="#text_box_26_horizleft_pad_10_14",
-            line_spacing=1,
-            manager=MANAGER,
+        self.extra_details_text_box = pygame_gui.elements.UITextBox(
+            "", ui_scale(pygame.Rect((100, 473), (600, 71))), manager=MANAGER
         )
+
 
         self.update_disabled_buttons_and_text()
 
@@ -1381,10 +1338,6 @@ class ProfileScreen(Screens):
             murder = self.get_murder_text()
             if murder:
                 life_history.append(murder)
-
-            white_patch = f"{self.the_cat.pelt.white_patches} white patch"
-            if white_patch:
-                life_history.append(white_patch)
 
             afterlife_acceptance = self.get_afterlife_acceptance_text()
             if afterlife_acceptance:
@@ -1808,6 +1761,51 @@ class ProfileScreen(Screens):
             victim_text += f"{text}<br>"
 
         return victim_text
+
+    def get_extra_details_text(self):
+        output = [str("")]
+
+        # SKIN COLOR
+        output.append(i18n.t(
+            "screens.profile.skin_colour_label",
+            skin=i18n.t(f"cat.pelts.{self.the_cat.pelt.skin}"),
+        )
+        )
+
+        # PELT TINT
+        if self.the_cat.pelt.tint is not None:
+            output.append(
+                i18n.t(
+                    "screens.profile.pelt_tint_label",
+                    tint=i18n.t(f"cat.pelts.{self.the_cat.pelt.tint}").lower(),
+                )
+            )
+
+        if self.open_sub_tab == "extra details":
+            if self.the_cat.pelt.white_patches is not None:
+                white_patch = f"white patch: {self.the_cat.pelt.white_patches}"
+                output.append(white_patch)
+                # WHITE PATCH TINT
+
+                if self.the_cat.pelt.white_patches_tint is not None:
+                    output.append(
+                        i18n.t(
+                            "screens.profile.white_patches_tint_label",
+                            white_patches_tint=i18n.t(
+                                f"cat.pelts.{self.the_cat.pelt.white_patches_tint}"
+                            ),
+                        )
+                    )
+            if self.the_cat.pelt.vitiligo:
+                vitiligo_patch = f"vitiligo patch: {self.the_cat.pelt.vitiligo}"
+                output.append(vitiligo_patch)
+            if self.the_cat.pelt.tortie_marking is not None:
+                tortie_patch = f"tortie marking: {self.the_cat.pelt.tortie_marking} ({self.the_cat.pelt.tortie_colour.lower()} {self.the_cat.pelt.tortie_pattern})"
+                output.append(tortie_patch)
+
+        final_output = "<br>".join(output)
+
+        return final_output
 
     def toggle_conditions_tab(self):
         """Opens the conditions tab"""
@@ -2441,6 +2439,7 @@ class ProfileScreen(Screens):
             if self.open_sub_tab == "life events":
                 self.sub_tab_1.disable()
                 self.sub_tab_2.enable()
+                self.sub_tab_3.enable()
                 self.history_text_box.kill()
                 self.history_text_box = UITextBoxTweaked(
                     self.get_all_history_text(),
@@ -2473,6 +2472,7 @@ class ProfileScreen(Screens):
             elif self.open_sub_tab == "user notes":
                 self.sub_tab_1.enable()
                 self.sub_tab_2.disable()
+                self.sub_tab_3.enable()
                 if self.history_text_box:
                     self.history_text_box.kill()
                     self.no_moons.kill()
@@ -2487,6 +2487,8 @@ class ProfileScreen(Screens):
                     self.display_notes.kill()
                 if self.help_button:
                     self.help_button.kill()
+                if self.extra_details_text_box:
+                    self.extra_details_text_box.kill()
 
                 self.help_button = UIImageButton(
                     ui_scale(pygame.Rect((52, 584), (34, 34))),
@@ -2531,11 +2533,14 @@ class ProfileScreen(Screens):
                 self.sub_tab_1.enable()
                 self.sub_tab_2.enable()
                 self.sub_tab_3.disable()
-                self.history_text_box.kill()
-                self.extra_details_textbox = UITextBoxTweaked(
-                    self.get_all_history_text(),
+                if self.history_text_box:
+                    self.history_text_box.kill()
+                    self.no_moons.kill()
+                    self.show_moons.kill()
+                self.extra_details_text_box = UITextBoxTweaked(
+                    self.get_extra_details_text(),
                     ui_scale(pygame.Rect((100, 473), (600, 149))),
-                    object_id="#text_box_26_horizleft_pad_10_14",
+                    object_id="#text_box_26_horizleft",
                     line_spacing=1,
                     manager=MANAGER,
                 )
@@ -2591,6 +2596,11 @@ class ProfileScreen(Screens):
             elif self.open_sub_tab == "life events":
                 if self.history_text_box:
                     self.history_text_box.kill()
+                self.show_moons.kill()
+                self.no_moons.kill()
+            elif self.open_sub_tab == "extra details":
+                if self.extra_details_text_box:
+                    self.extra_details_text_box.kill()
                 self.show_moons.kill()
                 self.no_moons.kill()
 
