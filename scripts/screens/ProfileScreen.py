@@ -552,7 +552,7 @@ class ProfileScreen(Screens):
         if self.user_notes:
             self.user_notes = i18n.t("screens.profile.user_notes")
 
-        if self.extra_details_text_box:
+        if self.open_sub_tab == "extra details":
             self.extra_details_text_box.kill()
 
         for box in self.checkboxes:
