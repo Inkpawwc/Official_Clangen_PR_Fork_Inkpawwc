@@ -237,7 +237,7 @@ class WhitePatchToolWindow(ComboToolWindow):
                 name="Rosette",
                 colour="GINGER",
                 length="medium",
-                eye_color="SAGE",
+                eye_colour="GREEN_sage",
                 reverse=False,
                 white_patches=patch,
                 white_patches_tint="offwhite",

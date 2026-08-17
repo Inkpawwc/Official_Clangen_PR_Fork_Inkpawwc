@@ -1,8 +1,11 @@
 {
     "little": {
         "SPARKLESTAR": [
-          "littleSPARKLE",
-          "midSTAR"
+            "littleSPARKLE",
+            "littleLEG_BACK_LEFT_SMALL",
+            "littleLEG_BACK_RIGHT_MIN",
+            "littleTAILTIP",
+            "midSTAR_REDUCED"
         ],
         "BELLY": [
             "littleBELLY_SMALL",
@@ -101,20 +104,20 @@
     },
     "mid": {
         "PRINCESSHONEY": [
-          "littleBEARD_SMALL",
-          "littleBIB",
-          "littleTEARDROP",
-          "littleBELLY_SMALL",
-          "littleLEG_BACK_LEFT_MID",
-          "littleLEG_BACK_RIGHT_MID",
-          "littleLEG_FRONT_LEFT_MIN",
-          "littleLEG_FRONT_RIGHT_MIN",
-          "littleCHEST_MIN",
-          "littleBLAZE_MIN",
-          "littleFOREHEAD_MIN",
-          "littleHONEY"
+            "littleBEARD_SMALL",
+            "littleBIB",
+            "littleTEARDROP",
+            "littleBELLY_SMALL",
+            "littleLEG_BACK_LEFT_MID",
+            "littleLEG_BACK_RIGHT_MID",
+            "littleLEG_FRONT_LEFT_MIN",
+            "littleLEG_FRONT_RIGHT_MIN",
+            "littleCHEST_MIN",
+            "littleBLAZE_MIN",
+            "littleFOREHEAD_MIN",
+            "littleHONEY"
         ],
-          "DOUGIE": [
+        "DOUGIE": [
             "littleBIB",
             "littleLEG_BACK_LEFT_MID",
             "littleLEG_BACK_RIGHT_MID",
@@ -232,82 +235,144 @@
             "littleLEG_BACK_LEFT_SMALL",
             "littleLEG_BACK_RIGHT_SMALL",
             "midMIA_REDUCED"
+        ],
+        "SUPER_SPOT": [
+            "littleEYELINER_MAX_L",
+            "littleEYELINER_MAX_R",
+            "littleLEG_BACK_LEFT_UNDER",
+            "littleLEG_BACK_RIGHT_UNDER",
+            "littleLEG_FRONT_LEFT_UNDER",
+            "littleLEG_FRONT_LEFT_SMALL",
+            "littleLEG_FRONT_RIGHT_HIGH",
+            "littleLITTLE",
+            "littleLUNA",
+            "littleMASK_MIN",
+            "littleRIGHTEAR_MID",
+            "littleTAIL_MID",
+            "littleTAIL_MID_LOW",
+            "littleTAIL_MID_RING",
+            "littleTAIL_REVERSE_HALF_LOW",
+            "littleTAIL_REVERSE_MIN",
+            "littleTAIL_UNDER",
+            "littleTEARDROP",
+            "littleTEARS_R",
+            "littleTWO_SPOT",
+            "littleUNDEREYE_MIN_L",
+            "littleUNDEREYE_MIN_R",
+            "littleMASK_REVERSE_PARTIAL",
+            "littleMASK_SMALL"
+        ],
+        "PSUEDO_PANDA": [
+            "littleMASK_PARTIAL",
+            "littleRIGHTEAR_RING",
+            "littleLEFTEAR_RING",
+            "midBELLY_FULL",
+            "midBIB_HIGH"
         ]
-
     },
     "high": {
         "BARNOWL": [
-          "highOWL",
-          "littleEYELINER_MAX_R",
-          "midWINGS_REDUCED"
+            "littleVEE_FULL",
+            "littleMASK_HIGH",
+            "littleLEG_FRONT_LEFT_MID",
+            "littleLEG_FRONT_RIGHT_MID",
+            "littleLEG_BACK_LEFT_SMALL",
+            "littleLEG_BACK_RIGHT_SMALL",
+            "littleLEFTEAR_MID",
+            "littleRIGHTEAR_MID",
+            "littleEYELINER_MAX_R",
+            "midWINGS_REDUCED"
         ],
         "SAVANNAHBLOSSOM": [
-          "highBLOSSOMSTEP",
-          "midSAVANNAH"
+            "littleBELLY_MID",
+            "littleEYELINER_MIN_L",
+            "littleEYELINER_MIN_R",
+            "littleLEG_BACK_RIGHT_HIGH",
+            "littleLEG_FRONT_LEFT_MIN",
+            "littleLEG_FRONT_RIGHT_MIN",
+            "littleTEARDROP",
+            "littleBEARD_MID",
+            "littleLEG_BACK_LEFT_HIGH",
+            "littleCHEST_MID",
+            "midBIB_HIGH",
+            "midSAVANNAH"
         ],
         "BROKENRING": [
-          "littleTAILTIP",
-          "littleBEARD_SMALL",
-          "littleBEARD_MID",
-          "littleBLAZE_MID",
-          "highBROKEN_REDUCED",
-          "littleCHIN",
-          "littleBLAZE",
-          "highRINGTAIL_REDUCED"
+            "littleTAILTIP",
+            "littleBEARD_SMALL",
+            "littleBEARD_MID",
+            "littleBLAZE_MID",
+            "highBROKEN_REDUCED",
+            "littleCHIN",
+            "littleBLAZE",
+            "highRINGTAIL_REDUCED"
         ],
         "BUNN": [
-          "highSAMMY",
-          "littleTAILTIP",
-          "littleLEG_BACK_LEFT_UNDER",
-          "littleLEG_BACK_RIGHT_UNDER",
-          "highBUSTER_REDUCED",
-          "midUNDERS"
+            "highSAMMY",
+            "littleTAILTIP",
+            "littleLEG_BACK_LEFT_UNDER",
+            "littleLEG_BACK_RIGHT_UNDER",
+            "highBUSTER_REDUCED",
+            "midUNDERS"
         ],
         "ROYALPRINCE": [
-          "littleTAIL_REVERSE_MIN",
-          "littleLEG_BACK_LEFT_SMALL",
-          "littleLEG_BACK_RIGHT_SMALL",
-          "highPRINCE_REDUCED",
-          "littleBELLY_MID",
-          "littleMUZZLE",
-          "littleCHEST_BROKEN",
-          "midVEST"
+            "littleTAIL_REVERSE_MIN",
+            "littleLEG_BACK_LEFT_SMALL",
+            "littleLEG_BACK_RIGHT_SMALL",
+            "highPRINCE_REDUCED",
+            "littleBELLY_MID",
+            "littleMUZZLE",
+            "littleCHEST_BROKEN",
+            "midVEST"
         ],
         "HONEYTUX": [
-          "highPANTS",
-          "littleLEG_BACK_LEFT_MID_LOW",
-          "littleLEG_BACK_LEFT_MID",
-          "littleLEG_BACK_RIGHT_MID",
-          "littleLEG_BACK_RIGHT_MID_LOW",
-          "littleLEG_FRONT_LEFT_SMALL",
-          "littleLEG_FRONT_RIGHT_SMALL",
-          "littleBEARD_MID",
-          "littleBIB",
-          "littleBLAZE_MID",
-          "midUNDER_FULL",
-          "littleHONEY"
+            "highPANTS",
+            "littleLEG_BACK_LEFT_MID_LOW",
+            "littleLEG_BACK_LEFT_MID",
+            "littleLEG_BACK_RIGHT_MID",
+            "littleLEG_BACK_RIGHT_MID_LOW",
+            "littleLEG_FRONT_LEFT_SMALL",
+            "littleLEG_FRONT_RIGHT_SMALL",
+            "littleBEARD_MID",
+            "littleBIB",
+            "littleBLAZE_MID",
+            "midUNDER_FULL",
+            "littleHONEY"
         ],
         "FAROFATIPS": [
-          "littleLEG_FRONT_RIGHT_SMALL",
-          "littleLEG_FRONT_LEFT_MID",
-          "littleLEG_BACK_LEFT_SMALL",
-          "littleLEG_BACK_RIGHT_SMALL",
-          "highFAROFA_REDUCED",
-          "littleLEG_FRONT_RIGHT_SMALL",
-          "littleLEG_FRONT_LEFT_SMALL",
-          "littleLEG_BACK_RIGHT_SMALL",
-          "littleLEG_BACK_LEFT_SMALL",
-          "littleTAILTIP"
+            "littleLEG_FRONT_RIGHT_SMALL",
+            "littleLEG_FRONT_LEFT_MID",
+            "littleLEG_BACK_LEFT_SMALL",
+            "littleLEG_BACK_RIGHT_SMALL",
+            "highFAROFA_REDUCED",
+            "littleLEG_FRONT_RIGHT_SMALL",
+            "littleLEG_FRONT_LEFT_SMALL",
+            "littleLEG_BACK_RIGHT_SMALL",
+            "littleLEG_BACK_LEFT_SMALL",
+            "littleTAILTIP"
         ],
         "MISTERGLASS": [
-          "highMISTER",
-          "highGLASS",
-          "littleLOCKET",
-          "littleTAILTIP",
-          "littleTAIL_SMALL_LOW",
-          "littleLEG_BACK_LEFT_MID"
+            "highMISTER",
+            "highGLASS",
+            "littleLOCKET",
+            "littleTAILTIP",
+            "littleTAIL_SMALL_LOW",
+            "littleLEG_BACK_LEFT_MID"
         ],
-          "ANY": [
+        "BLOSSOMSTEP": [
+            "littleBELLY_MID",
+            "littleEYELINER_MIN_L",
+            "littleEYELINER_MIN_R",
+            "littleLEG_BACK_RIGHT_HIGH",
+            "littleLEG_FRONT_LEFT_MIN",
+            "littleLEG_FRONT_RIGHT_MIN",
+            "littleTEARDROP",
+            "littleBEARD_MID",
+            "littleLEG_BACK_LEFT_HIGH",
+            "littleCHEST_MID",
+            "midBIB_HIGH"
+        ],
+        "ANY": [
             "littleTAILTIP",
             "highANY_REDUCED"
         ],
@@ -371,27 +436,51 @@
             "littleBLAZE",
             "highRINGTAIL_REDUCED"
         ],
+        "OWL": [
+            "littleVEE_FULL",
+            "littleMASK_FACE",
+            "littleLEG_FRONT_LEFT_MID",
+            "littleLEG_FRONT_RIGHT_MID",
+            "littleLEG_BACK_LEFT_SMALL",
+            "littleLEG_BACK_RIGHT_SMALL",
+            "littleLEFTEAR_MID",
+            "littleRIGHTEAR_MID"
+        ],
         "SCAR": [
             "littleLEG_BACK_LEFT_UNDER",
             "littleLEG_BACK_LEFT_SMALL",
             "littleLEG_BACK_RIGHT_SMALL",
             "littleLEG_BACK_RIGHT_UNDER",
             "highSCAR_REDUCED"
+        ],
+        "ANY_BULL": [
+            "highANY_REDUCED",
+            "highBULLSEYE"
+        ],
+        "SNOWBLANKET": [
+            "midBELLY_FULL",
+            "midDIGIT_REDUCED",
+            "midFLANK_FULL"
+        ],
+        "SNOWSADDLE": [
+            "midMISS",
+            "midMITAINE",
+            "midSADDLE_FULL"
         ]
     },
     "mostly": {
         "GLASSSKUNK": [
-          "highGLASS",
-          "littleSTRIPE_SMALL",
-          "littleBEARD_FULL",
-          "littleBIB",
-          "littleVEE_MID",
-          "littleUNDER_MID",
-          "littleLEG_FRONT_RIGHT_SMALL",
-          "littleLEG_FRONT_LEFT_SMALL",
-          "littleLEG_BACK_RIGHT_SMALL",
-          "littleLEG_BACK_LEFT_SMALL",
-          "midTAIL_FULL"
+            "highGLASS",
+            "littleSTRIPE_SMALL",
+            "littleBEARD_FULL",
+            "littleBIB",
+            "littleVEE_MID",
+            "littleUNDER_MID",
+            "littleLEG_FRONT_RIGHT_SMALL",
+            "littleLEG_FRONT_LEFT_SMALL",
+            "littleLEG_BACK_RIGHT_SMALL",
+            "littleLEG_BACK_LEFT_SMALL",
+            "midTAIL_FULL"
         ],
         "VAN": [
             "littleBELLY_MID",
