@@ -38,7 +38,7 @@ from scripts.events_module.generate_events import GenerateEvents, generate_event
 from scripts.events_module.outsider import outsider_events
 from scripts.events_module.patrol.patrol import Patrol
 from scripts.events_module.relationship import relation_events
-from scripts.events_module.relationship import pregnancy_events
+from scripts.events_module.pregnancy import pregnancy_events
 from scripts.events_module.short.condition_events import Condition_Events
 from scripts.events_module.short.short_event_generation import create_short_event
 from scripts.game_structure import constants
@@ -112,7 +112,7 @@ def one_moon():
     game.clan.age += 1
 
     update_afterlife_temper()
-    pregnancy_events.handle_pregnancy_age()
+    pregnancy_events.increment_pregnancy_age()
     check_war()
 
     for cat in Cat.all_cats_list:
