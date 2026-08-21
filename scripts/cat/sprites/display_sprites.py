@@ -3,6 +3,7 @@ import traceback
 
 import pygame
 from copy import deepcopy
+from copy import copy
 
 from scripts.cat.enums import CatAge, CatGroup
 from scripts.cat.sprites.load_sprites import sprites
@@ -201,7 +202,7 @@ def _draw_sprite(
 
         # draw eyes & scars1
         sprite_name = (
-            f"{sprites.EYE_DATA['spritesheet'][0]}{cat.pelt.eye_colour}{cat_sprite}"
+            f"{sprites.EYE_DATA['spritesheet']}{cat.pelt.eye_colour}{cat_sprite}"
         )
         eyes = sprites.sprites[sprite_name].copy()
         new_sprite.blit(eyes, (0, 0))
@@ -217,7 +218,7 @@ def _draw_sprite(
             )
 
         # Add eye onto cat
-        new_sprite.blit(eyes2, (0, 0))
+            new_sprite.blit(eyes2, (0, 0))
 
     if not scars_hidden:
         for scar in cat.pelt.scars:

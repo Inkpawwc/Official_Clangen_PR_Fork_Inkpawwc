@@ -1,0 +1,19 @@
+{
+    "name": "CountershadeRecipe",
+    "layer_order": ["1", "2", "3"],
+    "layers": {
+        "3": {
+            "group_name": "BENGALTOPGRAD",
+            "color": "exotic_base_gradient_top"
+        },
+        "2": {
+            "group_name": "BENGALBOTTOMGRAD",
+            "color": "exotic_base_gradient_bottom"
+        },
+        "1":{
+            "group_name": "BASEMASK",
+            "color": "exotic_base"
+        }
+    },
+    "exceptions": []
+}
