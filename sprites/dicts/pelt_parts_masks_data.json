@@ -44,7 +44,14 @@
             "FRECKLEDPATTERNBODY",
             "FRECKLEDPATTERNBACK",
             "FRECKLEDPATTERNGRAD",
-            "BENGALPATTERNFILL"
+            "BENGALPATTERNFILL",
+            "MASKEDPATTERNLIGHTCHIN",
+            "SOKOKEPATTERNFILLGRAD",
+            "CAPEUNDERBELLY"
+        ],
+        [
+            "CAPEMID",
+            "CAPETOP"
         ]
 
     ]

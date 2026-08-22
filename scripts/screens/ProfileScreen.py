@@ -1786,8 +1786,8 @@ class ProfileScreen(Screens):
             if self.the_cat.pelt.white_patches is not None:
                 white_patch = f"white patch: {self.the_cat.pelt.white_patches}"
                 output.append(white_patch)
-                # WHITE PATCH TINT
 
+                # WHITE PATCH TINT
                 if self.the_cat.pelt.white_patches_tint is not None:
                     output.append(
                         i18n.t(
@@ -1797,12 +1797,19 @@ class ProfileScreen(Screens):
                             ),
                         )
                     )
+            if self.the_cat.pelt.points is not None:
+                point = f"point: {self.the_cat.pelt.points}"
+                output.append(point)
             if self.the_cat.pelt.vitiligo:
                 vitiligo_patch = f"vitiligo patch: {self.the_cat.pelt.vitiligo}"
                 output.append(vitiligo_patch)
             if self.the_cat.pelt.tortie_marking is not None:
                 tortie_patch = f"tortie marking: {self.the_cat.pelt.tortie_marking} ({self.the_cat.pelt.tortie_colour.lower()} {self.the_cat.pelt.tortie_pattern})"
                 output.append(tortie_patch)
+
+            if self.the_cat.pelt.scars:
+                scars = f"scars: {self.the_cat.pelt.scars}"
+                output.append(scars)
 
         final_output = "<br>".join(output)
 
