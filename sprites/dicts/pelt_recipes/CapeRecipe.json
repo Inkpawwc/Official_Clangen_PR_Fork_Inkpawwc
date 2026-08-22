@@ -1,0 +1,23 @@
+{
+    "name": "CapeRecipe",
+    "layer_order": ["1", "2", "3", "4"],
+    "layers": {
+        "4":{
+            "group_name": "CAPEUNDERBELLY",
+            "color": "cape_underbelly"
+        },
+        "3":{
+            "group_name": "CAPETOP",
+            "color": "cape_top"
+        },
+        "2": {
+            "group_name": "CAPEMID",
+            "color": "cape_mid"
+        },
+        "1":{
+            "group_name": "BASEMASK",
+            "color": "cape_base"
+        }
+    },
+    "exceptions": []
+}

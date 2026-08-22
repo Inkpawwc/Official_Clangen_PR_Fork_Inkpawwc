@@ -120,6 +120,7 @@ class ProfileScreen(Screens):
         self.sub_tab_1 = None
         self.backstory_background = None
         self.history_text_box = None
+        self.extra_details_text_box = None
         self.conditions_tab_button = None
         self.condition_container = None
         self.left_conditions_arrow = None
@@ -397,10 +398,8 @@ class ProfileScreen(Screens):
                 if self.open_sub_tab == "user notes":
                     self.notes_entry.kill()
                     self.display_notes.kill()
-                    if self.edit_text:
-                        self.edit_text.kill()
-                    if self.save_text:
-                        self.save_text.kill()
+                    if self.history_tab_checkbox:
+                        self.history_tab_checkbox.kill()
                     self.help_button.kill()
                 elif self.open_sub_tab == "life events":
                     self.history_text_box.kill()
@@ -2499,8 +2498,6 @@ class ProfileScreen(Screens):
                 self.sub_tab_3.disable()
                 if self.history_text_box:
                     self.history_text_box.kill()
-                    self.no_moons.kill()
-                    self.show_moons.kill()
                 self.extra_details_text_box = UITextBoxTweaked(
                     self.get_extra_details_text(),
                     ui_scale(pygame.Rect((100, 473), (600, 149))),
