@@ -3,11 +3,11 @@
     "layer_order": ["1", "2", "3"],
     "layers": {
         "3": {
-            "group_name": "BENGALTOPGRAD",
+            "group_name": "EXOTICTOPGRAD",
             "color": "exotic_base_gradient_top"
         },
         "2": {
-            "group_name": "BENGALBOTTOMGRAD",
+            "group_name": "EXOTICBOTTOMGRAD",
             "color": "exotic_base_gradient_bottom"
         },
         "1":{
