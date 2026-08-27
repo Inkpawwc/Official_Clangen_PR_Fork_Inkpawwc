@@ -22,28 +22,28 @@
     "CHOCOLATE": "chocolate"
   },
   "possible_tints": {
-    "basic": ["pink", "gray", "red", "orange", "warmdilute", "inklavender", "purpledilute"],
+    "basic": ["pink", "gray", "red", "orange", "warmdilute", "purpledilute"],
     "white": ["yellow", "purple", "blue", "dilute", "cooldilute"],
-    "palegrey": ["purple", "blue", "black", "dilute", "inksunglow"],
-    "silver": ["purple", "blue", "black", "dilute", "inksunglow"],
-    "grey": ["blue", "black", "dilute", "cooldilute", "inksunglow"],
-    "darkgrey": ["blue", "black", "dilute", "cooldilute", "inksunglow"],
-    "ghost": ["blue", "black", "dilute", "cooldilute"],
-    "black": ["blue", "black", "dilute", "cooldilute"],
+    "palegrey": ["purple", "blue", "black", "dilute", "inksunglow", "inklavender"],
+    "silver": ["purple", "blue", "black", "dilute", "inksunglow", "inklavender"],
+    "grey": ["blue", "black", "dilute", "cooldilute", "inksunglow", "inklavender"],
+    "darkgrey": ["blue", "black", "dilute", "cooldilute", "inksunglow", "inklavender"],
+    "ghost": ["blue", "black", "dilute", "cooldilute", "inklavender"],
+    "black": ["blue", "black", "dilute", "cooldilute", "inklavender"],
 
-    "cream": ["yellow", "purple", "dilute", "cooldilute"],
-    "paleginger": ["yellow", "purple", "dilute", "cooldilute"],
-    "golden": ["yellow", "purple", "dilute", "cooldilute", "inksunglow"],
-    "ginger": ["yellow", "purple", "dilute", "cooldilute"],
-    "darkginger": ["yellow", "purple", "dilute", "cooldilute", "inksunglow"],
-    "sienna": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow"],
+    "cream": ["yellow", "purple", "dilute", "cooldilute", "inklavender"],
+    "paleginger": ["yellow", "purple", "dilute", "cooldilute", "inklavender"],
+    "golden": ["yellow", "purple", "dilute", "cooldilute", "inksunglow", "inklavender"],
+    "ginger": ["yellow", "purple", "dilute", "cooldilute", "inklavender"],
+    "darkginger": ["yellow", "purple", "dilute", "cooldilute", "inksunglow", "inklavender"],
+    "sienna": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow", "inklavender"],
 
-    "lightbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow"],
-    "lilac": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow"],
-    "brown": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow"],
-    "goldenbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow"],
-    "darkbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow"],
-    "chocolate": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow"]
+    "lightbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow", "inklavender"],
+    "lilac": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow", "inklavender"],
+    "brown": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow", "inklavender"],
+    "goldenbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow", "inklavender"],
+    "darkbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow", "inklavender"],
+    "chocolate": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow", "inklavender"]
   },
   "tint_colours":
   {
