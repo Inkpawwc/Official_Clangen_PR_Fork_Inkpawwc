@@ -147,7 +147,7 @@ class TortiePatchToolWindow(ComboToolWindow):
                 name="Tortie",
                 colour="BLACK",
                 length="medium",
-                eye_color="SAGE",
+                eye_colour="GREEN_sage",
                 reverse=False,
                 white_patches=None,
                 vitiligo=None,

@@ -153,26 +153,26 @@
         "ONE",
         "FRECKLED"
     ],
-  "DELILAH_DAPPLE": [
-    "DAPPLENIGHT",
-    "DELILAH"
-  ],
+    "DELILAH_DAPPLE": [
+        "DAPPLENIGHT",
+        "DELILAH"
+    ],
     "SHATTER_SPIRAL": [
-      "BRIE",
-      "ARMTAIL",
-      "DAPPLENIGHT",
-      "DAUB",
-      "HEARTBEAT",
-      "SIDEMASK"
+        "BRIE",
+        "ARMTAIL",
+        "DAPPLENIGHT",
+        "DAUB",
+        "HEARTBEAT",
+        "SIDEMASK"
     ],
     "STRIKE_SWOOP": [
-      "STREAMSTRIKE",
-      "STREAK",
-      "SWOOP"
+        "STREAMSTRIKE",
+        "STREAK",
+        "SWOOP"
     ],
     "DAUB_DOT": [
-      "DAUB",
-      "EYEDOT"
+        "DAUB",
+        "EYEDOT"
     ],
     "PATCHY_OREO": [
         "OREO",
@@ -226,5 +226,59 @@
         "HALF",
         "HEARTBEAT",
         "GRUMPYFACE"
+    ],
+    "CINDER": [
+        "PAW_BR_WING",
+        "BOTHEARS_T",
+        "BRIE"
+    ],
+    "BILLOW": [
+        "BRIE",
+        "BOTHEARS_T",
+        "PAW_BR_WING",
+        "REDTAIL"
+    ],
+    "ABLAZE": [
+        "PAW_BR_WING",
+        "DAUB",
+        "BRIE",
+        "BOTHEARS_T"
+    ],
+    "SPARKPOP": [
+        "PAW_BR_WING",
+        "BRIE",
+        "BOTHEARS_T",
+        "EYEDOT",
+        "FRECKLED"
+    ],
+    "SPARKS": [
+        "FRECKLED",
+        "MOTTLED",
+        "MINIMALTWO"
+    ],
+    "SIMMER": [
+        "EMBER",
+        "MINIMALONE",
+        "REDTAIL"
+    ],
+    "WILDFIRE": [
+        "TWO",
+        "UNDERPAWS_T",
+        "TAILTIP_T",
+        "STREAMSTRIKE",
+        "ORIOLE"
+    ],
+    "FIRETOUCHED": [
+        "TWO",
+        "UNDERPAWS_T",
+        "SAFI",
+        "PAW_FL_CLOVERTAIL"
+    ],
+    "FLAMEDROP": [
+        "EYEDOT",
+        "FOUR",
+        "EMBER",
+        "BELOVED",
+        "BRIE"
     ]
 }
