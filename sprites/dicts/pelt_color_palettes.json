@@ -1035,10 +1035,10 @@
     "SNOWLYNX": {
         "base": "#F1F1F3",
         "base_gradient_bottom": "#FFFFFF",
-        "base_gradient_top": "#E7E6EB",
+        "base_gradient_top": "#E3D4C9",
         "pattern": "#E3D4C9",
         "pattern_gradient_top": "#D4D3D3",
-        "pattern_fill": "#CFCED0",
+        "pattern_fill": "#E3D4C9",
         "masked_light_pattern": "#FFFFFF",
 
         "newborn_base": "#EEF9FC",
@@ -1051,7 +1051,7 @@
         "smoke_base": "#D4D3D3",
         "smoke_base_gradient_top": "#E3D4C9",
         "smoke_base_gradient_bottom": "#FFFFFF",
-        "smoke_pattern": "#E3D4C9",
+        "smoke_pattern": "#CAAF8D",
         "smoke_pattern_gradient_top": "#CCC1BE",
 
         "cape_base": "#E3D4C9",
@@ -1068,7 +1068,7 @@
 
         "exotic_base": "#EEF9FC",
         "exotic_base_gradient_bottom": "#FFFFFF",
-        "exotic_base_gradient_top": "#E7E6EB",
+        "exotic_base_gradient_top": "#E3D4C9",
         "exotic_pattern": "#CCAFA3",
         "exotic_pattern_gradient_top": "#CCC1BE",
         "exotic_pattern_fill": "#D7C1B8",
