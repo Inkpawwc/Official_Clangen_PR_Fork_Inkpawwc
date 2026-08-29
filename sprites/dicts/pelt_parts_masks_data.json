@@ -51,7 +51,9 @@
         ],
         [
             "CAPEMID",
-            "CAPETOP"
+            "CAPETOP",
+            "SMOKEPATTERNFACE",
+            "SMOKEPATTERNGRADFACE"
         ]
 
     ]

@@ -28,5 +28,15 @@
             "color": "smoke_base"
         }
     },
-    "exceptions": []
+    "exceptions": [
+        {
+            "colours": "RUST",
+            "layers": {
+                "2": {
+                    "group_name": "SMOKETOPGRAD",
+                    "color": "smoke_base_gradient_top"
+                }
+            }
+        }
+    ]
 }
