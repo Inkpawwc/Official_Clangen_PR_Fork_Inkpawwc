@@ -1108,10 +1108,10 @@
         "smoke_pattern": "#391B1C",
         "smoke_pattern_gradient_top": "#331605",
 
-        "cape_base": "#E3D4C9",
-        "cape_underbelly": "#ffffff",
-        "cape_mid": "#CCAFA3",
-        "cape_top": "#CCC1BE",
+        "cape_base": "#331605",
+        "cape_underbelly": "#3A1C1D",
+        "cape_mid": "#391B1C",
+        "cape_top": "#49201C",
 
         "newborn_cape_base": "#fafafa",
         "newborn_cape_underbelly": "#F7F7F8",
