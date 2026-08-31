@@ -19,35 +19,40 @@
     "BROWN": "brown",
     "GOLDEN-BROWN": "goldenbrown",
     "DARKBROWN": "darkbrown",
-    "CHOCOLATE": "chocolate"
+    "CHOCOLATE": "chocolate",
+    "SNOWLYNX": "snowlynx",
+    "RUST": "rust"
   },
   "possible_tints": {
-    "basic": ["pink", "gray", "red", "orange", "warmdilute", "purpledilute"],
+    "basic": ["pink", "gray", "red", "orange", "warmdilute", "purpledilute", "pinkdilute"],
     "white": ["yellow", "purple", "blue", "dilute", "cooldilute"],
-    "palegrey": ["purple", "blue", "black", "dilute", "inksunglow", "inklavender"],
-    "silver": ["purple", "blue", "black", "dilute", "inksunglow", "inklavender"],
-    "grey": ["blue", "black", "dilute", "cooldilute", "inksunglow", "inklavender"],
-    "darkgrey": ["blue", "black", "dilute", "cooldilute", "inksunglow", "inklavender"],
-    "ghost": ["blue", "black", "dilute", "cooldilute", "inklavender"],
-    "black": ["blue", "black", "dilute", "cooldilute", "inklavender"],
+    "snowlynx": ["yellow", "purple", "blue", "dilute", "cooldilute"],
+    "palegrey": ["purple", "blue", "black", "rose", "dilute", "inksunglow", "inklavender"],
+    "silver": ["purple", "blue", "black", "rose", "dilute", "inksunglow", "inklavender"],
+    "grey": ["blue", "black", "dilute", "rose", "cooldilute", "inksunglow", "inklavender"],
+    "darkgrey": ["blue", "black", "dilute", "rose", "cooldilute", "inksunglow", "inklavender"],
+    "ghost": ["blue", "black", "dilute", "rose", "cooldilute", "inklavender"],
+    "black": ["blue", "black", "dilute", "rose", "cooldilute", "inklavender"],
 
     "cream": ["yellow", "purple", "dilute", "cooldilute", "inklavender"],
-    "paleginger": ["yellow", "purple", "dilute", "cooldilute", "inklavender"],
-    "golden": ["yellow", "purple", "dilute", "cooldilute", "inksunglow", "inklavender"],
-    "ginger": ["yellow", "purple", "dilute", "cooldilute", "inklavender"],
-    "darkginger": ["yellow", "purple", "dilute", "cooldilute", "inksunglow", "inklavender"],
-    "sienna": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow", "inklavender"],
+    "paleginger": ["yellow", "purple", "dilute", "rose", "cooldilute", "inklavender"],
+    "golden": ["yellow", "purple", "dilute", "rose", "cooldilute", "inksunglow", "inklavender"],
+    "ginger": ["yellow", "purple", "dilute", "rose", "cooldilute", "inklavender"],
+    "darkginger": ["yellow", "purple", "dilute", "rose", "cooldilute", "inksunglow", "inklavender"],
+    "sienna": ["yellow", "purple", "black", "dilute", "rose", "cooldilute", "inksunglow", "inklavender"],
 
     "lightbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow", "inklavender"],
     "lilac": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow", "inklavender"],
-    "brown": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow", "inklavender"],
-    "goldenbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow", "inklavender"],
-    "darkbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow", "inklavender"],
-    "chocolate": ["yellow", "purple", "black", "dilute", "cooldilute", "inksunglow", "inklavender"]
+    "brown": ["yellow", "purple", "black", "dilute", "rose", "cooldilute", "inksunglow", "inklavender"],
+    "goldenbrown": ["yellow", "purple", "black", "dilute", "rose", "cooldilute", "inksunglow", "inklavender"],
+    "darkbrown": ["yellow", "purple", "black", "dilute", "rose", "cooldilute", "inksunglow", "inklavender"],
+    "chocolate": ["yellow", "purple", "black", "dilute", "rose", "cooldilute", "inksunglow", "inklavender"],
+    "rust": ["yellow", "purple", "black", "dilute", "rose", "cooldilute", "inksunglow", "inklavender"]
   },
   "tint_colours":
   {
     "pink": [253, 237, 237],
+    "rose": [237, 202, 207],
     "gray": [225, 225, 225],
     "red": [248, 226, 228],
     "black": [195, 195, 195],
@@ -65,6 +70,8 @@
     "warmdilute": [25, 15, 7],
     "cooldilute": [7, 15, 25],
     "purpledilute": [28, 16, 27],
+    "hazydilute": [211, 202, 219],
+    "pinkdilute": [80, 50, 45],
     "none": null
   }
 }

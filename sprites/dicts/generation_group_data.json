@@ -20,7 +20,8 @@
             "GOLDEN-BROWN": "brown",
             "DARKBROWN": "brown",
             "CHOCOLATE": "brown",
-            "SNOWLYNX": "white"
+            "SNOWLYNX": "white",
+            "RUST": "brown"
         },
         "pattern_types": {
             "Tabby": "tabbies",
