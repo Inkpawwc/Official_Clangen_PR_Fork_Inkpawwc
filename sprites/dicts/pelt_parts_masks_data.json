@@ -53,7 +53,10 @@
             "CAPEMID",
             "CAPETOP",
             "SMOKEPATTERNFACE",
-            "SMOKEPATTERNGRADFACE"
+            "SMOKEPATTERNGRADFACE",
+            "LEGBOTTOMGRAD",
+            "BACKTAILPATTERNGRAD",
+            "LEGPATTERNGRAD"
         ]
 
     ]

@@ -248,7 +248,7 @@ class Pelt:
         length: str = "short",
         colour: str = "WHITE",
         white_patches: str = None,
-        eye_colour: str = "BLUE",
+        eye_colour: str = "BLUE_blue",
         eye_colour2: str = None,
         tortie_base: str = None,
         tortie_colour: str = None,
