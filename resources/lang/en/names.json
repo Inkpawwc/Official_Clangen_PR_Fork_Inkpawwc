@@ -214,7 +214,7 @@
     ],
     "BLACK": [
     "Black", "Black", "Black", "Shade", "Shaded", "Crow", "Raven", "Ebony", "Dark", "Grackle",
-    "Night", "Shadow", "Scorch", "Midnight", "Pepper", "Pitch", "Bat", "Burnt", "Coal", "Ink", "Inky",
+    "Night", "Shadow", "Scorch", "Midnight", "Pepper", "Pitch", "Bat", "Bat", "Bat", "Burnt", "Coal", "Ink", "Ink", "Ink", "Inky",
     "Char", "Charred", "Mulberry", "Night", "Evening", "Dark", "Murk", "Ghost"
     ]
   },
@@ -224,7 +224,8 @@
     "Acorn","Almond", "Antler", "Aspen", "Badger", "Bark", "Bat", "Beech", "Birch", "Boar", "Branch", "Branch", "Buck", "Canopy",
     "Cedar", "Civet", "Deer", "Doe", "Elk", "Enoki", "Fern", "Fern", "Fir", "Forest", "Frond", "Ginkgo", "Grouse", "Grove", "Honey", 
     "Log", "Lynx", "Magnolia", "Maple", "Moose", "Morel", "Moss", "Moss", "Mushroom", "Oak", "Oak", "Pine", "Robin", "Robin", "Sap", "Sequoia", "Skunk", 
-    "Sparrow", "Sprig", "Spruce", "Squirrel", "Squirrel", "Stag", "Stick", "Stump", "Tarantula", "Thicket", "Twig", "Twig", "Wood", "Wolf", "Coati"
+    "Sparrow", "Sprig", "Spruce", "Squirrel", "Squirrel", "Stag", "Stick", "Stump", "Tarantula", "Thicket", "Twig", "Twig", "Wood", "Wolf", "Coati", "Fallow", "Fallow", "Fallow",
+    "Vontsira"
     ],
     "Beach": [
     "Albatross", "Algae", "Anchovy", "Anemone", "Avocet", "Bass", "Barnacle", "Barracuda", "Beluga", "Brine", "Clam", "Coast",
