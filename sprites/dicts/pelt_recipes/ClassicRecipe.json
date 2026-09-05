@@ -61,7 +61,7 @@
         },
         {
             "colors": "SNOWLYNX",
-            "layer_order": ["1", "2", "3", "5", ["5", "6", "8", "9"]],
+            "layer_order": ["1", "2", "3", "5", ["6", "8", "9"]],
             "layers": {
                 "9":
                 {
@@ -76,8 +76,7 @@
                 "6":
                 {
                     "group_name": "LEGPATTERNGRAD",
-                    "color": "pattern_gradient_bottom",
-
+                    "color": "test"
                 },
                 "5":
                 {

@@ -1042,6 +1042,7 @@
         "pattern_gradient_bottom": "#957A7C",
         "pattern_fill": "#E3D4C9",
         "masked_light_pattern": "#FFFFFF",
+        "test": "#cc383b",
 
         "singlecolour_snowlynx_base_gradient_top": "#BCB0AD",
 
