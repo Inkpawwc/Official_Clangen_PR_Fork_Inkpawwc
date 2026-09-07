@@ -94,15 +94,19 @@
                 },
                 "9": {
                     "group_name": "BACKTAILPATTERNGRAD",
-                    "color": "pattern_gradient_top"
+                    "color": "pattern_gradient_top",
+                    "blend_mode": "normal"
                 },
                 "8": {
                     "group_name": "LEGBOTTOMGRAD",
-                    "color": "pattern_gradient_bottom"
+                    "color": "pattern_gradient_bottom",
+                    "opacity": 100,
+                    "blend_mode": "normal"
                 },
                 "6": {
                     "group_name": "SOKOKEPATTERN",
-                    "color": "pattern"
+                    "color": "pattern",
+                    "blend_mode": "normal"
                 },
                 "4.8": {
                     "group_name": "SOKOKEPATTERNFILL",
@@ -110,20 +114,23 @@
                 },
                 "4.7": {
                     "group_name": "SOKOKEPATTERNFILLGRAD",
-                    "color": "pattern_gradient_top"
+                    "color": "pattern_gradient_top",
+                    "opacity": 100
                 },
                 "4.6": {
                     "group_name": "SOKOKEPATTERNFILL",
-                    "color": "pattern_gradient_top",
+                    "color": "pattern_gradient_bottom",
                     "opacity": 60
                 },
                 "4.5": {
                     "group_name": "SOKOKEPATTERNFILL",
-                    "color": "pattern_fill"
+                    "color": "pattern",
+                    "opacity": 100
                 },
                 "4": {
                     "group_name": "SIMPLETOPGRAD",
-                    "color": "base_gradient_top"
+                    "color": "base_gradient_top",
+                    "opacity": 100
                 },
                 "3": {
                     "group_name": "LEGBOTTOMGRAD",
