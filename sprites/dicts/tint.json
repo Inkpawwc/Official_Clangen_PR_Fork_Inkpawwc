@@ -20,13 +20,13 @@
     "GOLDEN-BROWN": "goldenbrown",
     "DARKBROWN": "darkbrown",
     "CHOCOLATE": "chocolate",
-    "SNOWLYNX": "snowlynx",
+    "SABLE": "sable",
     "RUST": "rust"
   },
   "possible_tints": {
     "basic": ["pink", "gray", "red", "orange", "warmdilute", "purpledilute", "pinkdilute"],
     "white": ["yellow", "purple", "blue", "dilute", "cooldilute"],
-    "snowlynx": ["yellow", "purple", "blue", "dilute", "cooldilute"],
+    "sable": ["yellow", "purple", "blue", "dilute", "cooldilute"],
     "palegrey": ["purple", "blue", "black", "rose", "dilute", "inksunglow", "inklavender"],
     "silver": ["purple", "blue", "black", "rose", "dilute", "inksunglow", "inklavender"],
     "grey": ["blue", "black", "dilute", "rose", "cooldilute", "inksunglow", "inklavender"],

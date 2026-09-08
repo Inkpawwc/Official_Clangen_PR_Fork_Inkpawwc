@@ -273,7 +273,7 @@
     "Owl", "Otter", "Log", "Hickory", "Branch", "Robin", "Umber", "Chanterelle", "Dust", "Auburn", "Burnet", "Spider", "Bark", "Sable",
     "Hawk", "Chestnut", "Fir", "Starling", "Peat", "Fox"
     ],
-    "SNOWLYNX": [
+    "SABLE": [
     "Swan", "Dove", "Cotton", "Hawthorn", "Laurel", "Wisp", "Silk", "Web", "Goose", "Moth", "Moon", "Down", "Daisy", "Cold",
     "Gardenia", "Hemlock", "Magnolia", "Birch", "Snow", "Snowy", "Owl", "Mink"]
   },
@@ -342,7 +342,7 @@
     "RUST":[
       "burn", "blaze", "flame", "flare", "ember", "fox", "vixen"
     ],
-    "SNOWLYNX": [
+    "SABLE": [
     "moth", "owl", "cloud", "frost", "moon", "web", "dove", "ice", "snow", "egg", "shell", "smoke", "bone", "chill", "fog", "freeze",
     "gale", "ghost", "goose", "flash", "moth", "stone", "pebble", "rock"]
   },
