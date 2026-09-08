@@ -8,6 +8,7 @@
             "DARKGREY": "black",
             "GHOST": "black",
             "BLACK": "black",
+            "SABLE": "ginger",
             "CREAM": "ginger",
             "PALEGINGER": "ginger",
             "GOLDEN": "ginger",
@@ -20,7 +21,6 @@
             "GOLDEN-BROWN": "brown",
             "DARKBROWN": "brown",
             "CHOCOLATE": "brown",
-            "SABLE": "white",
             "RUST": "brown"
         },
         "pattern_types": {

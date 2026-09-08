@@ -62,6 +62,86 @@
         "BLUE": "blue",
         "LIGHTBLUE": "light blue",
 
+        "PALEGREY": {
+            "one": "gray",
+            "many": "pale gray"
+        },
+        "SILVER": {
+            "one": "silver",
+            "many": "silver"
+        },
+        "GREY": {
+            "one": "gray",
+            "many": "gray"
+        },
+        "DARKGREY": {
+            "one": "gray",
+            "many": "dark gray"
+        },
+        "GHOST": {
+            "one": "black",
+            "many": "black"
+        },
+        "BLACK": {
+            "one": "black",
+            "many": "black"
+        },
+        "SABLE": {
+            "one": "cream",
+            "many": "cream"
+        },
+        "CREAM": {
+            "one": "cream",
+            "many": "cream"
+        },
+        "PALEGINGER": {
+            "one": "ginger",
+            "many": "pale ginger"
+        },
+        "GOLDEN": {
+            "one": "golden",
+            "many": "golden"
+        },
+        "GINGER": {
+            "one": "ginger",
+            "many": "ginger"
+        },
+        "DARKGINGER": {
+            "one": "ginger",
+            "many": "dark ginger"
+        },
+        "SIENNA": {
+            "one": "ginger",
+            "many": "dark ginger"
+        },
+        "LIGHTBROWN": {
+            "one": "brown",
+            "many": "light brown"
+        },
+        "LILAC": {
+            "one": "brown",
+            "many": "light brown"
+        },
+        "BROWN": {
+            "one": "brown",
+            "many": "brown"
+        },
+        "GOLDEN-BROWN": {
+            "one": "brown",
+            "many": "golden brown"
+        },
+        "DARKBROWN": {
+            "one": "brown",
+            "many": "dark brown"
+        },
+        "CHOCOLATE": {
+            "one": "brown",
+            "many": "dark brown"
+        },
+        "RUST": {
+            "one": "brown",
+            "many": "rusted brown"
+        },
         "SingleColour": "single color",
         "SingleColour_long": "%{color}",
         "TwoColour": "two color",
