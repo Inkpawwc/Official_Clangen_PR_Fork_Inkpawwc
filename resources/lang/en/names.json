@@ -202,7 +202,7 @@
     "Night", "Shadow", "Scorch", "Midnight", "Bleak", "Storm", "Violet", "Pepper", "Bat", "Faded", "Silver", "Ghost", "Bat", "Dusk",
     "Flint", "Starling", "Badger", "Raccoon", "Skulk", "Magpie"
     ],
-    "SABLE": [
+    "BLOSSOM": [
     "Pale", "Sand", "Sun", "Sunny", "Light", "Lion", "Bright", "Phlox", "Vervain", "Veil", "Silk",
     "Honey", "Daisy", "Warm", "Cosmos", "Orchid", "Snapdragon", "Foxglove", "Verbena", "Straw",
     "Orange", "Ochre", "Peach", "Auburn", "Birch", "Cougar", "Gorse", "Dandelion", "Spindle", "Ivory",
@@ -284,7 +284,7 @@
     "Owl", "Otter", "Log", "Hickory", "Branch", "Robin", "Umber", "Chanterelle", "Dust", "Auburn", "Burnet", "Spider", "Bark", "Sable",
     "Hawk", "Chestnut", "Fir", "Starling", "Peat", "Fox"
     ],
-    "SABLE": [
+    "BLOSSOM": [
     "Swan", "Dove", "Cotton", "Hawthorn", "Laurel", "Wisp", "Silk", "Web", "Goose", "Moth", "Moon", "Down", "Daisy", "Cold",
     "Gardenia", "Hemlock", "Magnolia", "Birch", "Snow", "Snowy", "Owl", "Mink"]
   },
@@ -311,7 +311,7 @@
     "GHOST": [
 	"shadow", "shade", "dusk", "coal", "ink", "bat", "cinder", "ghost", "night", "raven", "crow", "burn", "badger", "raccoon"
     ],
-    "SABLE": [
+    "BLOSSOM": [
     "sun", "beam", "shine", "shell", "honey", "cougar", "owl", "moth", "sable", "dust", "flower"
       ],
     "PALEGINGER": [
@@ -359,7 +359,7 @@
     "RUST":[
       "burn", "blaze", "flame", "flare", "ember", "fox", "vixen"
     ],
-    "SABLE": [
+    "BLOSSOM": [
     "moth", "owl", "cloud", "frost", "moon", "web", "dove", "ice", "snow", "egg", "shell", "smoke", "bone", "chill", "fog", "freeze",
     "gale", "ghost", "goose", "flash", "moth", "stone", "pebble", "rock"]
   },
