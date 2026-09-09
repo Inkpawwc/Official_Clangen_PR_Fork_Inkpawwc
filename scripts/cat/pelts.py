@@ -40,6 +40,10 @@ class Pelt:
     # PELT LENGTH
     pelt_length = ["short", "medium", "long"]
 
+    # BODY TYPES
+    body_types: list = ["tall", "towering", "muscular", "burly", "stocky", "petite", "small", "lithe",
+                  "slender", "skinny", "thin", "scrawny", "lanky", "wiry", "plump", "stout", "fat", "round"]
+
     # PELT COLOURS
     all_pelt_colours: list = []
     ginger_colours: list = []
@@ -246,6 +250,7 @@ class Pelt:
         self,
         name: str = "SingleColour",
         length: str = "short",
+        body: str = "stocky",
         colour: str = "WHITE",
         white_patches: str = None,
         eye_colour: str = "RED_orange",
@@ -272,6 +277,7 @@ class Pelt:
         reverse: bool = False,
     ) -> None:
         self.name = name
+        self.body = body
         self.colour = colour
         self.white_patches = white_patches
         self.eye_colour = eye_colour
@@ -916,6 +922,7 @@ class Pelt:
         self.reverse = bool(random.getrandbits(1))
         # skin chances
         self.skin = choice(Pelt.skin_sprites)
+        self.body = choice(Pelt.body_types)
 
         if self.length == "long":
             self.cat_sprites["adolescent"] = random.choice(

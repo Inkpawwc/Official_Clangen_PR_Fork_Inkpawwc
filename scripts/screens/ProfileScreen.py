@@ -822,6 +822,10 @@ class ProfileScreen(Screens):
             length=i18n.t(f"cat.pelts.fur_{the_cat.pelt.length}"),
         )
         # NEWLINE ----------
+        output += "\n"
+
+        # BODY TYPE
+        output += f"body type: {the_cat.pelt.body}"
 
         # ACCESSORY
         if the_cat.pelt.accessory:
@@ -1251,7 +1255,6 @@ class ProfileScreen(Screens):
         self.extra_details_text_box = pygame_gui.elements.UITextBox(
             "", ui_scale(pygame.Rect((100, 473), (600, 71))), manager=MANAGER
         )
-
 
         self.update_disabled_buttons_and_text()
 
@@ -1767,10 +1770,11 @@ class ProfileScreen(Screens):
         output = [str("")]
 
         # SKIN COLOR
-        output.append(i18n.t(
-            "screens.profile.skin_colour_label",
-            skin=i18n.t(f"cat.pelts.{self.the_cat.pelt.skin}"),
-        )
+        output.append(
+            i18n.t(
+                "screens.profile.skin_colour_label",
+                skin=i18n.t(f"cat.pelts.{self.the_cat.pelt.skin}"),
+            )
         )
 
         # PELT TINT
@@ -1798,7 +1802,7 @@ class ProfileScreen(Screens):
                         )
                     )
             if self.the_cat.pelt.points is not None:
-                point = f"point: {self.the_cat.pelt.points}"
+                point = f"point: {self.the_cat.pelt.points.lower()}"
                 output.append(point)
             if self.the_cat.pelt.vitiligo:
                 vitiligo_patch = f"vitiligo patch: {self.the_cat.pelt.vitiligo}"
