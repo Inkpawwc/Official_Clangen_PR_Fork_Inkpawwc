@@ -9,6 +9,7 @@ from pygame_gui.core import UIContainer
 
 from scripts.cat.cats import Cat
 from scripts.cat_relations.enums import RelType, RelTier, rel_type_tiers
+from scripts.cat_relations.relationship import Relationship, create_one_relationship
 from scripts.cat.status import Status
 from scripts.game_structure import image_cache, game, constants
 from ..clan_package.settings import get_clan_setting
