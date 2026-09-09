@@ -24,20 +24,20 @@
     "RUST": "darkbrown"
   },
   "possible_tints": {
-    "basic": ["pink", "gray", "red", "orange", "warmdilute", "purpledilute", "pinkdilute"],
+    "basic": ["pink", "gray", "red", "orange", "warmdilute", "purpledilute"],
     "white": ["yellow", "purple", "blue", "dilute", "cooldilute", "pinkdilute", "earthydilute"],
-    "lightgrey": ["purple", "blue", "black", "rose", "dilute", "inksunglow", "inklavender", "pinkdilute"],
-    "darkgrey": ["blue", "black", "dilute", "rose", "cooldilute", "inksunglow", "inklavender", "pinkdilute", "earthydilute"],
+    "lightgrey": ["purple", "blue", "black", "rose", "dilute", "inksunglow", "inklavender", "pinkdilute", "hazydilute"],
+    "darkgrey": ["blue", "black", "dilute", "rose", "cooldilute", "inksunglow", "inklavender", "pinkdilute", "earthydilute", "hazydilute"],
     "ghost": ["blue", "black", "dilute", "rose", "cooldilute", "inklavender"],
-    "black": ["blue", "black", "dilute", "rose", "cooldilute", "inklavender", "pinkdilute", "earthydilute"],
+    "black": ["blue", "black", "dilute", "rose", "cooldilute", "inklavender", "pinkdilute", "earthydilute", "hazydilute"],
     "cream": ["yellow", "purple", "dilute", "cooldilute", "inklavender", "earthydilute"],
     "lightginger": ["yellow", "purple", "dilute", "rose", "cooldilute", "inklavender", "inksunglow", "earthydilute"],
     "darkginger": ["yellow", "purple", "dilute", "rose", "cooldilute", "inklavender", "inksunglow"],
-    "sienna": ["yellow", "purple", "black", "dilute", "rose", "cooldilute", "inklavender", "inksunglow", "pinkdilute", "earthydilute"],
-    "lightbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "inklavender", "inksunglow", "pinkdilute", "earthydilute"],
+    "sienna": ["yellow", "purple", "black", "dilute", "rose", "cooldilute", "inklavender", "inksunglow", "pinkdilute", "earthydilute", "hazydilute"],
+    "lightbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "inklavender", "inksunglow", "pinkdilute", "earthydilute", "hazydilute"],
     "lilac": ["yellow", "purple", "black", "dilute", "cooldilute", "inklavender", "inksunglow", "earthydilute"],
-    "brown": ["yellow", "purple", "black", "dilute", "rose", "cooldilute", "inklavender", "inksunglow", "pinkdilute", "earthydilute"],
-    "darkbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute"]
+    "brown": ["yellow", "purple", "black", "dilute", "rose", "cooldilute", "inklavender", "inksunglow", "pinkdilute", "earthydilute", "hazydilute"],
+    "darkbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "hazydilute"]
   },
   "tint_colours":
   {

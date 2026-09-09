@@ -41,8 +41,12 @@ from ..ui.elements.text_box_tweaked import UITextBoxTweaked
 class RelationshipEditorScreen(Screens):
     checkboxes = {}
     focus_cat_elements = {}
-    show_dead_frame = image_cache.load_image("resources/images/buttons/show_dead_frame.png").convert_alpha()
-    show_outsiders_frame = image_cache.load_image("resources/images/buttons/show_outsiders_frame.png").convert_alpha()
+    show_dead_frame = image_cache.load_image(
+        "resources/images/buttons/show_dead_frame.png"
+    ).convert_alpha()
+    show_outsiders_frame = image_cache.load_image(
+        "resources/images/buttons/show_outsiders_frame.png"
+    ).convert_alpha()
 
     def __init__(self, name=None):
         super().__init__(name)
@@ -146,18 +150,12 @@ class RelationshipEditorScreen(Screens):
                     self.rel_change_dec[ele].disable()
 
             elif event.ui_element == self.rel_type_buttons["set_birthing_parent"]:
-                Cat.set_birthing_parent(
-                    self.the_cat,
-                    self.selected_cat
-                )
+                Cat.set_birthing_parent(self.the_cat, self.selected_cat)
                 self.rel_type_buttons["set_birthing_parent"].disable()
                 self.rel_type_buttons["unset_birthing_parent"].show()
 
             elif event.ui_element == self.rel_type_buttons["set_bio_parent"]:
-                Cat.set_bio_parent(
-                    self.the_cat,
-                    self.selected_cat
-                )
+                Cat.set_bio_parent(self.the_cat, self.selected_cat)
                 self.rel_type_buttons["set_bio_parent"].hide()
                 self.rel_type_buttons["unset_bio_parent"].show()
 
@@ -189,7 +187,7 @@ class RelationshipEditorScreen(Screens):
                     self.the_cat,
                     self.selected_cat,
                     self.allow_romance,
-                    chosen_rel=RelType.LIKE
+                    chosen_rel=RelType.LIKE,
                 )
                 self.update_current_cat_info(reset_selected_cat=False)
 
@@ -199,7 +197,7 @@ class RelationshipEditorScreen(Screens):
                     self.selected_cat,
                     self.allow_romance,
                     chosen_rel=RelType.LIKE,
-                    decrease=True
+                    decrease=True,
                 )
                 self.update_current_cat_info(reset_selected_cat=False)
 
@@ -208,7 +206,7 @@ class RelationshipEditorScreen(Screens):
                     self.the_cat,
                     self.selected_cat,
                     self.allow_romance,
-                    chosen_rel=RelType.RESPECT
+                    chosen_rel=RelType.RESPECT,
                 )
                 self.update_current_cat_info(reset_selected_cat=False)
 
@@ -218,7 +216,7 @@ class RelationshipEditorScreen(Screens):
                     self.selected_cat,
                     self.allow_romance,
                     chosen_rel=RelType.RESPECT,
-                    decrease=True
+                    decrease=True,
                 )
                 self.update_current_cat_info(reset_selected_cat=False)
 
@@ -227,7 +225,7 @@ class RelationshipEditorScreen(Screens):
                     self.the_cat,
                     self.selected_cat,
                     self.allow_romance,
-                    chosen_rel=RelType.TRUST
+                    chosen_rel=RelType.TRUST,
                 )
                 self.update_current_cat_info(reset_selected_cat=False)
 
@@ -237,7 +235,7 @@ class RelationshipEditorScreen(Screens):
                     self.selected_cat,
                     self.allow_romance,
                     chosen_rel=RelType.TRUST,
-                    decrease=True
+                    decrease=True,
                 )
                 self.update_current_cat_info(reset_selected_cat=False)
 
@@ -246,7 +244,7 @@ class RelationshipEditorScreen(Screens):
                     self.the_cat,
                     self.selected_cat,
                     self.allow_romance,
-                    chosen_rel=RelType.COMFORT
+                    chosen_rel=RelType.COMFORT,
                 )
                 self.update_current_cat_info(reset_selected_cat=False)
 
@@ -256,7 +254,7 @@ class RelationshipEditorScreen(Screens):
                     self.selected_cat,
                     self.allow_romance,
                     chosen_rel=RelType.COMFORT,
-                    decrease=True
+                    decrease=True,
                 )
                 self.update_current_cat_info(reset_selected_cat=False)
 
@@ -265,7 +263,7 @@ class RelationshipEditorScreen(Screens):
                     self.the_cat,
                     self.selected_cat,
                     self.allow_romance,
-                    chosen_rel=RelType.ROMANCE
+                    chosen_rel=RelType.ROMANCE,
                 )
                 self.update_current_cat_info(reset_selected_cat=False)
 
@@ -275,7 +273,7 @@ class RelationshipEditorScreen(Screens):
                     self.selected_cat,
                     self.allow_romance,
                     chosen_rel=RelType.ROMANCE,
-                    decrease=True
+                    decrease=True,
                 )
                 self.update_current_cat_info(reset_selected_cat=False)
 
@@ -290,10 +288,7 @@ class RelationshipEditorScreen(Screens):
                     self.the_cat,
                     self.selected_cat,
                 ):
-                    if (
-                        pygame.key.get_mods() & pygame.KMOD_SHIFT
-                        or not self.the_cat
-                    ):
+                    if pygame.key.get_mods() & pygame.KMOD_SHIFT or not self.the_cat:
                         self.the_cat = event.ui_element.return_cat_object()
                         self.update_current_cat_info(reset_selected_cat=False)
                         for ele in self.rel_change_inc:
@@ -352,27 +347,24 @@ class RelationshipEditorScreen(Screens):
             object_id="@buttonstyles_icon",
             manager=MANAGER,
             sound_id="dice_roll",
-            )
+        )
 
         self.checkbox_elements["show_outsiders_frame"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((367, 385), (72, 39))),
             pygame.transform.scale(
-                self.show_outsiders_frame,
-                ui_scale_dimensions((72, 39))
+                self.show_outsiders_frame, ui_scale_dimensions((72, 39))
             ),
             manager=MANAGER,
-            )
+        )
 
         self.checkbox_elements["show_dead_frame"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((367, -38), (72, 39))),
-            pygame.transform.scale(
-                self.show_dead_frame,
-                ui_scale_dimensions((72, 39))
-            ),
+            pygame.transform.scale(self.show_dead_frame, ui_scale_dimensions((72, 39))),
             manager=MANAGER,
             anchors={
                 "bottom": "bottom",
-                "bottom_target": self.checkbox_elements["show_outsiders_frame"]},
+                "bottom_target": self.checkbox_elements["show_outsiders_frame"],
+            },
         )
 
         self.selected_cat_frame = pygame_gui.elements.UIImage(
@@ -463,21 +455,24 @@ class RelationshipEditorScreen(Screens):
         self.rel_change_dec = {}
 
         self.rel_type_buttons["rel_choices_frame"] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((274, 80), (252, 252))),
-                get_box(BoxStyles.ROUNDED_BOX, (252, 252)),
-            )
+            ui_scale(pygame.Rect((274, 80), (252, 252))),
+            get_box(BoxStyles.ROUNDED_BOX, (252, 252)),
+        )
 
         self.rel_button_container = UIContainer(
-                ui_scale(pygame.Rect((274, 80), (252, 252))),
-                manager=MANAGER,
-            )
+            ui_scale(pygame.Rect((274, 80), (252, 252))),
+            manager=MANAGER,
+        )
 
         self.rel_type_buttons["set_birthing_parent"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((274, 0), (84, 28))),
             "Set Parent1",
             get_button_dict(ButtonStyles.ROUNDED_RECT, (84, 28)),
             object_id="@buttonstyles_rounded_rect",
-            anchors={"top": "top", "top_target": self.rel_type_buttons["rel_choices_frame"]}
+            anchors={
+                "top": "top",
+                "top_target": self.rel_type_buttons["rel_choices_frame"],
+            },
         )
 
         self.rel_type_buttons["set_bio_parent"] = UISurfaceImageButton(
@@ -524,22 +519,22 @@ class RelationshipEditorScreen(Screens):
             manager=MANAGER,
         )
         self.rel_change_inc["like_increase"] = UISurfaceImageButton(
-                ui_scale(pygame.Rect((124, 36), (48, 36))),
-                "screens.relationship_editor.plus_icon_placeholder",
-                get_button_dict(ButtonStyles.PROFILE_RIGHT, (48, 36)),
-                object_id="@buttonstyles_profile_right",
-                anchors={"right": "right", "right_target": self.rel_type_box["like"]},
-                container=self.rel_button_container,
-            )
+            ui_scale(pygame.Rect((124, 36), (48, 36))),
+            "screens.relationship_editor.plus_icon_placeholder",
+            get_button_dict(ButtonStyles.PROFILE_RIGHT, (48, 36)),
+            object_id="@buttonstyles_profile_right",
+            anchors={"right": "right", "right_target": self.rel_type_box["like"]},
+            container=self.rel_button_container,
+        )
         self.rel_change_dec["like_decrease"] = UISurfaceImageButton(
-                ui_scale(pygame.Rect((-171,36), (48, 36))),
-                "screens.relationship_editor.minus_icon_placeholder",
-                get_button_dict(ButtonStyles.PROFILE_LEFT, (48, 36)),
-                object_id="@buttonstyles_profile_left",
-                manager=MANAGER,
-                anchors={"left": "left", "left_target": self.rel_type_box["like"]},
-                container=self.rel_button_container,
-            )
+            ui_scale(pygame.Rect((-171, 36), (48, 36))),
+            "screens.relationship_editor.minus_icon_placeholder",
+            get_button_dict(ButtonStyles.PROFILE_LEFT, (48, 36)),
+            object_id="@buttonstyles_profile_left",
+            manager=MANAGER,
+            anchors={"left": "left", "left_target": self.rel_type_box["like"]},
+            container=self.rel_button_container,
+        )
 
         self.rel_type_box["respect"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((63, 0), (126, 36))),
@@ -548,26 +543,34 @@ class RelationshipEditorScreen(Screens):
             object_id="@buttonstyles_menu_middle",
             container=self.rel_button_container,
             manager=MANAGER,
-            anchors={"top_target": self.rel_type_box["like"]}
+            anchors={"top_target": self.rel_type_box["like"]},
         )
         self.rel_change_inc["respect_increase"] = UISurfaceImageButton(
-                ui_scale(pygame.Rect((124, 0), (48, 36))),
-                "screens.relationship_editor.plus_icon_placeholder",
-                get_button_dict(ButtonStyles.PROFILE_RIGHT, (48, 36)),
-                object_id="@buttonstyles_profile_right",
-                manager=MANAGER,
-                anchors={"right": "right", "right_target": self.rel_type_box["respect"], "top_target": self.rel_type_box["like"]},
-                container=self.rel_button_container,
-            )
+            ui_scale(pygame.Rect((124, 0), (48, 36))),
+            "screens.relationship_editor.plus_icon_placeholder",
+            get_button_dict(ButtonStyles.PROFILE_RIGHT, (48, 36)),
+            object_id="@buttonstyles_profile_right",
+            manager=MANAGER,
+            anchors={
+                "right": "right",
+                "right_target": self.rel_type_box["respect"],
+                "top_target": self.rel_type_box["like"],
+            },
+            container=self.rel_button_container,
+        )
         self.rel_change_dec["respect_decrease"] = UISurfaceImageButton(
-                ui_scale(pygame.Rect((-171,0), (48, 36))),
-                "screens.relationship_editor.minus_icon_placeholder",
-                get_button_dict(ButtonStyles.PROFILE_LEFT, (48, 36)),
-                object_id="@buttonstyles_profile_left",
-                manager=MANAGER,
-                anchors={"left": "left", "left_target": self.rel_type_box["respect"], "top_target": self.rel_type_box["like"]},
-                container=self.rel_button_container,
-            )
+            ui_scale(pygame.Rect((-171, 0), (48, 36))),
+            "screens.relationship_editor.minus_icon_placeholder",
+            get_button_dict(ButtonStyles.PROFILE_LEFT, (48, 36)),
+            object_id="@buttonstyles_profile_left",
+            manager=MANAGER,
+            anchors={
+                "left": "left",
+                "left_target": self.rel_type_box["respect"],
+                "top_target": self.rel_type_box["like"],
+            },
+            container=self.rel_button_container,
+        )
 
         self.rel_type_box["trust"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((63, 0), (126, 36))),
@@ -576,26 +579,34 @@ class RelationshipEditorScreen(Screens):
             object_id="@buttonstyles_menu_middle",
             container=self.rel_button_container,
             manager=MANAGER,
-            anchors={"top_target": self.rel_type_box["respect"]}
+            anchors={"top_target": self.rel_type_box["respect"]},
         )
         self.rel_change_inc["trust_increase"] = UISurfaceImageButton(
-                ui_scale(pygame.Rect((124, 0), (48, 36))),
-                "screens.relationship_editor.plus_icon_placeholder",
-                get_button_dict(ButtonStyles.PROFILE_RIGHT, (48, 36)),
-                object_id="@buttonstyles_profile_right",
-                manager=MANAGER,
-                anchors={"right": "right", "right_target": self.rel_type_box["trust"], "top_target": self.rel_type_box["respect"]},
-                container=self.rel_button_container,
-            )
+            ui_scale(pygame.Rect((124, 0), (48, 36))),
+            "screens.relationship_editor.plus_icon_placeholder",
+            get_button_dict(ButtonStyles.PROFILE_RIGHT, (48, 36)),
+            object_id="@buttonstyles_profile_right",
+            manager=MANAGER,
+            anchors={
+                "right": "right",
+                "right_target": self.rel_type_box["trust"],
+                "top_target": self.rel_type_box["respect"],
+            },
+            container=self.rel_button_container,
+        )
         self.rel_change_dec["trust_decrease"] = UISurfaceImageButton(
-                ui_scale(pygame.Rect((-171,0), (48, 36))),
-                "screens.relationship_editor.minus_icon_placeholder",
-                get_button_dict(ButtonStyles.PROFILE_LEFT, (48, 36)),
-                object_id="@buttonstyles_profile_left",
-                manager=MANAGER,
-                anchors={"left": "left", "left_target": self.rel_type_box["trust"], "top_target": self.rel_type_box["respect"]},
-                container=self.rel_button_container,
-            )
+            ui_scale(pygame.Rect((-171, 0), (48, 36))),
+            "screens.relationship_editor.minus_icon_placeholder",
+            get_button_dict(ButtonStyles.PROFILE_LEFT, (48, 36)),
+            object_id="@buttonstyles_profile_left",
+            manager=MANAGER,
+            anchors={
+                "left": "left",
+                "left_target": self.rel_type_box["trust"],
+                "top_target": self.rel_type_box["respect"],
+            },
+            container=self.rel_button_container,
+        )
 
         self.rel_type_box["comfort"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((63, 0), (126, 36))),
@@ -604,26 +615,34 @@ class RelationshipEditorScreen(Screens):
             object_id="@buttonstyles_menu_middle",
             container=self.rel_button_container,
             manager=MANAGER,
-            anchors={"top_target": self.rel_type_box["trust"]}
+            anchors={"top_target": self.rel_type_box["trust"]},
         )
         self.rel_change_inc["comfort_increase"] = UISurfaceImageButton(
-                ui_scale(pygame.Rect((124, 0), (48, 36))),
-                "screens.relationship_editor.plus_icon_placeholder",
-                get_button_dict(ButtonStyles.PROFILE_RIGHT, (48, 36)),
-                object_id="@buttonstyles_profile_right",
-                manager=MANAGER,
-                anchors={"right": "right", "right_target": self.rel_type_box["comfort"], "top_target": self.rel_type_box["trust"]},
-                container=self.rel_button_container,
-            )
+            ui_scale(pygame.Rect((124, 0), (48, 36))),
+            "screens.relationship_editor.plus_icon_placeholder",
+            get_button_dict(ButtonStyles.PROFILE_RIGHT, (48, 36)),
+            object_id="@buttonstyles_profile_right",
+            manager=MANAGER,
+            anchors={
+                "right": "right",
+                "right_target": self.rel_type_box["comfort"],
+                "top_target": self.rel_type_box["trust"],
+            },
+            container=self.rel_button_container,
+        )
         self.rel_change_dec["comfort_decrease"] = UISurfaceImageButton(
-                ui_scale(pygame.Rect((-171,0), (48, 36))),
-                "screens.relationship_editor.minus_icon_placeholder",
-                get_button_dict(ButtonStyles.PROFILE_LEFT, (48, 36)),
-                object_id="@buttonstyles_profile_left",
-                manager=MANAGER,
-                anchors={"left": "left", "left_target": self.rel_type_box["comfort"], "top_target": self.rel_type_box["trust"]},
-                container=self.rel_button_container,
-            )
+            ui_scale(pygame.Rect((-171, 0), (48, 36))),
+            "screens.relationship_editor.minus_icon_placeholder",
+            get_button_dict(ButtonStyles.PROFILE_LEFT, (48, 36)),
+            object_id="@buttonstyles_profile_left",
+            manager=MANAGER,
+            anchors={
+                "left": "left",
+                "left_target": self.rel_type_box["comfort"],
+                "top_target": self.rel_type_box["trust"],
+            },
+            container=self.rel_button_container,
+        )
 
         self.rel_type_box["romance"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((63, -7), (126, 56))),
@@ -637,23 +656,31 @@ class RelationshipEditorScreen(Screens):
             text_is_multiline=True,
         )
         self.rel_change_inc["romance_increase"] = UISurfaceImageButton(
-                ui_scale(pygame.Rect((124, 0), (48, 42))),
-                "screens.relationship_editor.plus_icon_placeholder",
-                get_button_dict(ButtonStyles.PROFILE_RIGHT, (48, 42)),
-                object_id="@buttonstyles_profile_right",
-                manager=MANAGER,
-                anchors={"right": "right", "right_target": self.rel_type_box["romance"], "top_target": self.rel_type_box["comfort"]},
-                container=self.rel_button_container,
-            )
+            ui_scale(pygame.Rect((124, 0), (48, 42))),
+            "screens.relationship_editor.plus_icon_placeholder",
+            get_button_dict(ButtonStyles.PROFILE_RIGHT, (48, 42)),
+            object_id="@buttonstyles_profile_right",
+            manager=MANAGER,
+            anchors={
+                "right": "right",
+                "right_target": self.rel_type_box["romance"],
+                "top_target": self.rel_type_box["comfort"],
+            },
+            container=self.rel_button_container,
+        )
         self.rel_change_dec["romance_decrease"] = UISurfaceImageButton(
-                ui_scale(pygame.Rect((-171,0), (48, 42))),
-                "screens.relationship_editor.minus_icon_placeholder",
-                get_button_dict(ButtonStyles.PROFILE_LEFT, (48, 42)),
-                object_id="@buttonstyles_profile_left",
-                manager=MANAGER,
-                anchors={"left": "left", "left_target": self.rel_type_box["romance"], "top_target": self.rel_type_box["comfort"]},
-                container=self.rel_button_container,
-            )
+            ui_scale(pygame.Rect((-171, 0), (48, 42))),
+            "screens.relationship_editor.minus_icon_placeholder",
+            get_button_dict(ButtonStyles.PROFILE_LEFT, (48, 42)),
+            object_id="@buttonstyles_profile_left",
+            manager=MANAGER,
+            anchors={
+                "left": "left",
+                "left_target": self.rel_type_box["romance"],
+                "top_target": self.rel_type_box["comfort"],
+            },
+            container=self.rel_button_container,
+        )
 
         self.update_list_cats()
 
@@ -678,7 +705,9 @@ class RelationshipEditorScreen(Screens):
 
         x = 65
         y = 485
-        chunked_cats = self.get_list_chunks(self.current_listed_cats, items_allowed_in_chunk=24)
+        chunked_cats = self.get_list_chunks(
+            self.current_listed_cats, items_allowed_in_chunk=24
+        )
         if chunked_cats:
             for cat in chunked_cats[self.page - 1]:
                 if get_clan_setting("show fav") and cat.favourite:
@@ -720,7 +749,15 @@ class RelationshipEditorScreen(Screens):
         ) = self.the_cat.determine_next_and_previous_cats(
             filter_func=(
                 lambda cat: cat.age
-                in ("newborn", "kitten", "adolescent", "young adult", "adult", "senior adult", "senior")
+                in (
+                    "newborn",
+                    "kitten",
+                    "adolescent",
+                    "young adult",
+                    "adult",
+                    "senior adult",
+                    "senior",
+                )
             )
         )
         (
@@ -794,34 +831,26 @@ class RelationshipEditorScreen(Screens):
         self.draw_info_block(self.selected_cat, starting_pos=(540, 100))
 
     def update_list_cats(self):
-        if (not get_clan_setting("show outsiders")
-        and not get_clan_setting("show dead")):
+        if not get_clan_setting("show outsiders") and not get_clan_setting("show dead"):
             self.all_cats_list = [
-                i
-                for i in Cat.all_cats_list
-                if (i.status.alive_in_player_clan)
-
+                i for i in Cat.all_cats_list if (i.status.alive_in_player_clan)
             ]
         elif not get_clan_setting("show outsiders"):
             self.all_cats_list = [
-                i
-                for i in Cat.all_cats_list
-                if not (i.status.is_outsider)
+                i for i in Cat.all_cats_list if not (i.status.is_outsider)
             ]
         elif not get_clan_setting("show dead"):
             self.all_cats_list = [
                 i
                 for i in Cat.all_cats_list
-                if (i.status.alive_in_player_clan
-                    or i.status.is_outsider)
+                if (i.status.alive_in_player_clan or i.status.is_outsider)
             ]
         else:
-            self.all_cats_list = [
-                i
-                for i in Cat.all_cats_list
-            ]
+            self.all_cats_list = [i for i in Cat.all_cats_list]
 
-        self.all_cats = self.get_list_chunks(self.all_cats_list, items_allowed_in_chunk=24)
+        self.all_cats = self.get_list_chunks(
+            self.all_cats_list, items_allowed_in_chunk=24
+        )
         self.current_listed_cats = self.all_cats_list
         self.all_pages = (
             int(ceil(len(self.current_listed_cats) / 24.0))
@@ -1088,7 +1117,9 @@ class RelationshipEditorScreen(Screens):
                     "screens.relationship_editor.cat_feelings",
                     object_id="#text_box_22_horizcenter",
                     text_kwargs={"name": short_name, "m_c": cat},
-                    anchors={"top_target": self.selected_cat_elements["col2_relation" + tag]},
+                    anchors={
+                        "top_target": self.selected_cat_elements["col2_relation" + tag]
+                    },
                 )
             else:
                 self.selected_cat_elements[
@@ -1166,7 +1197,6 @@ class RelationshipEditorScreen(Screens):
         self.remove_cat.show()
 
     def apply_cat_filter(self, search_text=""):
-
         self.filtered_cats = self.all_cats_list.copy()
 
         # Filter for search
@@ -1295,7 +1325,7 @@ class RelationshipEditorScreen(Screens):
             tool_tip_text="screens.relationship_editor.show_dead",
             anchors={
                 "top_target": self.checkbox_elements["show_dead_frame"],
-                "left_target": self.checkbox_elements["show_dead_frame"]
+                "left_target": self.checkbox_elements["show_dead_frame"],
             },
         )
 
@@ -1310,7 +1340,7 @@ class RelationshipEditorScreen(Screens):
             tool_tip_text="screens.relationship_editor.show_outsiders",
             anchors={
                 "top_target": self.checkbox_elements["show_outsiders_frame"],
-                "left_target": self.checkbox_elements["show_outsiders_frame"]
+                "left_target": self.checkbox_elements["show_outsiders_frame"],
             },
         )
 

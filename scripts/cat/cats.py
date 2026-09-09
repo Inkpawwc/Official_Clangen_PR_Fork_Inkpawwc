@@ -1959,7 +1959,6 @@ class Cat:
 
     @staticmethod
     def edit_relationship(cat1, cat2, allow_romantic, chosen_rel=None, decrease=False):
-
         # Gathering the relationships.
         if cat1.ID in cat2.relationships:
             rel1 = cat1.relationships[cat2.ID]
@@ -1972,9 +1971,7 @@ class Cat:
             rel2 = cat2.create_one_relationship(cat1)
 
         # amount the chosen relationship type is increased or decreased by
-        amount = 10  * (
-            -1 if decrease else 1
-        )
+        amount = 10 * (-1 if decrease else 1)
 
         setattr(rel1, chosen_rel, getattr(rel1, chosen_rel) + amount)
 
