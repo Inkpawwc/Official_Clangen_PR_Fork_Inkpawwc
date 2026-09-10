@@ -1133,6 +1133,8 @@ class RelationshipEditorScreen(Screens):
                     anchors={"top_target": self.selected_cat_elements["col2" + tag]},
                 )
 
+            print(other_cat)
+
             if other_cat.ID in cat.relationships:
                 the_relationship = cat.relationships[other_cat.ID]
             else:
