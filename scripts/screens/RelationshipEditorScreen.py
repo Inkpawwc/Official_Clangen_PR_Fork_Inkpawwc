@@ -1136,7 +1136,7 @@ class RelationshipEditorScreen(Screens):
             if other_cat.ID in cat.relationships:
                 the_relationship = cat.relationships[other_cat.ID]
             else:
-                the_relationship = cat.create_one_relationship(other_cat)
+                the_relationship = create_one_relationship(other_cat)
 
             # ROMANTIC LOVE
             # CHECK AGE DIFFERENCE

@@ -250,7 +250,7 @@ class Pelt:
         self,
         name: str = "SingleColour",
         length: str = "short",
-        body: str = "stocky",
+        body: str = "stout",
         colour: str = "WHITE",
         white_patches: str = None,
         eye_colour: str = "RED_orange",
@@ -480,6 +480,7 @@ class Pelt:
     @staticmethod
     def generate_new_pelt(gender: str, parents: tuple = (), age: str = "adult"):
         new_pelt = Pelt()
+        new_pelt.body = choice(Pelt.body_types)
 
         pelt_white = new_pelt.init_pattern_color(parents, gender)
         new_pelt.init_white_patches(pelt_white, parents)
@@ -489,6 +490,8 @@ class Pelt:
         new_pelt.init_eyes(parents)
         new_pelt.init_pattern()
         new_pelt.init_tint()
+
+        return new_pelt
 
         return new_pelt
 
@@ -560,6 +563,9 @@ class Pelt:
             self.tortie_marking = "MINIMALTHREE"
         elif self.tortie_marking == "MINIMAL4":
             self.tortie_marking = "MINIMALFOUR"
+
+        if self.body is None:
+            self.body = choice(Pelt.body_types)
 
         if self.accessory is None:
             self.accessory = tuple()
