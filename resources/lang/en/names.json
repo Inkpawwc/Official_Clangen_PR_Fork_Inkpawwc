@@ -204,9 +204,11 @@
     ],
     "BLOSSOM": [
     "Pale", "Sand", "Sun", "Sunny", "Light", "Lion", "Bright", "Phlox", "Vervain", "Veil", "Silk",
-    "Honey", "Daisy", "Warm", "Cosmos", "Orchid", "Snapdragon", "Foxglove", "Verbena", "Straw",
-    "Orange", "Ochre", "Peach", "Auburn", "Birch", "Cougar", "Gorse", "Dandelion", "Spindle", "Ivory",
-    "Fawn", "Fallow", "Morel", "Mouse", "Velvet", "Dust", "Tawny", "Sable"
+    "Honey", "Daisy", "Warm", "Cosmos", "Orchid", "Foxglove", "Verbena", "Straw",
+    "Peach", "Birch", "Cougar", "Gorse", "Dandelion", "Spindle", "Ivory",
+    "Fawn", "Fallow", "Morel", "Mouse", "Velvet", "Dust", "Tawny", "Sable", "Swan", "Dove", "Cotton",
+    "Hawthorn", "Laurel", "Wisp", "Silk", "Web", "Goose", "Moth", "Moon", "Down", "Daisy", "Gardenia",
+    "Hemlock", "Magnolia", "Birch", "Snow", "Snowy", "Owl", "Mink"
     ],
     "PALEGINGER": [
     "Pale", "Ginger", "Sand", "Sandy", "Yellow", "Sun", "Sunny", "Light", "Lion", "Bright", "Phlox", "Vervain",
@@ -278,15 +280,7 @@
     "Night", "Shadow", "Scorch", "Midnight", "Pepper", "Pitch", "Bat", "Bat", "Bat","Burnt", "Coal", "Ink", "Ink", "Ink", "Inky", "Murk", "Rat", "Magpie",
     "Char", "Charred", "Mulberry", "Evening", "Dark", "Ghost", "Mud", "Spider", "Shale", "Panther", "Starling", "Soot", "Wolf", "Badger",
     "Raccoon", "Skulk"
-    ],
-    "RUST":[
-    "Brown", "Brown", "Dark", "Dark", "Shade", "Russet", "Rowan", "Mud", "Murk", "Oak", "Twig", "Loach", "Shadow", "Tawny",
-    "Owl", "Otter", "Log", "Hickory", "Branch", "Robin", "Umber", "Chanterelle", "Dust", "Auburn", "Burnet", "Spider", "Bark", "Sable",
-    "Hawk", "Chestnut", "Fir", "Starling", "Peat", "Fox"
-    ],
-    "BLOSSOM": [
-    "Swan", "Dove", "Cotton", "Hawthorn", "Laurel", "Wisp", "Silk", "Web", "Goose", "Moth", "Moon", "Down", "Daisy", "Cold",
-    "Gardenia", "Hemlock", "Magnolia", "Birch", "Snow", "Snowy", "Owl", "Mink"]
+    ]
   },
 	"colour_suffixes": {
     "WHITE": [
@@ -312,7 +306,8 @@
 	"shadow", "shade", "dusk", "coal", "ink", "bat", "cinder", "ghost", "night", "raven", "crow", "burn", "badger", "raccoon"
     ],
     "BLOSSOM": [
-    "sun", "beam", "shine", "shell", "honey", "cougar", "owl", "moth", "sable", "dust", "flower"
+    "sun", "beam", "shine", "shell", "honey", "cougar", "owl", "moth", "sable", "dust", "flower", "blossom", "spring", "petal",
+    "rose", "bee", "moth", "owl", "cloud", "moon", "web", "dove", "egg", "shell", "smoke", "goose"
       ],
     "PALEGINGER": [
 	"sun", "beam", "shine", "spark", "shell", "honey", "flash", "lion", "cougar"
@@ -355,19 +350,13 @@
     ],
     "BLACK": [
 	"shadow", "shade", "dusk", "coal", "ink", "bat", "cinder", "ghost", "night", "raven", "crow", "burn", "badger", "raccoon"
-    ],
-    "RUST":[
-      "burn", "blaze", "flame", "flare", "ember", "fox", "vixen"
-    ],
-    "BLOSSOM": [
-    "moth", "owl", "cloud", "frost", "moon", "web", "dove", "ice", "snow", "egg", "shell", "smoke", "bone", "chill", "fog", "freeze",
-    "gale", "ghost", "goose", "flash", "moth", "stone", "pebble", "rock"]
+    ]
   },
 
   "biome_prefixes": {
     "Forest": [
     "Acorn","Almond", "Antler", "Aspen", "Badger", "Bark", "Bat", "Beech", "Birch", "Boar", "Branch", "Branch", "Buck", "Canopy",
-    "Cedar", "Civet", "Deer", "Doe", "Elk", "Enoki", "Fern", "Fern", "Fir", "Forest", "Frond", "Ginkgo", "Grouse", "Grove", "Honey", 
+    "Cedar", "Civet", "Deer", "Doe", "Elk", "Enoki", "Fern", "Fern", "Fir", "Forest", "Frond", "Ginkgo", "Grouse", "Grove", "Honey", "Newt", "Newt",
     "Log", "Lynx", "Magnolia", "Maple", "Moose", "Morel", "Moss", "Moss", "Mushroom", "Oak", "Oak", "Pine", "Robin", "Robin", "Sap", "Sequoia", "Skunk", 
     "Sparrow", "Sprig", "Spruce", "Squirrel", "Squirrel", "Stag", "Stick", "Stump", "Tarantula", "Thicket", "Twig", "Twig", "Wood", "Wolf", "Coati", "Fallow", "Fallow", "Fallow",
     "Vontsira", "Sparrow", "Sprig", "Spruce", "Squirrel", "Squirrel", "Stag", "Stick", "Stump", "Tarantula", "Thicket", "Twig", "Twig", "Wood", "Wolf", "Coati", "Brush", "Bush", "Raccoon"
@@ -417,7 +406,7 @@
   "biome_suffixes": {
     "Forest": [
     "acorn", "antler", "beak", "branch", "clove", "cone", "dapple", "deer", "fawn", "fern", "fog", "frond", "grove", "moss", 
-    "sap", "shade", "twig", "wood", "thicket", "glade", "bear", "brush", "bush", "shrub"
+    "sap", "shade", "twig", "wood", "thicket", "glade", "bear", "brush", "bush", "shrub", "newt"
     ],
     "Beach": [
     "current", "shell", "tide", "sand", "wave", "flood", "shore", "coast", "fin", "splash", "surf", "squid", "coral", "pearl",
@@ -532,10 +521,10 @@
     "moss", "leaf", "sprout", "seed", "clover", "fern", "ivy", "willow", "meadow", "root"
     ],
     "PALEGREEN": [
-    "leaf", "sprout", "seed", "clover", "fern", "ivy", "meadow", "moss", "willow", "light"
+    "leaf", "sprout", "seed", "clover", "fern", "ivy", "meadow", "moss", "willow", "light", "newt"
     ],
     "GREEN": [
-    "leaf", "sprout", "seed", "clover", "fern", "ivy", "meadow", "moss", "willow"
+    "leaf", "sprout", "seed", "clover", "fern", "ivy", "meadow", "moss", "willow", "newt"
     ],
     "BLUE": [
     "lake", "pond", "flood", "storm", "rain", "sky", "pool", "dew", "brook", "bubble", "creek", "dew", "jay", "splash", "water", "spring"
@@ -551,7 +540,7 @@
     "gleam", "water", "shimmer", "shine", "shiver", "spring"
     ],
     "EMERALD": [
-    "leaf", "sprout", "seed", "clover", "fern", "ivy", "meadow", "moss", "willow"
+    "leaf", "sprout", "seed", "clover", "fern", "ivy", "meadow", "moss", "willow", "newt"
     ],
     "PALEBLUE": [
     "frost", "sky", "pool", "lake", "freeze", "pond", "dew", "brook", "bubble", "chill", "creek", "dew", "hail", "ice", "splash",
@@ -568,7 +557,7 @@
     "shiver", "heather", "spring"
     ],
     "COPPER": [
-    "blaze", "fire", "scorch", "flame", "flare", "ember", "fox", "vixen", "burn"
+    "blaze", "fire", "scorch", "flame", "flare", "ember", "fox", "vixen", "burn", "newt"
     ],
     "SAGE": [
     "leaf", "sprout", "seed", "clover", "fern", "ivy", "meadow", "moss", "willow"
@@ -587,21 +576,21 @@
     "frost", "fog", "snow", "moon", "shine", "gleam", "shimmer", "mist", "dust", "freeze", "hail", "ice", "minnow", "shiver", "cloud"
     ],
     "ORANGE": [
-    "blaze", "shine", "fire", "flame", "flare", "ember", "fox", "vixen", "burn"
+    "blaze", "shine", "fire", "flame", "flare", "ember", "fox", "vixen", "burn", "newt"
     ],
     "BRONZE": [
-    "bark", "burr", "moth", "murk", "nut", "root", "splinter", "wood", "branch", "twig", "owl"
+    "bark", "burr", "moth", "murk", "nut", "root", "splinter", "wood", "branch", "twig", "owl", "newt"
     ],
 	"DAWN": ["blaze", "fire", "scorch", "flame", "flare", "ember", "fox", "vixen", "burn", "dawn", "leaf", "seed"],
     "DUSK": ["bark", "burr", "moth", "murk", "nut", "root", "splinter", "wood", "branch", "twig", "leaf", "seed", "owl", "dusk"],
     "AURORA": ["dusk", "holly", "moss", "willow", "storm", "leaf", "sprout", "seed", "clover", "fern", "ivy", "meadow", "lake", "pool", "river", "flood"],
     "FOREST": ["leaf", "sprout", "seed", "fern", "clover", "ivy", "meadow", "moss", "light", "shine", "spring", "light", "shine", "gaze"],
     "MUSTARD": ["blaze", "fox", "vixen", "burn", "honey", "leaf", "seed"],
-    "EARTHY": ["bark", "burr", "moth", "murk", "nut", "root", "splinter", "wood", "branch", "twig", "owl", "leaf", "seed"],
+    "EARTHY": ["bark", "burr", "moth", "murk", "nut", "root", "splinter", "wood", "branch", "twig", "owl", "leaf", "seed", "newt"],
     "SEA": ["dusk", "daze", "shade", "pebble", "rock", "stone", "boulder", "smoke", "cinder", "night", "shadow",  "lake", "pond", "flood", "storm", "rain", "sky", "pool"],
     "BLUEBELL": ["dusk", "daze", "storm", "lake", "pond", "flood", "rain", "sky", "pool", "jay"],
     "OLIVE": ["leaf", "sprout", "seed", "clover", "fern", "ivy", "meadow", "moss", "willow"],
-    "CATTAIL": ["moss", "leaf", "sprout", "seed", "clover", "fern", "ivy", "willow", "meadow", "root"],
+    "CATTAIL": ["moss", "leaf", "sprout", "seed", "clover", "fern", "ivy", "willow", "meadow", "root", "newt"],
     "GRASSYGREEN": ["moss", "leaf", "sprout", "seed", "clover", "fern", "ivy", "willow", "meadow", "root"],
     "FERN": ["leaf", "sprout", "seed", "clover", "fern", "ivy", "meadow", "moss", "willow"],
     "LICHEN": ["leaf", "sprout", "seed", "clover", "fern", "ivy", "meadow", "moss", "willow"],
@@ -624,77 +613,14 @@
     "Loner names include terms of endearment, common words, and human foods (ex: Baby, Abyss, Sushi)"
   ],
 
-  "silly_names": ["Ace Impact", "Adios Butler", "Admire Groove", "Admire Vega", "Adora", "Anomalocaris", "Aether", "Agent Smith", "Agnes Digital", "Agnes Tachyon",
-    "Ah ha", "Air Groove", "Air Messiah", "Air Shakur", "Albedo", "Alcyone", "Allez France", "Almond Eye", "Alphonse", "Alphys", "Altair", "Alydar", "American Pharoah",
-    "Amongus", "Andromeda", "Animal Kingdom", "Anju", "Ankha", "Antares", "Anubis", "Apatosaurus", "Aphrodite", "Apple Pencil", "Aquarius", "Arch", "Archimedes", "Arcturus", 
-    "Aries", "Arkle", "Arrogate", "Artificer", "Asgore", "Askari", "Astrophage", "Atlas", "Auguste Rodin", "Award Winning Smile", "Azimuth", "Azula", "Baba Yaga", "Baby Dog",
-    "Bacchus", "Bagheera", "Baihu", "Baja Blast", "Baldie", "Baliyo", "Baloo", "Baphomet", "Barbaro", "Barbatuques", "Bastet", "Battleship", "Beanie Baby", "Beanie",
-    "Beatle", "Beef Stroganoff", "Beesechurger", "Bellafide", "Bellatrix", "Bellibolt", "Belphegor", "Ben Nevis", "Bend Or", "Berlioz", "Bernborough", "Best Mate",
-    "Betelgeuse", "Bic", "Bidoof", "Big Brown", "Big Mac", "Big Man", "Big Papa Huge Time", "Bigwig",  "Bill Bailey", "Bingus", "Binx", "Birb", "Bird of Paradise",
-    "Biscuits B. Bakin", "Black Caviar", "Black Widow", "Blahaj", "Blavingad", "Bliklotep", "Blinky Stubbins", "Blinky", "Blitz", "Bluey", "Bohr Model", "Bold Forbes",
-    "Bold Ruler", "Bonkers", "Boobear", "Booker", "Brandywine", "Bret Hanover", "Brian's Time", "Brigadier Gerard", "Brother Dubious", "Brutus", "Buckpasser", "Buena Vista", "Buffy", 
-    "Bugbear", "Bullwinkle", "Burm", "Burning Skies", "Business Frog", "Bustopher Jones", "Buzzy Bee", "Byzantine Dream", "Caesar", "California Chrome", "Call of Greatness", "Call of the Void", 
-    "Calliope", "Callisto", "Calorimetry", "Calypso", "Candi", "Canned Beans", "Canned Tuna", "Canopus", "Capella", "Capricorn", "Car Alarm", "Cardigan Bay", "Castleshane", "Catrick",
-    "Celebi", "Centauri", "Cerberus", "Ceres", "Chansey", "Chara", "Chariklo", "Charles the Twelfth", "Charon", "Chasing Wind", "Cheerio", "Cheese Beast", "Cheeto Puff", 
-    "Cheeto", "Cheetoman", "Chekhov's Gun", "Chekov", "Cherubi", "Cheshire", "Chewie", "Chibi", "Chikorita", "Choccie", "Chocolate Chip", 
-    "Chocolate Pudding", "Choo-Choo", "Circe", "Cirrus", "Clairiere", "Clawdette", "Cleffa", "Cleopatra", "Clicker", "Clyde Van Dusen", "Cocoa Puff", "Colby Jack", "Conk Crete", "Country House",
-    "Constructive Criticism", "Coricopat", "Corinthian", "Cosmo", "Covalent", "Covalent Bond", "Cracked Earth", "Crunchwrap", "Curlin", "Curren Chan", "Cybele", "Cyndaquil", "Cyno", "Daisy Mae", "Daiwa Scarlet",
-    "Dakarai", "Dan Patch", "Danehill", "Dance Smartly", "Danger Dave", "Daring Heart", "Daring Tact", "Dawn Run", "Deep Dish Pizza", "Deep Impact", "Deimos", "Deino", "Deinonychus", "Deirdre", "Demeter", "Desert Gold",
-    "Desert Orchid", "Digiorno", "Dimitrescu", "Diona", "Dipper", "Dipole", "Distinguished Gentleman", "Djohar Manik", "Djungelskog", "Doctor Who", "Doja", "Doncaster",
-    "Doofenshmirtz", "Doric", "Dornoch", "Double Trouble", "Dr. Fager", "Dr. Strange", "Draco", "Draculaura", "Draugr", "Dream Journey", "Duramente", "Durandal", "Dust Bunny", 
-    "Dusty Cuddles", "Dynaformer", "Dysnomia", "Easy Goer", "Eepy", "Eevee", "Efforia", "Eight Belles", "El Condor Pasa", "Elden", "Electron", "Electronegativity",
-    "Ender Dragon", "Endless Reflections", "Endothermic",  "Endothermic Reaction", "Enthalpy", "Entropy", "Epiphaneia", "Erebus", "Espeon", "Espurr", "Evilface",
-    "Exothermic", "Exothermic Reaction", "Extra Cuddles", "Failnaught", "Fair Play", "Fairytale", "Falling In Love", "Fax Machine", "Fazbear", "Felicette", "Fennekin", "Figaro",
-    "First Generation iPod", "Fishleg", "Fishtail", "Five Pebbles", "Fiver", "Flying Bolt", "Foghettaboutit", "Foolish Pleasure", "Forever Young", "Formal Charge", "Four Needles", "Foxy", "Fran Bow", "French Fry", "Froggy", "Fruity Pebble",
-    "Frumpkin", "Frye", "Fuecoco", "Fuli", "Furby", "Funny Cide", "Fuzz Lightyear", "Fuzzbo", "Fuzziwig", "Gainsborough", "Galahad",
-    "Ganiru", "Ganymede", "Garfield", "Gemini", "General Erasmus Dickinson", "Genji", "Gentildonna", "Genuine Risk", "Gepard", "Ghoul", "Gible", "Gilded Lily", "Gilkin",
-    "Gimli", "Gir", "Girly Pop", "Gizmo", "Glameow", "Godzilla", "Gofrette", "Gold Foil Experiment", "Gold Ship", "Golden Miller", "Goldencents", "Golden Sixty",
-    "Goldsmith Maid", "Gonzo", "Good Magic", "Good Sir", "Goomy", "Go Man Go", "Goryo", "Grass Wonder", "Grizabella", "Grizzly", "Growlithe", "Grunkle Stan", 
-    "Gumi", "Guzma", "Haiseiko", "Halcyon", "Hale-Bopp", "Hamburglar", "Hantu", "Hanzo", "Haru Urara", "Hastings", "Hatshepsut", "Hatsune Miku", "Hawkeye", "Heat Capacity",
-    "Heart's Cry", "Heathcliff", "Hehe", "Heisenberg",  "Heli", "Helios", "Hercules", "Hershey", "Herta", "Hlao", "Hobohime", "Hocus Pocus", "Honda", "Horlicks", "Hot Sauce",
-    "Hulk", "Hurricane Fly", "Husker", "Hyperion", "Ice Cube", "Ice Spice", "Igor", "Ikea", "Illari", "I'll Have Another", "Invasor", "Io", "Ion", "Ionic", "Ionic Compound",
-    "Ipsy", "Iron Man", "Isinglass", "Isonomy", "Itsmyluckyday", "Itsy Bitsy", "Jake Gyllenpaws", "Jattelik", "Jattematt", "Jeep Wrangler", 
-    "Jelly Jam", "Jellylorum", "Jennyanydots", "Jethro", "Jetta", "Jiminy Cricket", "Jirachi", "John Henry", "Johnstown", "Jolly Rancher", "Joob", "Journalism",
-    "Jungle Pocket", "Junkrat", "Juno", "Jupiter", "Just A Way", "Kagamine Len", "Kagamine Rin", "Karkinos", "Katniss", "Kelloggs", "Kepler", "Kerberos", 
-    "Kermit", "Kid Cat", "Kingston", "Kion", "Kipling", "Kirara", "Kirby", "Kitsune", 
-    "Kismet", "Kitty Cat", "Kitty Softpaws", "Klee", "Klondike", "Knorrig", "Knox", "Kodiak", "Kokichi", "Kong", "Kovu", "Kramig", "L", "Labubu", "La Troienne",
-    "Lady Aria", "Lady Arion", "Lady Centavo", "Lady Figment", "Lady Liberty", "Laranjito", "Lawn Mower", "Lazarus", "Lemon Boy", "Lextington", "Liberty Island",
-    "Li Shang", "Libra", "Lil Baby", "Lilleplutt", "Limiting Reactant", "Listens to the Wind", "Litten", "Little Baby", "Little Caesar", "Little Foot", "Little Ghost",
-    "Little Guy", "Little Lady", "Little Man", "Little My", "Little Nicky",  "Little One", "Livlig", "Lobo", "Lodesh", "Loki", "Lonesome Glory",
-    "Longfellow", "Looks to the Moon", "Looks to the Sky", "Loona", "Lord Kanaloa", "Lottery", "Lookin At Lucky", "Luchasaurus", "Luci-Purr", "Lucifur", "Lugnut",
-    "Lumine", "Luxio", "Macavity", "Madoka", "Magikarp", "Mahubah", "Makybe Diva", "Malathaat", "Man o' War", "Manhattan Cafe", "Malleus", "Man With All The Answers",
-    "Mareep", "Mariposa", "Markiplier", "Mars", "Maruzensky", "Master Charlie", "Matikanefukukitaru", "Matikanetannhauser", "Mauga", "Maxilla", "Maximum Security", "Mayano Top Gun", "Mazu", "McChicken", 
-    "McFlurry", "McLovin", "Meadow of Two Worlds", "Meatlug", "Medusa", "Meeka", "Megabyte", "Meisho Doto", "Meisho Samson", "Mejiro McQueen", "Mejiro Ramonu", "Melona", "Memories Lost", "Meow-Meow", "Meowth", "Meowyman",
-    "Meowzart", "Mercedes", "Mercury", "Midnight Goddess", "Might and Power", "Milky Way", "Milord", "Milque", "Mimas", "Mimikyu", "Mimzy", "Miss Marple", "Miss Piggy", "Missile Launcher",
-    "Mitochondria", "Mitski", "Mitsubishi", "Mitzy Moo Moo", "Mizar", "Moana", "Mobius", "Moifaa", "Molly Murder Mittens", "Moomin", "Mora", "Morb", "Morbius", "Mordred",
-    "Morpeko", "Morphius", "Morrhar", "Mowgli", "Mr. C.B.", "Mr. Anderson", "Mr. Kitty Whiskers", "Mr. Kitty", "Mr. Midnight", "Mr. Mistoffolees", "Mr. Mustard", 
-    "Mr. Oreo", "Mr. President", "Mr. Princess", "Mr. Prospector", "Mr. Sir", "Mr. Whiskers", "Mr. Wigglebottom", "Mudkip", "Mufasa", "Muffet", "Muffy", "Mungojerrie", 
-    "Munkustrap", "Mystere", "Mystik Dan", "Nakeena", "Nandor", "Neapolitan", "Nefarious Lettuce", "Nefertiti", "Neo", "Nephrite", "Neptune", "Neuron", "Neuroscientist", "Neutron", "Neytiri", 
-    "Nezuko", "Nibblenephim", "Nibbles", "Nibbly", "Nidorina", "Nightcat", "Nimbus", "Ninetales", "Ninja", "Nintendo DS", "Nintendo Switch", "Nintendo", 
-    "Nirav", "Nirvana", "Nissan", "Nitro", "Noodlefly", "Nook", "Nottingham", "Nova", "Nucleus", "Nuka", "Nuka Cola", "Nymph", "Nyx", "O'Leary", 
-    "Oapie", "Oberon", "Obi Wan", "Octet Rule", "October", "Old Deuteronomy", "Old Man Sam", "Oopsie Daisy", "Orbital", "Orion", "Orisa", "Oshawott", 
-    "Osiris", "Pachirisu", "Paeroa", "Paimon", "Pallas", "Papyrus", "Para", "Parhelion", "Pawmi", "Peanut Butter", "Peanut Wigglebutt", "Peeta", "Pekhult", "Pepsi",
-    "Periodic Table", "Periodic Trend", "Perrserker", "Peter Pan", "Peter Parker", "Petrova Line", "Pharah", "Phasmo", "Photon", "Pichu", "Pikachu", "Pina Colada",
-    "Ping Pong", "Pinkie Pie", "Pinkie", "Pipkin", "Pippin", "Pisces", "Pistol Star", "Pizza Place", "Plato", "Playstation", "Plentiful Leaves", 
-    "Plot Twist", "Pluto", "Pokey", "Poki", "Pokotho", "Polaris", "Polaroid", "Polka", "Polyatomic", "Polyatomic Ion", "Pompompurin", "Ponyboy", "Pork Belly",
-    "Porsche", "Pot Roast", "Pouncival", "President Blanket", "Primm Slim", "Pringle", "Private Eye", "Procyon", "Proton", "Pumbaa", "Purdy", "Purri", "Pusheen", 
-    "Quantum Mechanics", "Quarter Pounder", "Quartermaster", "Quasar", "Qubo", "Queso Ruby", "Quicky", "Rafiki", "Ramattra", "Rambley", "Rapunzel", 
-    "Ratau", "Ratoo", "Razzle", "Reeses Puff", "Ribosome", "Rick Astley", "Rigel", "Righteous Bread Pudding", "Ringo Starr", "Riolu", "Rizz", "Rizzo", "Rolo", 
-    "Roomba", "Rorschach", "Rubber Duck", "Ruffnut", "Rum Tum Tugger", "Rumpleteazer", "Ryland", "Sage Marro", "Sagittarius", "Sagwa", "Salem", "Sampo", "Samus", "Sans",
-    "Sarabi", "Sarek", "Saturn", "Scooby", "Scrooge", "Scrungle", "Sebek", "Sega", "Sekhmet", "Selkie", "Selkirk", "Seraph", "Seven Of Nine", "Shamash", "Shamwow", "Shenzi",
-    "Sherb", "Shinx", "Shrek", "Shrimp Fried Rice", "Sillabub", "Silvally", "Sim", "Simba", "Siri", "Sirius", "Six Grains of Gravel", "Skimbleshanks", "Skittles", 
-    "Skitty", "Skrunkly", "Skyrim", "Slinky", "Slurpuff", "Slushie", "Smarty Pants", "Snaggles", "Snapshot", "Snek", "Snom", "Snook", "Snoots", "Snotlout",
-    "Snow White", "Snufkin", "Snuttig", "Soap Bubbles", "Soccer Ball", "Sock", "Soda Pop", "Sofanthiel", "Soos", "Spock", "Sprigatito", "Spriggan", "Springtrap", "Statler", "Stargazer", "Stegosaurus", "Stink Mink",
-    "Stinkbutt", "Stratt", "Styx", "Subaru", "Sucrose", "Sugar Plum", "Sungrazer", "Sunny Meadow", "Swansea", "Sweet Caroline", "Sweet Creature", "Sweet Leon", 
-    "Sweet Marmalade", "Sylveon", "Synth", "T-rex", "Tabbytha", "Taco Bell", "Taillow", "Tamagotchi", "Tantomile", "Tardis", "Tater Tot", "Taurus", "Techno",
-    "Terabyte", "Tesla", "Tetris", "Tetromino", "The Doctor", "The Garlic Lord", "The Narrator", "Thermodynamics", "Theta", "Thor", "Thuban", "Thumbelina",  
-    "Tigger", "Tighnari", "Tim Tam", "Times New Roman", "Timid Ninja", "Timon", "Tingyun", "Tin Man", "Tinky", "Titania", "Tnoy Karaxis", "Toastee", "Todd Howard", "Tomato Soup", 
-    "Tonka", "Toothless", "Top Hat", "Toph", "Torchic", "Toriel", "Toro", "Torque", "Totoro", "Toxel", "Toyota", "Tribble", "Tribbie", "Triceratops", "Trilobite", "Triscuit", "Triton",
-    "Troubador", "Trouble Nuggets", "Troublemaker", "Tuffnut", "Tumblebrutus", "Twilight Zone", "Twinkle Lights", "Twix", "Two Sprouts", "Ulysses", "Umbreon", "Umbriel", 
-    "Uncle Butter", "Undyne", "Ursala", "Valence Electron", "Valentine", "Van Pelt", "Vaxx", "Vega", "Velociraptor", "Venti", "Venus", "Victini",
-    "Virgo", "Void Walker", "Void Worm", "Volkswagen", "Voltage", "Vox", "Vulpes", "Vulpix", "Waldorf", "Warren Peace", "Watches the Path", "Webby", "Wednesday", "Whiz Kid", 
-    "Wiggity Wacks", "Wigglebutt", "Wiggog Yrath", "Wikipedia", "Wobbledog", "Wonderwall", "Wysteria", "X'ek", "Xelle", "Xhosa", "Yeet", "Yeeted", "Yes Man", "Yippee", "Yoonmin", "Yooted", 
-    "Yoshi", "Yote", "Zekrom", "Zelda", "Zenyatta", "Zeraora", "Zim", "Zoomie", "Zorua", "Zuko", "Zygomatic"
+  "silly_names": ["Anomalocaris", "Aether", "Anubis", "Aries", "Atlas", "Bacchus", "Bagheera", "Baihu", "Baloo", "Baphomet", "Bastet", "Beanie Baby",
+    "Beanie", "Beatle", "Bellatrix", "Belphegor", "Betelgeuse", "Bic", "Bidoof", "Binx", "Birb", "Biscuits B. Bakin", "Black Caviar", "Black Widow",
+    "Blahaj", "Blinky Stubbins", "Blinky", "Booker", "Brandywine", "Bugbear", "Bullwinkle", "Burm", "Burning Skies", "Calliope", "Callisto", "Candi",
+    "Celebi", "Centauri", "Cerberus", "Ceres", "Chansey", "Chocolate Pudding", "Cirrus", "Cleopatra", "Clicker", "Cocoa Puff", "Desert Orchid", "Dust Bunny",
+    "Eevee", "Efforia", "Espeon", "Espurr", "Froggy", "Gemini", "Gilkin", "Loki", "Helios", "Lumine", "Saturn", "Skitty", "Snow White", "Snufkin", "Sock",
+    "Sprigatito", "Styx", "Sugar Plum", "Swansea", "Sylveon", "Synth", "Tabbytha", "Taillow", "Tamagotchi", "Tater Tot", "Taurus", "Thor", "Thumbelina", "Tigger",
+    "Tighnari", "Tonka", "Toph", "Toro", "Totoro", "Toxel", "Triceratops", "Trilobite", "Triscuit", "Triton", "Twix", "Umbreon", "Ursala", "Valentine", "Venti", "Venus",
+    "Victini", "Virgo", "Vulpix", "Wysteria"
   ],
 
   "human_names": ["Abby", "Abigail", "Abuko", "Adaliz", "Adam", "Agatha", "Agnes", "Aidan", "Aiden", "Ajax", "Akechi", "Akila", "Akilah", "Alaska", "Alastair", 
@@ -773,22 +699,22 @@
     "Honeydew", "Honeysuckle", "Hop", "Hopper", "Horizon", "Hotdog", "House", "Howdy", "Howler", "Huckleberry", "Human", "Hunter", "Huohuo", "Hydra", "Ice", "Icecube", "Icee", "Iguana", "Indigo", "Insect", 
     "Inspector", "Jackal", "Jade", "Jaguar", "Jalebi", "Jambo", "Jasmine", "Jay", "Jelly", "Jellybean", "Jester", "Jet", "Jewel", "Jewels", "Jigsaw", "Jinx", "Jitters", 
     "Joker",  "Jolly", "Joy", "Justify", "Kabuki", "Kale", "Karma", "Katjie", "Katsuragi Ace", "Kauto Star", "Keen Ice", "Kelso", "Ketchup", "Ketsl", "Kettlingur",
-    "Keyboard", "Kibble", "Kielbasa", "Kindergarten", "Kimchi", "King", "King Argentin", "King Halo", "Kingston", "Kingston Town", "King Kamehameha", "Kinscem", "Kitasan Black", "Kitty", "Kiwi", 
+    "Keyboard", "Kibble", "Kielbasa", "Kimchi", "King", "Kitty", "Kiwi",
     "Koala", "Koi", "Kokum", "Kombucha", "Kudu", "Kuromi", "Laburnum", "Lady", "Ladybug", "Laksha", "Lapis", "Larch", "Larimar", "Lark", "Latte", "Lavender", 
     "Lazuli", "Leche", "Lemon", "Leviathan", "Lilac", "Lily", "Linden", "Linguine", "Linzer", "Linzhi", "Loaf", "Lobster", "Lollipop", "Lovebug", "Loyalty", 
-    "Lucky", "Lunchbox", "Lupo", "Lychee", "Lyric", "Macaroon", "Magic", "Maize", "Majesty", "Malachite", "Maleficent", "Mama", "Mamba", "Mange", "Mango", 
+    "Lucky", "Lychee", "Lyric", "Macaroon", "Magic", "Maize", "Majesty", "Malachite", "Maleficent", "Mama", "Mamba", "Mange", "Mango",
     "Mangosteen", "Maomao", "Marathon", "Marble", "Mare", "Marimba", "Marshmallow", "Martini", "Marula", "Matador", "Matcha", "Maverick", "Meatloaf", "Melody", 
-    "Melon", "Mercy", "Merengue", "Merlot", "Merry", "Metal", "Metalloid", "Mew", "Miau", "Microwave", "Milkshake", "Minion", "Mint", "Minty", "Miso", "Misty", 
+    "Melon", "Mercy", "Merengue", "Merlot", "Merry", "Metal", "Metalloid", "Mew", "Miau", "Milkshake", "Minion", "Mint", "Minty", "Miso", "Misty",
     "Mitaine", "Mittens", "Mocha", "Mochi", "Mojito", "Monster", "Moo", "Moon", "Mooncake", "Mop", "Morel", "Mosaic", "Moxie", "Mozzarella", "Mudskipper",
     "Mullido", "Murder", "Mushroom", "Mustard", "Mystic", "Napkin", "Nebula", "Neobiani", "Nightjar", "Nightmare", "Nine", "Noche", "Noir", "Noodle", "Nugget", "Nuggets", 
     "Nutella", "Nutmeg", "Obsidian", "Ocelot", "Octet", "Oleander", "Omelet", "Omen", "Onion", "Onyx", "Oops", "Opal", "Orchard", "Oregano", "Oreo", "Oryx", "Orzo", 
     "Oscypek", "Outlaw", "Outsider", "Ox", "Padparadscha", "Paella", "Paloma", "Pancake", "Pancho", "Panda", "Pandora", "Pango", "Pangur", "Panini", "Panko", 
     "Paprika", "Pasta", "Patches", "Patience", "Pavlova", "Peach", "Peanut", "Pear", "Pearl", "Pecan", "Peony", "Pepita", "Pepper", "Pepperjack", "Pequeno", 
     "Perdito", "Peregrine", "Peridot", "Periwinkle", "Pesto", "Phantom", "Pichi", "Pickles", "Pierogi", "Piggy", "Pigment", "Pillow", "Pineapple", "Ping", "Piper", 
-    "Pipsqueak", "Pixel", "Pixie", "Pizza", "Plague", "Plumeria", "Pochito", "Pocket", "Poem", "Pong", "Porkchop", "Potato", "President", "Prickle", "Pride", 
+    "Pipsqueak", "Pixel", "Pixie", "Pizza", "Plague", "Plumeria", "Pochito", "Pocket", "Poem", "Pong", "Porkchop", "Potato", "Prickle", "Pride",
     "Prill", "Princess", "Pudding", "Puddles", "Pumpernickel", "Pumpkin", "Punchy", "Punk", "Purry", "Puzzle", "Quagmire", "Quake", "Quartz", "Queen", 
     "Querida", "Quesadilla", "Queso", "Quest", "Radar", "Ramble", "Ramen", "Ranger", "Raptor", "Rarity", "Rat", "Rattle", "Raven", "Ravioli", "Ray", 
-    "Reaper", "Rebel", "Reese", "Refridgerator", "Rhubarb", "Rice", "Ricotta", "Riddle", "Rigatoni", "Riot", "River", "Rivulet", "Rocket", "Rodeo", "Rooster", 
+    "Reaper", "Rebel", "Reese", "Rhubarb", "Rice", "Ricotta", "Riddle", "Rigatoni", "Riot", "River", "Rivulet", "Rocket", "Rodeo", "Rooster",
     "Rose", "Rosewood", "Rowan", "Ruby", "Rum", "Runt", "Rusty", "Sable", "Safari", "Saffron", "Sailor", "Saint", "Saki", "Sakura", "Salmon", "Salsa", "Salt", 
     "Salvage", "Sambusa", "Sandwich", "Sangria", "Sapphire", "Sarge", "Sashimi", "Sassy", "Sausage", "Savannah", "Savvy", "Scampi", "Scarecrow", "Scavenger", 
     "Scholar", "Scotch", "Scout", "Scribble", "Serenity", "Serval", "Seven", "Shaggy", "Shampoo", "Sherbet", "Shimmer", "Shiver", "Shortbread", "Shrimp", "Silly", "Silver", "Siren",  
@@ -807,7 +733,7 @@
 	"animal_suffixes": [
 		"badger", "bat", "bear", "bee", "beetle", "bird", "bug", "cricket", "deer", "eagle", "elk", "falcon", "fawn", "fish", "fox", "goose", "hare", "hawk", "horse", 
     "jay", "kestrel", "kite", "lamb", "leopard", "lion", "minnow", "moth", "mouse", "newt", "ram", "raven", "roach", "scorpion", "sheep", "snake", "spider", 
-    "squid", "swan", "thrush", "tiger", "turtle"
+    "squid", "swan", "thrush", "tiger", "turtle", "sable", "stoat", "mink", "lizard"
 	],
 
 	"animal_prefixes": [
@@ -823,7 +749,7 @@
     "Roach", "Robin", "Sable", "Salamander", "Salmon", "Sardine", "Scorpion", "Seabass", "Seagull", "Serpent", "Shark", "Sheep", "Shrew", "Shrike", "Skink", "Skunk",
     "Slug", "Snail", "Snake", "Sparrow", "Spider", "Spoonbill", "Squid", "Squirrel", "Stag", "Starling", "Stoat", "Stork", "Swallow", "Swan", "Tadpole", "Taipan", 
     "Tarantula", "Tiger", "Toad", "Trout", "Turtle", "Tui", "Viper", "Vixen", "Vole", "Vulture", "Warbler", "Wasp", "Weasel", "Weevil", "Whale", "Wolf", "Wolverine", "Worm", 
-    "Wren"
+    "Wren", "Vontsira", "Fossa"
 	],
   
 	"inappropriate_names": [
