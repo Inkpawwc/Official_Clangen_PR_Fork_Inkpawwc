@@ -185,6 +185,10 @@
     "Bleak", "Rain", "Storm", "Soot", "Pebble", "Mist", "Misty", "Heather", "Trout", "Shrike", "Plume", "Teasel", "Wolf", "Raccoon",
     "Lyre", "Rat", "Gull", "Pigeon", "Rime", "Thunder", "Shale", "Pebble", "Bluebell", "Flint", "Gravel", "Birch", "Badger"
     ],
+    "LAVENDER": [
+    "Gray", "Gray", "Shade", "Raven", "Crow", "Stone", "Cinder", "Ash", "Ashen", "Twilight", "Smoke", "Smokey", "Rain", "Storm", "Pebble", "Mist",
+    "Misty", "Wisp", "Thunder", "Shale", "Murk", "Dusk", "Wolf","Skulk", "Bluebell", "Lavender", "Mouse", "Crocus", "Pigeon", "Lilac"
+    ],
     "DARKGREY": [
     "Gray", "Gray", "Shade", "Raven", "Crow", "Stone", "Dark", "Dark", "Night", "Cinder", "Ash", "Ashen", "Twilight", "Panther", "Bat",
     "Smoke", "Smokey", "Shadow", "Bleak", "Rain", "Storm", "Pebble", "Mist", "Misty", "Warbler", "Wisp", "Thunder", "Shale", "Murk", "Charcoal",
@@ -290,6 +294,10 @@
     "GREY": [
 	"cloud", "storm", "pool", "lake", "pebble", "rock", "stone", "boulder", "minnow", "smoke", "dust", "cinder", "badger", "raccoon"
     ],
+    "LAVENDER": [
+    "storm", "ash", "shade", "pebble", "rock", "stone", "boulder", "smoke", "cinder", "raven", "crow", "dusk", "raccoon", "pool",
+    "lake", "minnow", "dust", "frost", "stream", "mist", "cloud", "frost", "gale", "freeze", "mist"
+      ],
     "DARKGREY": [
 	"storm", "ash", "shade", "pebble", "rock", "stone", "boulder", "smoke", "bat", "cinder", "night", "raven", "crow", "burn", 
 	"shadow", "dusk", "badger", "raccoon"
