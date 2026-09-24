@@ -28,22 +28,22 @@
   },
   "possible_tints": {
     "basic": ["pink", "gray", "red", "orange", "warmdilute", "tawny"],
-    "white": ["yellow", "pinkdilute", "earthydilute", "lilacdilute", "densecocoa", "patina"],
-    "lightgrey": ["purple", "black", "dilute", "night", "gloaming", "lilacdilute", "densecocoa"],
-    "darkgrey": ["blue", "black", "dilute", "cooldilute", "gloaming", "quartz", "lilacdilute", "densecocoa", "patina"],
+    "white": ["yellow", "pinkdilute", "earthydilute", "lilacdilute", "densecocoa", "densedust", "denseamber", "patina"],
+    "lightgrey": ["purple", "black", "dilute", "night", "gloaming", "lilacdilute", "densecocoa", "densedust"],
+    "darkgrey": ["blue", "black", "dilute", "cooldilute", "gloaming", "quartz", "lilacdilute", "densecocoa", "densedust", "denseamber", "patina"],
     "ghost": ["blue", "black", "dilute", "cooldilute", "night", "densecocoa"],
     "black": ["blue", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "patina"],
-    "blossom": ["yellow", "dilute", "cooldilute", "lilacdilute", "densecocoa"],
-    "cream": ["yellow", "dilute", "cooldilute", "pinkdilute", "lilacdilute"],
-    "lightginger": ["yellow", "purple", "dilute", "cooldilute", "pinkdilute", "earthydilute", "quartz", "lilacdilute"],
-    "golden": ["yellow", "purple", "dilute", "cooldilute", "pinkdilute", "quartz", "lilacdilute", "densecocoa"],
-    "darkginger": ["yellow", "purple", "dilute", "cooldilute", "pinkdilute", "patina"],
-    "sienna": ["yellow", "purple", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "night", "gloaming", "quartz", "lilacdilute"],
-    "lightbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "gloaming", "quartz", "lilacdilute", "denseamber", "densedust"],
-    "lilac": ["yellow", "purple", "black", "dilute", "cooldilute", "earthydilute", "gloaming", "quartz"],
+    "blossom": ["yellow", "dilute", "cooldilute", "lilacdilute", "densecocoa", "denseamber"],
+    "cream": ["yellow", "dilute", "cooldilute", "pinkdilute", "lilacdilute", "denseamber"],
+    "lightginger": ["yellow", "purple", "dilute", "cooldilute", "pinkdilute", "earthydilute", "quartz", "lilacdilute", "densedust", "denseamber"],
+    "golden": ["yellow", "purple", "dilute", "cooldilute", "pinkdilute", "quartz", "lilacdilute", "densecocoa", "densedust", "denseamber"],
+    "darkginger": ["yellow", "purple", "dilute", "cooldilute", "pinkdilute", "densedust", "patina"],
+    "sienna": ["yellow", "purple", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "night", "gloaming", "quartz", "lilacdilute", "densedust"],
+    "lightbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "gloaming", "quartz", "lilacdilute", "densedust","denseamber"],
+    "lilac": ["yellow", "purple", "black", "dilute", "cooldilute", "earthydilute", "gloaming", "quartz", "densedust", "denseamber"],
     "mallow": ["yellow", "purple", "black", "dilute", "cooldilute", "earthydilute", "gloaming", "quartz", "lilacdilute", "patina"],
-    "brown": ["yellow", "purple", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "gloaming", "quartz", "lilacdilute", "patina"],
-    "darkbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "gloaming", "quartz", "densecocoa"],
+    "brown": ["yellow", "purple", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "gloaming", "quartz", "lilacdilute", "densedust", "denseamber", "patina"],
+    "darkbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "gloaming", "quartz", "densecocoa", "densedust", "denseamber"],
     "chocolate": ["yellow", "purple", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "gloaming", "quartz"],
     "rust": ["yellow", "purple", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "gloaming", "quartz", "night"]
   },
@@ -77,7 +77,7 @@
   "remove_tone_tint_colours":
   {
     "densecocoa": [7, 28, 38],
-    "densedust": [95, 111, 94],
-    "denseamber": [78, 102, 104]
+    "densedust": [38, 41, 25],
+    "denseamber": [23, 33, 38]
   }
 }
