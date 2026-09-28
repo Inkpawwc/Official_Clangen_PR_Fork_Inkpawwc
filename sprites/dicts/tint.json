@@ -29,10 +29,10 @@
   "possible_tints": {
     "basic": ["pink", "gray", "red", "orange", "warmdilute", "pinkdilute", "tawny"],
     "white": ["yellow",  "earthydilute", "lilacdilute", "densecocoa", "densedust", "denseamber", "patina"],
-    "lightgrey": ["purple", "black", "dilute", "night", "gloaming", "lilacdilute", "densecocoa", "densedust"],
+    "lightgrey": ["purple", "black", "dilute", "lilacdilute", "densecocoa"],
     "darkgrey": ["blue", "black", "dilute", "cooldilute", "gloaming", "quartz", "lilacdilute", "densecocoa", "densedust", "denseamber", "patina"],
     "ghost": ["blue", "black", "dilute", "cooldilute", "night", "densecocoa"],
-    "black": ["blue", "black", "dilute", "cooldilute",  "earthydilute", "patina"],
+    "black": ["blue", "black", "dilute", "cooldilute", "patina"],
     "blossom": ["yellow", "dilute", "cooldilute", "lilacdilute", "densecocoa", "denseamber"],
     "cream": ["yellow", "dilute", "cooldilute",  "lilacdilute", "denseamber"],
     "lightginger": ["yellow", "purple", "dilute", "cooldilute",  "earthydilute", "quartz", "lilacdilute", "densedust", "denseamber"],
@@ -78,6 +78,7 @@
   {
     "densecocoa": [7, 28, 38],
     "densedust": [38, 41, 25],
-    "denseamber": [23, 33, 38]
+    "denseamber": [23, 33, 38],
+    "none": null
   }
 }
