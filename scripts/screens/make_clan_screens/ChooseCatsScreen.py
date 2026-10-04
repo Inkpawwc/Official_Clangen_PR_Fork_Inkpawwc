@@ -969,4 +969,4 @@ class ChooseCatsScreen(MakeClanScreenBase):
             if self.clan_info.leader != cat
             else cat.name.get_specsuffix_name(CatRank.LEADER)
         )
-        return f"<b>{name}</b><br>{cat.genderalign_string}<br>{i18n.t('general.' + cat.age, count=1)}<br>{i18n.t('cat.personality.' + cat.personality.trait)}<br>{cat.skills.skill_string(short=True)}"
+        return f"<b>{name}</b><br>{cat.genderalign_string}<br>{i18n.t('general.' + cat.age, count=1)}<br>{i18n.t('cat.personality.' + cat.personality.trait)}<br>{cat.skills.skill_string(short=True)}<br>{cat.pelt.colour}<br>{cat.pelt.tint}<br>{cat.pelt.white_patches_tint}"

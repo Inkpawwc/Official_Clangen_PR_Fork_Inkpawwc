@@ -11,12 +11,8 @@
         "BLUE_aurora": "aurora",
         "BLUE_sea": "sea blue",
         "BLUE_bluebell": "bluebell",
-        "BLUE_periwinkle": "periwinkle",
         "BLUE_lavender": "lavender",
-        "BLUE_glacierblue": "glacier blue",
         "BLUE_labradorite": "labradorite",
-        "BLUE_lake": "lake blue",
-        "BLUE_winter": "winter blue",
         "BLUE_viola": "viola",
         "BLUE_storm": "stormy gray",
 
@@ -62,9 +58,14 @@
         "RED_coralberry": "coralberry pink",
         "RED_boysenberry": "boysenberry red",
         "RED_cinnabar": "cinnabar",
-        "RED_petalpink": "petal pink",
-        "RED_rose": "rose pink",
-        "RED_amaranth": "amaranth",
-        "RED_sunset": "sunset pink"
+        "RED_sunset": "sunset pink",
+
+        "ALBINISM_periwinkle": "periwinkle",
+        "ALBINISM_glacierblue": "glacier blue",
+        "ALBINISM_lake": "lake blue",
+        "ALBINISM_winter": "winter blue",
+        "ALBINISM_petalpink": "petal pink",
+        "ALBINISM_rose": "rose pink",
+        "ALBINISM_amaranth": "amaranth"
     }
 }

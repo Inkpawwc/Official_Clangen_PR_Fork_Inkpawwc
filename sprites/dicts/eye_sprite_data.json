@@ -15,12 +15,8 @@
                 "aurora",
                 "sea",
                 "bluebell",
-                "periwinkle",
                 "lavender",
-                "glacierblue",
                 "labradorite",
-                "lake",
-                "winter",
                 "viola",
                 "storm"
             ]
@@ -75,10 +71,18 @@
                 "coralberry",
                 "boysenberry",
                 "cinnabar",
+                "sunset"
+            ]
+        },
+        {
+            "ALBINISM": [
+                "periwinkle",
+                "glacierblue",
+                "lake",
+                "winter",
                 "petalpink",
                 "rose",
-                "amaranth",
-                "sunset"
+                "amaranth"
             ]
         }
     ]

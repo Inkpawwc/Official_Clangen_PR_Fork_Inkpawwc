@@ -140,10 +140,12 @@ class Pelt:
 
     # EYES
     all_eye_colours: list = []
+    all_eye_colours_white: list = []
     yellow_eyes: list = []
     red_eyes: list = []
     green_eyes: list = []
     blue_eyes: list = []
+    albinism_eyes: list = []
     if sprites.EYE_DATA["palette_map"]:
         for colour_type in sprites.EYE_DATA["colour_data"]:
             for colour, colour_list in colour_type.items():
@@ -156,7 +158,11 @@ class Pelt:
                         blue_eyes.append(f"{colour}_{c}")
                     elif colour == "RED":
                         red_eyes.append(f"{colour}_{c}")
-                    all_eye_colours.append(f"{colour}_{c}")
+                    elif colour == "ALBINISM":
+                        albinism_eyes.append(f"{colour}_{c}")
+                    if colour != "ALBINISM":
+                        all_eye_colours.append(f"{colour}_{c}")
+                    all_eye_colours_white.append(f"{colour}_{c}")
 
     else:
         for sprite_list in sprites.EYE_DATA["sprite_list"]:
@@ -594,11 +600,24 @@ class Pelt:
         :return: None
         """
         if not parents:
-            self.eye_colour = choice(Pelt.all_eye_colours)
+            if self.colour == "WHITE":
+                self.eye_colour = choice(Pelt.all_eye_colours_white)
+            elif self.white_patches == "FULLWHITE":
+                self.eye_colour = choice(Pelt.albinism_eyes)
+            else:
+                self.eye_colour = choice(Pelt.all_eye_colours)
+
         else:
-            self.eye_colour = choice(
-                [i.pelt.eye_colour for i in parents] + [choice(Pelt.all_eye_colours)]
+            if self.colour == "WHITE":
+                self.eye_colour = choice(
+                [i.pelt.eye_colour for i in parents] + [choice(Pelt.all_eye_colours_white)]
             )
+            elif self.white_patches == "FULLWHITE":
+                self.eye_colour = choice(Pelt.albinism_eyes)
+            else:
+                self.eye_colour = choice(
+                    [i.pelt.eye_colour for i in parents] + [choice(Pelt.all_eye_colours)]
+                )
 
         # White patches must be initialized before eye color.
         num = constants.CONFIG["cat_generation"]["base_heterochromia"]
@@ -609,6 +628,7 @@ class Pelt:
             or self.colour == "WHITE"
         ):
             num = num - 90
+
         if self.white_patches == "FULLWHITE" or self.colour == "WHITE":
             num -= 10
         for _par in parents:
@@ -619,16 +639,22 @@ class Pelt:
             num = 1
 
         if not random.randint(0, num):
-            colour_wheel = [Pelt.yellow_eyes, Pelt.blue_eyes, Pelt.green_eyes, Pelt.red_eyes]
-            for colour in colour_wheel[:]:
-                if self.eye_colour in colour:
-                    colour_wheel.remove(
-                        colour
-                    )  # removes the selected list from the options
-                    self.eye_colour2 = choice(
-                        choice(colour_wheel)
-                    )  # choose from the remaining two lists
-                    break
+            if self.colour == "WHITE":
+                colour_wheel = [Pelt.yellow_eyes, Pelt.blue_eyes, Pelt.green_eyes, Pelt.red_eyes, Pelt.albinism_eyes]
+            elif self.white_patches == "FULLWHITE":
+                colour_wheel = [Pelt.albinism_eyes]
+            else:
+                colour_wheel = [Pelt.yellow_eyes, Pelt.blue_eyes, Pelt.green_eyes, Pelt.red_eyes]
+            for colour in colour_wheel:
+                for c in colour:
+                    if self.eye_colour in c:
+                        colour.remove(
+                            c
+                        )  # removes the selected list from the options
+                        self.eye_colour2 = choice(
+                            choice(colour_wheel)
+                        )  # choose from the remaining two lists
+                        break
 
     def pattern_color_inheritance(self, parents: tuple = (), gender="female"):
         # setting parent pelt categories
@@ -1262,7 +1288,7 @@ class Pelt:
             self.tint = None
 
         # WHITE PATCHES TINT
-        if self.white_patches or self.points:
+        if self.white_patches and self.white_patches != "FULLWHITE" or self.points:
             # Now for white patches
             base_tints = sprites.white_patches_tints["possible_tints"]["basic"]
             if self.colour in sprites.cat_tints["colour_groups"]:
@@ -1277,6 +1303,9 @@ class Pelt:
                 self.white_patches_tint = choice(base_tints + color_tints)
             else:
                 self.white_patches_tint = None
+        elif self.white_patches and self.white_patches == "FULLWHITE":
+            fullwhite_tints = sprites.white_patches_tints["possible_tints"]["fullwhite"]
+            self.white_patches_tint = choice(fullwhite_tints)
         else:
             self.white_patches_tint = None
 

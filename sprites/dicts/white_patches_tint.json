@@ -26,6 +26,7 @@
   },
   "possible_tints": {
     "basic": ["offwhite", "offwhite", "dark"],
+    "fullwhite": ["offwhite", "cream", "offwhite", "cream", "pink"],
     "black": ["gray", "darkcream", "cream"],
     "gray": ["gray", "dark"],
     "ginger": ["darkcream", "cream", "pink", "dark"],
