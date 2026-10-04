@@ -9,7 +9,7 @@
     "GHOST": "ghost",
     "BLACK": "black",
     "DAWN": "cream",
-    "BLOSSOM": "cream",
+    "BLOSSOM": "blossom",
     "CREAM": "cream",
     "PALEGINGER": "lightginger",
     "HONEY": "golden",
@@ -19,30 +19,33 @@
     "SIENNA": "sienna",
     "LIGHTBROWN": "lightbrown",
     "LILAC": "lilac",
-    "MALLOW": "brown",
+    "MALLOW": "mallow",
     "BROWN": "brown",
     "GOLDEN-BROWN": "brown",
     "DARKBROWN": "darkbrown",
-    "CHOCOLATE": "darkbrown",
+    "CHOCOLATE": "chocolate",
     "RUST": "rust"
   },
   "possible_tints": {
-    "basic": ["pink", "gray", "red", "orange", "warmdilute", "tawny", "densecocoa", "purpledilute"],
-    "white": ["yellow", "earthydilute", "lilacdilute", "patina", "rosedilute"],
-    "lightgrey": ["purple", "black", "dilute", "night", "gloaming", "lilacdilute", "densecocoa", "rose", "inksunglow", "inklavender", "hazydilute", "rosedilute"],
-    "darkgrey": ["blue", "black", "dilute", "cooldilute", "gloaming", "quartz", "lilacdilute", "densecocoa", "patina", "rose", "inksunglow", "inklavender", "hazydilute", "rosedilute"],
-    "ghost": ["blue", "black", "dilute", "cooldilute", "night", "densecocoa", "rose", "inklavender", "pinkdilute", "rosedilute"],
-    "black": ["blue", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "patina", "night", "gloaming", "quartz", "rose", "inklavender", "hazydilute", "rosedilute"],
-    "cream": ["yellow", "dilute", "cooldilute", "lilacdilute", "inklavender", "pinkdilute", "rosedilute"],
-    "lightginger": ["yellow", "purple", "dilute", "cooldilute", "earthydilute", "quartz", "lilacdilute",  "rose", "inklavender", "inksunglow", "pinkdilute", "rosedilute"],
-    "golden": ["yellow", "purple", "dilute", "cooldilute", "quartz", "lilacdilute", "densecocoa",  "rose", "inklavender", "inksunglow", "pinkdilute", "rosedilute"],
-    "darkginger": ["yellow", "purple", "dilute", "cooldilute", "patina", "rose", "inklavender", "inksunglow", "pinkdilute", "rosedilute"],
-    "sienna": ["yellow", "purple", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "night", "gloaming", "quartz", "lilacdilute",  "rose", "inklavender", "inksunglow", "hazydilute", "rosedilute"],
-    "lightbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "gloaming", "quartz", "lilacdilute", "denseamber", "densedust", "inklavender", "inksunglow", "hazydilute", "rosedilute"],
+    "basic": ["pink", "gray", "red", "orange", "warmdilute", "pinkdilute", "tawny", "densecocoa", "purpledilute"],
+    "white": ["yellow", "earthydilute", "lilacdilute", "densecocoa", "densedust", "denseamber", "patina", "rosedilute", "densebark", "densesaffron"],
+    "lightgrey": ["purple", "black", "dilute", "lilacdilute", "densecocoa", "rose", "inksunglow", "inklavender", "hazydilute", "rosedilute", "densebark", "densesaffron"],
+    "darkgrey": ["blue", "black", "dilute", "cooldilute", "gloaming", "quartz", "lilacdilute", "densecocoa", "densedust", "denseamber", "patina", "rose", "inksunglow", "inklavender", "hazydilute", "rosedilute"],
+    "ghost": ["blue", "black", "dilute", "cooldilute", "night", "densecocoa", "rose", "inklavender", "pixiedilute", "rosedilute"],
+    "black": ["blue", "black", "dilute", "cooldilute", "patina", "quartz", "rose", "inklavender", "hazydilute", "rosedilute"],
+    "blossom": ["yellow", "dilute", "cooldilute", "lilacdilute", "densecocoa", "denseamber", "densebark", "densesaffron"],
+    "cream": ["yellow", "dilute", "cooldilute", "lilacdilute", "denseamber", "inklavender", "pixiedilute", "rosedilute", "densebark", "densesaffron"],
+    "lightginger": ["yellow", "purple", "dilute", "cooldilute", "earthydilute", "quartz", "lilacdilute",  "densedust", "denseamber", "densebark", "densesaffron"],
+    "golden": ["yellow", "purple", "dilute", "cooldilute", "quartz", "lilacdilute", "densecocoa", "densedust", "denseamber", "rose", "inklavender", "inksunglow", "pixiedilute", "rosedilute", "densebark", "densesaffron"],
+    "darkginger": ["yellow", "purple", "dilute", "cooldilute", "densedust", "patina", "rose", "inklavender", "inksunglow", "pixiedilute", "rosedilute"],
+    "sienna": ["yellow", "purple", "black", "dilute", "cooldilute", "earthydilute", "night", "gloaming", "quartz", "lilacdilute", "densedust", "pixiedilute", "rose", "inklavender", "inksunglow", "hazydilute", "rosedilute"],
+    "lightbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "gloaming", "quartz", "lilacdilute", "denseamber", "densedust", "denseamber", "inklavender", "inksunglow", "hazydilute", "rosedilute"],
     "lilac": ["yellow", "purple", "black", "dilute", "cooldilute", "earthydilute", "gloaming", "quartz", "inklavender", "inksunglow"],
-    "brown": ["yellow", "purple", "black", "dilute", "cooldilute", "earthydilute", "gloaming", "quartz", "lilacdilute", "patina", "rose", "inklavender", "inksunglow", "hazydilute", "rosedilute"],
+    "mallow": ["yellow", "purple", "black", "dilute", "cooldilute", "earthydilute", "gloaming", "quartz", "lilacdilute", "patina"],
+    "brown": ["yellow", "purple", "black", "dilute", "cooldilute", "earthydilute", "gloaming", "quartz", "lilacdilute", "densedust", "denseamber", "patina", "rose", "inklavender", "inksunglow", "hazydilute", "rosedilute"],
     "darkbrown": ["yellow", "purple", "black", "dilute", "cooldilute", "earthydilute", "gloaming", "quartz", "hazydilute", "rosedilute"],
-    "rust": ["yellow", "purple", "black", "dilute", "cooldilute", "pinkdilute", "earthydilute", "gloaming", "quartz", "night", "rose", "rosedilute"]
+    "chocolate": ["yellow", "purple", "black", "dilute", "cooldilute",  "earthydilute", "gloaming", "quartz"],
+    "rust": ["yellow", "purple", "black", "dilute", "cooldilute", "earthydilute", "gloaming", "quartz", "night", "rose", "rosedilute"]
   },
   "tint_colours":
   {
@@ -69,9 +72,10 @@
     "dilute": [20, 20, 20],
     "warmdilute": [25, 15, 7],
     "cooldilute": [7, 15, 25],
+    "pinkdilute": [30, 8, 6],
     "purpledilute": [28, 16, 27],
     "hazydilute": [211, 202, 219],
-    "pinkdilute": [80, 50, 45],
+    "pixiedilute": [80, 50, 45],
     "earthydilute": [44, 33, 11],
     "lilacdilute": [31, 25, 36],
     "rosedilute": [70, 22, 23],
@@ -80,7 +84,10 @@
   "remove_tone_tint_colours":
   {
     "densecocoa": [7, 28, 38],
-    "densedust": [95, 111, 94],
-    "denseamber": [78, 102, 104]
+    "densedust": [38, 41, 25],
+    "denseamber": [23, 33, 38],
+    "densebark": [95, 111, 94],
+    "densesaffron": [78, 102, 104],
+    "none": null
   }
 }
