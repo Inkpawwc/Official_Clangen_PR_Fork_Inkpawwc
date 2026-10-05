@@ -79,6 +79,16 @@ class Sprites:
         SKIN_DATA = ujson.loads(read_file.read())
 
     with open(
+        "sprites/dicts/ear_right_skin_sprite_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        EAR_RIGHT_SKIN_DATA = ujson.loads(read_file.read())
+
+    with open(
+        "sprites/dicts/ear_left_skin_sprite_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        EAR_LEFT_SKIN_DATA = ujson.loads(read_file.read())
+
+    with open(
         "sprites/dicts/tortie_patches_sprite_data.json", "r", encoding="utf-8"
     ) as read_file:
         TORTIE_DATA = ujson.loads(read_file.read())
@@ -93,9 +103,25 @@ class Sprites:
         TORTIE_PATCH_COMBOS = {}
 
     with open(
+        "sprites/dicts/ear_right_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        EAR_RIGHT_PELT_MASK_DATA = ujson.loads(read_file.read())
+
+    with open(
+        "sprites/dicts/ear_left_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        EAR_LEFT_PELT_MASK_DATA = ujson.loads(read_file.read())
+
+    with open(
+        "sprites/dicts/tail_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        TAIL_PELT_MASK_DATA = ujson.loads(read_file.read())
+
+    with open(
         "sprites/dicts/pelt_parts_masks_data.json", "r", encoding="utf-8"
     ) as read_file:
         PELT_MASK_DATA = ujson.loads(read_file.read())
+
 
     with open("sprites/dicts/eye_sprite_data.json", "r", encoding="utf-8") as read_file:
         EYE_DATA = ujson.loads(read_file.read())
@@ -313,6 +339,9 @@ class Sprites:
         data_jsons = (
             self.EYE_DATA,
             self.PELT_MASK_DATA,
+            self.EAR_RIGHT_PELT_MASK_DATA,
+            self.EAR_LEFT_PELT_MASK_DATA,
+            self.TAIL_PELT_MASK_DATA,
             self.WHITE_MOSTLY_DATA,
             self.WHITE_HIGH_DATA,
             self.WHITE_MID_DATA,
@@ -339,7 +368,7 @@ class Sprites:
             "fadedarkforest",
             "fadeunknownresidence",
             "symbols",
-            "heterochromiamask",
+            "heterochromiamask"
         ]
 
         # separate from data_json list bc we need to handle it differently later

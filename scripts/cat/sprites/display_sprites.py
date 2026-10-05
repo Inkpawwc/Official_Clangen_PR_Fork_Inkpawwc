@@ -108,6 +108,15 @@ def generate_sprite(
 #  generate_sprites() Helper Functions
 # ------------------------------------------------------------------------------------------------------
 
+def no_ears(cat):
+    if "NOEAR" in cat.pelt.scars:
+        return True
+
+    elif "NORIGHTEAR" and "NOLEFTEAR" in cat.pelt.scars:
+        return True
+
+    else:
+        return False
 
 def _draw_sprite(
     cat, cat_sprite: int, scars_hidden: bool, dead: bool, acc_hidden: bool
@@ -293,9 +302,58 @@ def _draw_sprite(
             special_flags=pygame.BLEND_RGB_MULT,
         )
         new_sprite.blit(sprites.sprites["shader_lighting" + cat_sprite], (0, 0))
-
+        if not no_ears(cat):
+            new_sprite.blit(sprites.sprites["ear_right_shader_lighting" + cat_sprite], (0, 0))
+            new_sprite.blit(sprites.sprites["ear_left_shader_lighting" + cat_sprite], (0, 0))
+            new_sprite.blit(
+                sprites.sprites["ear_left_shader_mask" + cat_sprite],
+                (0, 0),
+                special_flags=pygame.BLEND_RGB_MULT,
+            )
+            new_sprite.blit(
+                sprites.sprites["ear_right_shader_mask" + cat_sprite],
+                (0, 0),
+                special_flags=pygame.BLEND_RGB_MULT,
+            )
+        elif "NORIGHTEAR" in cat.pelt.scars:
+            new_sprite.blit(sprites.sprites["ear_left_shader_lighting" + cat_sprite], (0, 0))
+            new_sprite.blit(
+                sprites.sprites["ear_left_shader_mask" + cat_sprite],
+                (0, 0),
+                special_flags=pygame.BLEND_RGB_MULT,
+            )
+        elif "NOLEFTEAR" in cat.pelt.scars:
+            new_sprite.blit(sprites.sprites["ear_right_shader_lighting" + cat_sprite], (0, 0))
+            new_sprite.blit(
+                sprites.sprites["ear_right_shader_mask" + cat_sprite],
+                (0, 0),
+                special_flags=pygame.BLEND_RGB_MULT,
+            )
+        if "NOTAIL" not in cat.pelt.scars:
+            new_sprite.blit(sprites.sprites["tail_shader_lighting" + cat_sprite], (0, 0))
+            new_sprite.blit(
+                sprites.sprites["tail_shader_mask" + cat_sprite],
+                (0, 0),
+                special_flags=pygame.BLEND_RGB_MULT,
+            )
     if not dead:
         new_sprite.blit(sprites.sprites["lineart" + cat_sprite], (0, 0))
+        if not no_ears(cat):
+            new_sprite.blit(sprites.sprites["ear_right_lineart" + cat_sprite], (0, 0))
+            new_sprite.blit(sprites.sprites["ear_left_lineart" + cat_sprite], (0, 0))
+        elif "NORIGHTEAR" in cat.pelt.scars:
+            new_sprite.blit(sprites.sprites["lineart_norightear" + cat_sprite], (0, 0))
+            new_sprite.blit(sprites.sprites["ear_left_lineart" + cat_sprite], (0, 0))
+        elif "NOLEFTEAR" in cat.pelt.scars:
+            new_sprite.blit(sprites.sprites["lineart_lefttear" + cat_sprite], (0, 0))
+            new_sprite.blit(sprites.sprites["ear_right_lineart" + cat_sprite], (0, 0))
+        elif "NOEAR" in cat.pelt.scars:
+            new_sprite.blit(sprites.sprites["lineart_norightear" + cat_sprite], (0, 0))
+            new_sprite.blit(sprites.sprites["lineart_noleftear" + cat_sprite], (0, 0))
+        if "NOTAIL" not in cat.pelt.scars:
+            new_sprite.blit(sprites.sprites["tail_lineart" + cat_sprite], (0, 0))
+        elif "NOTAIL" in cat.pelt.scars:
+            new_sprite.blit(sprites.sprites["lineart_notail" + cat_sprite], (0, 0))
     elif cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
         new_sprite.blit(sprites.sprites["lineart_ur" + cat_sprite], (0, 0))
     elif cat.status.group == CatGroup.DARK_FOREST:
@@ -309,6 +367,29 @@ def _draw_sprite(
         sprites.sprites[sprite_name],
         (0, 0),
     )
+    if not no_ears(cat):
+        sprite_name = f"{sprites.EAR_LEFT_SKIN_DATA['spritesheet']}{cat.pelt.skin}{cat_sprite}"
+        new_sprite.blit(
+            sprites.sprites[sprite_name],
+            (0, 0),
+        )
+        sprite_name = f"{sprites.EAR_RIGHT_SKIN_DATA['spritesheet']}{cat.pelt.skin}{cat_sprite}"
+        new_sprite.blit(
+            sprites.sprites[sprite_name],
+            (0, 0),
+        )
+    if "NORIGHTEAR" in cat.pelt.scars:
+        sprite_name = f"{sprites.EAR_LEFT_SKIN_DATA['spritesheet']}{cat.pelt.skin}{cat_sprite}"
+        new_sprite.blit(
+            sprites.sprites[sprite_name],
+            (0, 0),
+        )
+    if "NOLEFTEAR" in cat.pelt.scars:
+        sprite_name = f"{sprites.EAR_RIGHT_SKIN_DATA['spritesheet']}{cat.pelt.skin}{cat_sprite}"
+        new_sprite.blit(
+            sprites.sprites[sprite_name],
+            (0, 0),
+        )
 
     if not scars_hidden:
         for scar in cat.pelt.scars:
@@ -516,6 +597,16 @@ def _build_layers(
     layer_info = layer_dict.get(current_layer)
     return _build_single_layer(cat, layer_info, colour, sprite)
 
+def add_recolored_layer(target_surface: pygame.Surface, sprite_mask: pygame.Surface, color_rgb):
+    # Create the solid color fill surface
+    color_surf = pygame.Surface((sprites.size, sprites.size), pygame.HWSURFACE | pygame.SRCALPHA)
+    color_surf.fill(color_rgb)
+
+    # Multiply the color by the sprite mask alpha/shape
+    color_surf.blit(sprite_mask, special_flags=pygame.BLEND_RGBA_MULT)
+
+    # Blit (add) the recolored piece onto the target surface
+    target_surface.blit(color_surf, (0, 0))
 
 def _build_single_layer(
     cat, layer_info, colour: str, sprite: int
@@ -540,18 +631,36 @@ def _build_single_layer(
     groupName = _find_cat_pelt_value(layer_info.get("group_name"), cat)
     recolour = _find_cat_pelt_value(layer_info.get("color"), cat)
     spritesheet = layer_info.get("spritesheet", "pelt_parts_masks")
+    ear_right_spritesheet = layer_info.get("spritesheet", "ear_right_pelt_parts_masks")
+    ear_left_spritesheet = layer_info.get("spritesheet", "ear_left_pelt_parts_masks")
+    tail_spritesheet = layer_info.get("spritesheet", "tail_pelt_parts_masks")
 
     temp = sprites.sprites[f"{spritesheet}{groupName}{sprite}"]
+    temp_er = sprites.sprites[f"{ear_right_spritesheet}{groupName}{sprite}"]
+    temp_el = sprites.sprites[f"{ear_left_spritesheet}{groupName}{sprite}"]
+    temp_t = sprites.sprites[f"{tail_spritesheet}{groupName}{sprite}"]
 
     palette_dict = sprites.PELT_COLOR_PALETTES[colour]
     if recolour:
         new_colour = palette_dict[recolour]
-        recolour_surface = layer_surface = pygame.Surface(
-            (sprites.size, sprites.size), pygame.HWSURFACE | pygame.SRCALPHA
-        )
-        recolour_surface.fill(new_colour)
-        recolour_surface.blit(temp, special_flags=pygame.BLEND_RGBA_MULT)
-        temp = recolour_surface
+
+        combined = pygame.Surface((sprites.size, sprites.size), pygame.HWACCEL | pygame.SRCALPHA)
+        add_recolored_layer(combined, temp, new_colour)
+
+        if "NOEAR" and "NORIGHTEAR" and "NOLEFTEAR" not in cat.pelt.scars:
+            add_recolored_layer(combined, temp_er, new_colour)
+            add_recolored_layer(combined, temp_el, new_colour)
+
+        elif "NORIGHTEAR" in cat.pelt.scars:
+            add_recolored_layer(combined, temp_el, new_colour)
+
+        elif "NOLEFTEAR" in cat.pelt.scars:
+            add_recolored_layer(combined, temp_er, new_colour)
+
+        if "NOTAIL" not in cat.pelt.scars:
+            add_recolored_layer(combined, temp_t, new_colour)
+
+        temp = combined
 
     return temp, layer_info.get("blend_mode"), layer_info.get("opacity", 100)
 
