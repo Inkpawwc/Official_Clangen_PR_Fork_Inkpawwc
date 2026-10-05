@@ -645,7 +645,7 @@ def _build_single_layer(
         combined = pygame.Surface((sprites.size, sprites.size), pygame.HWACCEL | pygame.SRCALPHA)
         color_part(combined, temp, new_colour)
 
-        if "NOEAR" and "NORIGHTEAR" and "NOLEFTEAR" not in cat.pelt.scars:
+        if not no_ears(cat):
             color_part(combined, temp_er, new_colour)
             color_part(combined, temp_el, new_colour)
 
