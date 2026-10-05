@@ -350,6 +350,8 @@ class Sprites:
             self.WHITE_POINT_DATA,
             self.TORTIE_DATA,
             self.SKIN_DATA,
+            self.EAR_LEFT_SKIN_DATA,
+            self.EAR_RIGHT_SKIN_DATA,
             self.SCAR_DATA,
             self.PLANT_DATA,
             self.WILD_DATA,

@@ -597,16 +597,14 @@ def _build_layers(
     layer_info = layer_dict.get(current_layer)
     return _build_single_layer(cat, layer_info, colour, sprite)
 
-def add_recolored_layer(target_surface: pygame.Surface, sprite_mask: pygame.Surface, color_rgb):
-    # Create the solid color fill surface
-    color_surf = pygame.Surface((sprites.size, sprites.size), pygame.HWSURFACE | pygame.SRCALPHA)
-    color_surf.fill(color_rgb)
+def color_part(target_surface: pygame.Surface, sprite_mask: pygame.Surface, color_rgb):
+    pelt_part = pygame.Surface((sprites.size, sprites.size), pygame.HWSURFACE | pygame.SRCALPHA)
+    pelt_part.fill(color_rgb)
 
-    # Multiply the color by the sprite mask alpha/shape
-    color_surf.blit(sprite_mask, special_flags=pygame.BLEND_RGBA_MULT)
+    # mask
+    pelt_part.blit(sprite_mask, special_flags=pygame.BLEND_RGBA_MULT)
 
-    # Blit (add) the recolored piece onto the target surface
-    target_surface.blit(color_surf, (0, 0))
+    target_surface.blit(pelt_part, (0, 0))
 
 def _build_single_layer(
     cat, layer_info, colour: str, sprite: int
@@ -645,20 +643,20 @@ def _build_single_layer(
         new_colour = palette_dict[recolour]
 
         combined = pygame.Surface((sprites.size, sprites.size), pygame.HWACCEL | pygame.SRCALPHA)
-        add_recolored_layer(combined, temp, new_colour)
+        color_part(combined, temp, new_colour)
 
         if "NOEAR" and "NORIGHTEAR" and "NOLEFTEAR" not in cat.pelt.scars:
-            add_recolored_layer(combined, temp_er, new_colour)
-            add_recolored_layer(combined, temp_el, new_colour)
+            color_part(combined, temp_er, new_colour)
+            color_part(combined, temp_el, new_colour)
 
         elif "NORIGHTEAR" in cat.pelt.scars:
-            add_recolored_layer(combined, temp_el, new_colour)
+            color_part(combined, temp_el, new_colour)
 
         elif "NOLEFTEAR" in cat.pelt.scars:
-            add_recolored_layer(combined, temp_er, new_colour)
+            color_part(combined, temp_er, new_colour)
 
         if "NOTAIL" not in cat.pelt.scars:
-            add_recolored_layer(combined, temp_t, new_colour)
+            color_part(combined, temp_t, new_colour)
 
         temp = combined
 
