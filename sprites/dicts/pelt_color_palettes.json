@@ -393,6 +393,10 @@
         "pattern_fill": "#c39a82",
         "masked_light_pattern": "#F9EFE5",
 
+        "base_singlecolour_black": "#21243D",
+        "base_gradient_bottom_singlecolour_black": "#2A2D47",
+        "base_gradient_top_singlecolour_black": "#1C1E33",
+
         "newborn_base": "#BEB0A4",
         "newborn_base_gradient_bottom": "#DDD3BF",
         "newborn_base_gradient_top": "#CDC7BC",

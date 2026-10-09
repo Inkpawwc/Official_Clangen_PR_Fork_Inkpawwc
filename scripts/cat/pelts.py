@@ -182,6 +182,45 @@ class Pelt:
     for sprite_list in sprites.SKIN_DATA["sprite_list"]:
         skin_sprites.extend(sprite_list)
 
+    # TAIL
+    all_tail_sprites: list = []
+    no_tail_sprites: list = []
+    short_tail_sprites: list = []
+    mid_tail_sprites: list = []
+    long_tail_sprites: list = []
+    for sprite_list in sprites.TAIL_DATA["sprite_list"]:
+        for tail in sprite_list:
+            all_tail_sprites.extend(tail)
+            if "NONE" in tail:
+                no_tail_sprites.append(tail)
+            elif "SHORT" in tail:
+                short_tail_sprites.append(tail)
+            elif "MID" in tail:
+                mid_tail_sprites.append(tail)
+            elif "LONG" in tail:
+                long_tail_sprites.append(tail)
+
+        # EARS
+        all_ear_sprites: list = []
+        no_ear_sprites: list = []
+        small_ear_sprites: list = []
+        medium_ear_sprites: list = []
+        big_ear_sprites: list = []
+        special_ear_sprites: list = []
+        for sprite in sprites.EARS_LEFT_SPRITE_DATA["sprite_list"]:
+            for ear in sprite:
+                all_ear_sprites.extend(ear)
+                if "NONE" in ear:
+                    no_ear_sprites.append(ear)
+                elif "SMALL" in ear:
+                    small_ear_sprites.append(ear)
+                elif "MEDIUM" in ear:
+                    medium_ear_sprites.append(ear)
+                elif "BIG" in ear:
+                    big_ear_sprites.append(ear)
+                elif "SPECIAL" in ear:
+                    special_ear_sprites.append(ear)
+
     # SCARS
     # bite scars by @wood pank on discord
     all_scars = []
@@ -261,6 +300,8 @@ class Pelt:
         name: str = "SingleColour",
         length: str = "short",
         body: str = "stout",
+        tail: str = "MID_average",
+        ears: str = "MEDIUM_average",
         colour: str = "WHITE",
         white_patches: str = None,
         eye_colour: str = "RED_orange",
@@ -288,6 +329,8 @@ class Pelt:
     ) -> None:
         self.name = name
         self.body = body
+        self.tail = tail
+        self.ears = ears
         self.colour = colour
         self.white_patches = white_patches
         self.eye_colour = eye_colour
@@ -495,6 +538,8 @@ class Pelt:
         pelt_white = new_pelt.init_pattern_color(parents, gender)
         new_pelt.init_white_patches(pelt_white, parents)
         new_pelt.init_sprite()
+        new_pelt.tail_type_inheritance(parents)
+        new_pelt.ear_type_inheritance(parents)
         new_pelt.init_scars(age)
         new_pelt.init_accessories(age)
         new_pelt.init_eyes(parents)
@@ -640,9 +685,9 @@ class Pelt:
 
         if not random.randint(0, num):
             if self.colour == "WHITE":
-                colour_wheel = [Pelt.yellow_eyes, Pelt.blue_eyes, Pelt.green_eyes, Pelt.red_eyes, Pelt.albinism_eyes]
+                colour_wheel = [Pelt.yellow_eyes, Pelt.blue_eyes, Pelt.blue_eyes, Pelt.green_eyes, Pelt.red_eyes, Pelt.red_eyes, Pelt.albinism_eyes]
             elif self.white_patches == "FULLWHITE":
-                colour_wheel = [Pelt.albinism_eyes]
+                colour_wheel = [Pelt.albinism_eyes, Pelt.albinism_eyes]
             else:
                 colour_wheel = [Pelt.yellow_eyes, Pelt.blue_eyes, Pelt.green_eyes, Pelt.red_eyes]
             for colour in colour_wheel:
@@ -650,10 +695,10 @@ class Pelt:
                     if self.eye_colour in c:
                         colour.remove(
                             c
-                        )  # removes the selected list from the options
+                        )  # removes the selected color from the list
                         self.eye_colour2 = choice(
                             choice(colour_wheel)
-                        )  # choose from the remaining two lists
+                        )  # choose from the remaining colors
                         break
 
     def pattern_color_inheritance(self, parents: tuple = (), gender="female"):
@@ -1093,6 +1138,150 @@ class Pelt:
             self.tortie_pattern = None
             self.tortie_colour = None
             self.tortie_marking = None
+
+    def tail_type_inheritance(self, parents: tuple):
+        if not parents:
+            self.randomize_tail()
+            return
+        else:
+            # collecting parent tails
+            # We are using a set, since we don't need this to be ordered, and sets deal with removing duplicates.
+            par_tails = set()
+            for t in parents:
+                if t:
+                    # Gather pelt color.
+                    par_tails.add(t.pelt.tail)
+            # ------------------------------------------------------------------------------------------------------------#
+            #   PELT
+            # ------------------------------------------------------------------------------------------------------------#
+
+            # Determine tail.
+            weights = [
+                0,
+                0,
+                0,
+                0,
+            ]  # Weights for each tail group. It goes: (no tail, short, medium, long)
+            for t_ in par_tails:
+                if t_ in Pelt.no_tail_sprites:
+                    add_weight = (10, 15, 35, 5)
+                elif t_ in Pelt.short_tail_sprites:
+                    add_weight = (1, 40, 15, 5)
+                elif t_ in Pelt.mid_tail_sprites:
+                    add_weight = (0.5, 15, 35, 15)
+                elif t_ in Pelt.long_tail_sprites:
+                    add_weight = (0.5, 5, 20, 45)
+                elif (
+                        t_ is None
+                ):  # If there is at least one unknown parent, a None will be added to the set.
+                    add_weight = (3, 20, 30, 15)
+                else:
+                    add_weight = (0, 0, 0, 0)
+
+                for x in range(0, len(weights)):
+                    weights[x] += add_weight[x]
+
+            # A quick check to make sure all the weights aren't 0
+            if all([x == 0 for x in weights]):
+                weights = [1, 1, 1, 1]
+
+            # Now, choose the pelt category and pelt
+            possible_tails = [
+                Pelt.all_tail_sprites[x] for x in Pelt.all_tail_sprites
+            ]
+            chosen_tail = choice(random.choices(possible_tails, weights=weights, k=1)[0])
+
+            # SET THE PELT
+            self.tail = chosen_tail
+
+    def randomize_tail(self):
+        weights = (1, 15, 50, 15)
+        tail_list = [
+            Pelt.no_tail_sprites,
+            Pelt.short_tail_sprites,
+            Pelt.mid_tail_sprites,
+            Pelt.long_tail_sprites
+        ]
+
+        chosen_tail = choice(random.choices(tail_list, weights=weights, k=1)[0])
+
+
+        self.tail = chosen_tail
+
+
+    def ear_type_inheritance(self, parents: tuple):
+        if not parents:
+            self.randomize_ears()
+            return
+        else:
+            # collecting parent ears
+            # We are using a set, since we don't need this to be ordered, and sets deal with removing duplicates.
+            par_ears = set()
+            for t in parents:
+                if t:
+                    # Gather pelt color.
+                    par_ears.add(t.pelt.ear)
+            # ------------------------------------------------------------------------------------------------------------#
+            #   PELT
+            # ------------------------------------------------------------------------------------------------------------#
+
+            # Determine ear.
+            weights = [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]  # Weights for each ear group. It goes: (no ears, small, medium, big, special)
+            for e_ in par_ears:
+                if e_ in Pelt.no_ear_sprites:
+                    add_weight = (25, 15, 5, 5, 15)
+                elif e_ in Pelt.small_ear_sprites:
+                    add_weight = (0.5, 40, 15, 5, 0.5)
+                elif e_ in Pelt.medium_ear_sprites:
+                    add_weight = (0.5, 15, 35, 15, 0.5)
+                elif e_ in Pelt.big_ear_sprites:
+                    add_weight = (0.5, 5, 20, 45, 0.5)
+                elif e_ in Pelt.special_ear_sprites:
+                    add_weight = (5, 15, 20, 15, 35)
+                elif (
+                        e_ is None
+                ):  # If there is at least one unknown parent, a None will be added to the set.
+                    add_weight = (3, 20, 30, 15, 10)
+                else:
+                    add_weight = (0, 0, 0, 0, 0)
+
+                for x in range(0, len(weights)):
+                    weights[x] += add_weight[x]
+
+            # A quick check to make sure all the weights aren't 0
+            if all([x == 0 for x in weights]):
+                weights = [1, 1, 1, 1, 1]
+
+            # Now, choose the pelt category and pelt
+            possible_ears = [
+                Pelt.all_ear_sprites[x] for x in Pelt.all_ear_sprites
+            ]
+            chosen_ears = choice(random.choices(possible_ears, weights=weights, k=1)[0])
+
+            # SET THE PELT
+            self.ears = chosen_ears
+
+    def randomize_ears(self):
+        weights = (0.5, 25, 50, 25, 2)
+        ear_list = [
+            Pelt.no_ear_sprites,
+            Pelt.small_ear_sprites,
+            Pelt.medium_ear_sprites,
+            Pelt.big_ear_sprites,
+            Pelt.special_ear_sprites,
+        ]
+
+        chosen_ears = choice(random.choices(ear_list, weights=weights, k=1)[0])
+
+
+        self.ears = chosen_ears
+
 
     def white_patches_inheritance(self, parents: tuple):
         par_whitepatches = set()

@@ -1,0 +1,14 @@
+{
+    "spritesheet": "ear_spritesheets/ear_right_lineart",
+    "sprite_list": [
+        [
+            "NONE",
+            "MEDIUM_average",
+            "SMALL_tiny",
+            "BIG_bat",
+            "SPECIAL_folded",
+            "SPECIAL_curled"
+        ]
+
+    ]
+}

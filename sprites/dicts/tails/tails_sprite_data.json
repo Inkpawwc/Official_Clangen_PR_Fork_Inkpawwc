@@ -1,0 +1,12 @@
+{
+    "spritesheet": "tail_spritesheets/tails_lineart",
+    "sprite_list": [
+        [
+            "NONE",
+            "MID_average",
+            "SHORT_bobfluff",
+            "LONG_rattail"
+        ]
+
+    ]
+}

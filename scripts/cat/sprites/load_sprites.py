@@ -79,12 +79,32 @@ class Sprites:
         SKIN_DATA = ujson.loads(read_file.read())
 
     with open(
-        "sprites/dicts/ear_right_skin_sprite_data.json", "r", encoding="utf-8"
+        "sprites/dicts/ears/ears_right_sprite_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        EARS_RIGHT_SPRITE_DATA = ujson.loads(read_file.read())
+
+    with open(
+        "sprites/dicts/ears/ears_left_sprite_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        EARS_LEFT_SPRITE_DATA = ujson.loads(read_file.read())
+
+    with open(
+        "sprites/dicts/ears/MEDIUM_average_ear_right_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        MEDIUM_AVERAGE_EAR_RIGHT_PELT_MASK_DATA = ujson.loads(read_file.read())
+
+    with open(
+        "sprites/dicts/ears/MEDIUM_average_ear_left_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        MEDIUM_AVERAGE_EAR_LEFT_PELT_MASK_DATA = ujson.loads(read_file.read())
+
+    with open(
+        "sprites/dicts/ears/ear_right_skin_sprite_data.json", "r", encoding="utf-8"
     ) as read_file:
         EAR_RIGHT_SKIN_DATA = ujson.loads(read_file.read())
 
     with open(
-        "sprites/dicts/ear_left_skin_sprite_data.json", "r", encoding="utf-8"
+        "sprites/dicts/ears/ear_left_skin_sprite_data.json", "r", encoding="utf-8"
     ) as read_file:
         EAR_LEFT_SKIN_DATA = ujson.loads(read_file.read())
 
@@ -103,19 +123,19 @@ class Sprites:
         TORTIE_PATCH_COMBOS = {}
 
     with open(
-        "sprites/dicts/ear_right_pelt_parts_masks_data.json", "r", encoding="utf-8"
+        "sprites/dicts/tails/tails_sprite_data.json", "r", encoding="utf-8"
     ) as read_file:
-        EAR_RIGHT_PELT_MASK_DATA = ujson.loads(read_file.read())
+        TAIL_DATA = ujson.loads(read_file.read())
 
     with open(
-        "sprites/dicts/ear_left_pelt_parts_masks_data.json", "r", encoding="utf-8"
+        "sprites/dicts/tails/MID_average_tail_pelt_parts_masks_data.json", "r", encoding="utf-8"
     ) as read_file:
-        EAR_LEFT_PELT_MASK_DATA = ujson.loads(read_file.read())
+        MID_AVERAGE_TAIL_PELT_MASK_DATA = ujson.loads(read_file.read())
 
     with open(
-        "sprites/dicts/tail_pelt_parts_masks_data.json", "r", encoding="utf-8"
+        "sprites/dicts/tails/SHORT_bobfluff_tail_pelt_parts_masks_data.json", "r", encoding="utf-8"
     ) as read_file:
-        TAIL_PELT_MASK_DATA = ujson.loads(read_file.read())
+        SHORT_BOBFLUFF_TAIL_PELT_MASK_DATA = ujson.loads(read_file.read())
 
     with open(
         "sprites/dicts/pelt_parts_masks_data.json", "r", encoding="utf-8"
@@ -338,10 +358,14 @@ class Sprites:
 
         data_jsons = (
             self.EYE_DATA,
+            self.TAIL_DATA,
+            self.EARS_LEFT_SPRITE_DATA,
+            self.EARS_RIGHT_SPRITE_DATA,
             self.PELT_MASK_DATA,
-            self.EAR_RIGHT_PELT_MASK_DATA,
-            self.EAR_LEFT_PELT_MASK_DATA,
-            self.TAIL_PELT_MASK_DATA,
+            self.MEDIUM_AVERAGE_EAR_RIGHT_PELT_MASK_DATA,
+            self.MEDIUM_AVERAGE_EAR_LEFT_PELT_MASK_DATA,
+            self.MID_AVERAGE_TAIL_PELT_MASK_DATA,
+            self.SHORT_BOBFLUFF_TAIL_PELT_MASK_DATA,
             self.WHITE_MOSTLY_DATA,
             self.WHITE_HIGH_DATA,
             self.WHITE_MID_DATA,
