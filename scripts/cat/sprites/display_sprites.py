@@ -634,12 +634,11 @@ def _build_single_layer(
     ear_left_spritesheet = layer_info.get("spritesheet", f"ear_spritesheets/{cat.pelt.ears}_ear_left_pelt_parts_masks")
     tail_spritesheet = layer_info.get("spritesheet", f"tail_spritesheets/{cat.pelt.tail}_tail_pelt_parts_masks")
 
-
     temp = sprites.sprites[f"{spritesheet}{groupName}{sprite}"]
     temp_er = sprites.sprites[f"{ear_right_spritesheet}{groupName}{sprite}"]
     temp_el = sprites.sprites[f"{ear_left_spritesheet}{groupName}{sprite}"]
     temp_t = sprites.sprites[f"{tail_spritesheet}{groupName}{sprite}"]
-    print(temp_er)
+
 
     palette_dict = sprites.PELT_COLOR_PALETTES[colour]
     full_sprite = pygame.Surface((sprites.size, sprites.size), pygame.HWACCEL | pygame.SRCALPHA)

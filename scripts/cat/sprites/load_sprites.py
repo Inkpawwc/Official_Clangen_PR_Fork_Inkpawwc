@@ -99,6 +99,46 @@ class Sprites:
         MEDIUM_AVERAGE_EAR_LEFT_PELT_MASK_DATA = ujson.loads(read_file.read())
 
     with open(
+        "sprites/dicts/ears/SMALL_tiny_ear_right_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        SMALL_TINY_EAR_RIGHT_PELT_MASK_DATA = ujson.loads(read_file.read())
+
+    with open(
+        "sprites/dicts/ears/SMALL_tiny_ear_left_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        SMALL_TINY_EAR_LEFT_PELT_MASK_DATA = ujson.loads(read_file.read())
+
+    with open(
+        "sprites/dicts/ears/BIG_bat_ear_right_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        BIG_BAT_EAR_RIGHT_PELT_MASK_DATA = ujson.loads(read_file.read())
+
+    with open(
+        "sprites/dicts/ears/BIG_bat_ear_left_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        BIG_BAT_EAR_LEFT_PELT_MASK_DATA = ujson.loads(read_file.read())
+
+    with open(
+        "sprites/dicts/ears/SPECIAL_curled_ear_right_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        SPECIAL_CURLED_EAR_RIGHT_PELT_MASK_DATA = ujson.loads(read_file.read())
+
+    with open(
+        "sprites/dicts/ears/SPECIAL_curled_ear_left_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        SPECIAL_CURLED_EAR_LEFT_PELT_MASK_DATA = ujson.loads(read_file.read())
+
+    with open(
+        "sprites/dicts/ears/SPECIAL_folded_ear_right_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        SPECIAL_FOLDED_EAR_RIGHT_PELT_MASK_DATA = ujson.loads(read_file.read())
+
+    with open(
+        "sprites/dicts/ears/SPECIAL_folded_ear_left_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+       SPECIAL_FOLDED_EAR_LEFT_PELT_MASK_DATA = ujson.loads(read_file.read())
+
+    with open(
         "sprites/dicts/ears/ear_right_skin_sprite_data.json", "r", encoding="utf-8"
     ) as read_file:
         EAR_RIGHT_SKIN_DATA = ujson.loads(read_file.read())
@@ -136,6 +176,16 @@ class Sprites:
         "sprites/dicts/tails/SHORT_bobfluff_tail_pelt_parts_masks_data.json", "r", encoding="utf-8"
     ) as read_file:
         SHORT_BOBFLUFF_TAIL_PELT_MASK_DATA = ujson.loads(read_file.read())
+
+    with open(
+        "sprites/dicts/tails/LONG_rattail_tail_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        LONG_RATTAIL_TAIL_PELT_MASK_DATA = ujson.loads(read_file.read())
+
+    with open(
+        "sprites/dicts/tails/NONE_tail_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        NONE_TAIL_PELT_MASK_DATA = ujson.loads(read_file.read())
 
     with open(
         "sprites/dicts/pelt_parts_masks_data.json", "r", encoding="utf-8"
@@ -364,8 +414,18 @@ class Sprites:
             self.PELT_MASK_DATA,
             self.MEDIUM_AVERAGE_EAR_RIGHT_PELT_MASK_DATA,
             self.MEDIUM_AVERAGE_EAR_LEFT_PELT_MASK_DATA,
+            self.SMALL_TINY_EAR_RIGHT_PELT_MASK_DATA,
+            self.SMALL_TINY_EAR_LEFT_PELT_MASK_DATA,
+            self.BIG_BAT_EAR_LEFT_PELT_MASK_DATA,
+            self.BIG_BAT_EAR_RIGHT_PELT_MASK_DATA,
+            self.SPECIAL_CURLED_EAR_LEFT_PELT_MASK_DATA,
+            self.SPECIAL_CURLED_EAR_RIGHT_PELT_MASK_DATA,
+            self.SPECIAL_FOLDED_EAR_LEFT_PELT_MASK_DATA,
+            self.SPECIAL_FOLDED_EAR_RIGHT_PELT_MASK_DATA,
             self.MID_AVERAGE_TAIL_PELT_MASK_DATA,
             self.SHORT_BOBFLUFF_TAIL_PELT_MASK_DATA,
+            self.LONG_RATTAIL_TAIL_PELT_MASK_DATA,
+            self.NONE_TAIL_PELT_MASK_DATA,
             self.WHITE_MOSTLY_DATA,
             self.WHITE_HIGH_DATA,
             self.WHITE_MID_DATA,
