@@ -97,7 +97,7 @@
         },
         {
             "colors": "CHINCHILLA",
-            "layer_order": ["1", "2", "3", "4", ["5", "4.5", "6"]],
+            "layer_order": ["1", "2", "3", "4", ["5", "6"], ["4.5", "6"]],
             "layers": {
                 "5": {
                     "group_name": "BACKTAILPATTERNGRAD",
