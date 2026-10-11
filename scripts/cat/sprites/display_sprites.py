@@ -291,7 +291,7 @@ def _draw_sprite(
             for y in range(height):
                 if sprite.get_at((x, y)) == pygame.Color(0, 0, 0):
                     color = source.get_at((x, y))
-                    out.set_at((x, y), color)
+                    sprite.set_at((x, y), color)
         return out
 
     # draw line art
@@ -630,9 +630,11 @@ def _build_single_layer(
     groupName = _find_cat_pelt_value(layer_info.get("group_name"), cat)
     recolour = _find_cat_pelt_value(layer_info.get("color"), cat)
     spritesheet = layer_info.get("spritesheet", "pelt_parts_masks")
+
     ear_right_spritesheet = layer_info.get("spritesheet", f"ear_spritesheets/{cat.pelt.ears}_ear_right_pelt_parts_masks")
     ear_left_spritesheet = layer_info.get("spritesheet", f"ear_spritesheets/{cat.pelt.ears}_ear_left_pelt_parts_masks")
     tail_spritesheet = layer_info.get("spritesheet", f"tail_spritesheets/{cat.pelt.tail}_tail_pelt_parts_masks")
+    print(tail_spritesheet)
 
     temp = sprites.sprites[f"{spritesheet}{groupName}{sprite}"]
     temp_er = sprites.sprites[f"{ear_right_spritesheet}{groupName}{sprite}"]
@@ -643,11 +645,9 @@ def _build_single_layer(
     palette_dict = sprites.PELT_COLOR_PALETTES[colour]
     full_sprite = pygame.Surface((sprites.size, sprites.size), pygame.HWACCEL | pygame.SRCALPHA)
     if recolour:
-        new_colour = palette_dict[recolour]
-
         combined_mask = pygame.Surface((sprites.size, sprites.size), pygame.HWACCEL | pygame.SRCALPHA)
+        new_colour = palette_dict[recolour]
         combined_mask.blit(temp, (0,0))
-
         if not no_ears(cat):
             combined_mask.blit(temp_er, (0,0), special_flags=pygame.BLEND_RGBA_MAX)
             combined_mask.blit(temp_el, (0,0), special_flags=pygame.BLEND_RGBA_MAX)
@@ -659,9 +659,14 @@ def _build_single_layer(
             combined_mask.blit(temp_er, (0,0), special_flags=pygame.BLEND_RGBA_MAX)
 
         if "NOTAIL" not in cat.pelt.scars:
+            print(f"Tail sprite loaded for {groupName}: {temp_t}")
             combined_mask.blit(temp_t, (0,0), special_flags=pygame.BLEND_RGBA_MAX)
-
         color_part(full_sprite, combined_mask, new_colour)
+    else:
+        full_sprite.blit(temp, (0, 0))
+        if "NOTAIL" not in cat.pelt.scars:
+            full_sprite.blit(temp_t, (0, 0))
+
     temp = full_sprite
 
     return temp, layer_info.get("blend_mode"), layer_info.get("opacity", 100)
