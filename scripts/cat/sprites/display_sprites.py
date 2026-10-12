@@ -634,7 +634,6 @@ def _build_single_layer(
     ear_right_spritesheet = layer_info.get("spritesheet", f"ear_spritesheets/{cat.pelt.ears}_ear_right_pelt_parts_masks")
     ear_left_spritesheet = layer_info.get("spritesheet", f"ear_spritesheets/{cat.pelt.ears}_ear_left_pelt_parts_masks")
     tail_spritesheet = layer_info.get("spritesheet", f"tail_spritesheets/{cat.pelt.tail}_tail_pelt_parts_masks")
-    print(tail_spritesheet)
 
     temp = sprites.sprites[f"{spritesheet}{groupName}{sprite}"]
     temp_er = sprites.sprites[f"{ear_right_spritesheet}{groupName}{sprite}"]
@@ -659,7 +658,6 @@ def _build_single_layer(
             combined_mask.blit(temp_er, (0,0), special_flags=pygame.BLEND_RGBA_MAX)
 
         if "NOTAIL" not in cat.pelt.scars:
-            print(f"Tail sprite loaded for {groupName}: {temp_t}")
             combined_mask.blit(temp_t, (0,0), special_flags=pygame.BLEND_RGBA_MAX)
         color_part(full_sprite, combined_mask, new_colour)
     else:
