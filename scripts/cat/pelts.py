@@ -1268,7 +1268,7 @@ class Pelt:
             self.ears = chosen_ears
 
     def randomize_ears(self):
-        weights = (0.5, 25, 50, 25, 2)
+        weights = (0, 25, 50, 25, 25)
         ear_list = [
             Pelt.no_ear_sprites,
             Pelt.small_ear_sprites,

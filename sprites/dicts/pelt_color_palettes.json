@@ -237,6 +237,16 @@
         "smoke_pattern": "#746366",
         "smoke_pattern_gradient_top": "#352930",
 
+        "cape_base": "#8d939e",
+        "cape_underbelly": "#f8f8f5",
+        "cape_mid": "#6b7078",
+        "cape_top": "#545861",
+
+        "newborn_cape_base": "#adb5c2",
+        "newborn_cape_underbelly": "#f9f9ea",
+        "newborn_cape_mid": "#555b65",
+        "newborn_cape_top": "#3d3d4f",
+
         "freckled_pattern_gradient_top": "#786a6d",
 
         "exotic_base": "#9f9893",
@@ -820,6 +830,16 @@
         "smoke_base_gradient_bottom": "#d79658",
         "smoke_pattern": "#4c272d",
         "smoke_pattern_gradient_top": "#843f29",
+
+        "cape_base": "#d79658",
+        "cape_underbelly": "#F2D6B3",
+        "cape_mid": "#cb8153",
+        "cape_top": "#4c272d",
+
+        "newborn_cape_base": "#DFB395",
+        "newborn_cape_underbelly": "#F4E0BA",
+        "newborn_cape_mid": "#e6b383",
+        "newborn_cape_top": "#a96e57",
 
         "freckled_pattern_gradient_top": "#cb7238",
 

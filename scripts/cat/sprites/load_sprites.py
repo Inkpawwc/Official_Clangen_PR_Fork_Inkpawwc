@@ -89,6 +89,18 @@ class Sprites:
         EARS_LEFT_SPRITE_DATA = ujson.loads(read_file.read())
 
     with open(
+        "sprites/dicts/ears/NONE_ear_right_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        NONE_EAR_RIGHT_PELT_MASK_DATA = ujson.loads(read_file.read())
+    with open(
+        "sprites/dicts/ears/NONE_ear_left_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        NONE_EAR_LEFT_PELT_MASK_DATA = ujson.loads(read_file.read())
+    with open(
+        "sprites/dicts/ears/MEDIUM_average_ear_right_pelt_parts_masks_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        MEDIUM_AVERAGE_EAR_RIGHT_PELT_MASK_DATA = ujson.loads(read_file.read())
+    with open(
         "sprites/dicts/ears/MEDIUM_average_ear_right_pelt_parts_masks_data.json", "r", encoding="utf-8"
     ) as read_file:
         MEDIUM_AVERAGE_EAR_RIGHT_PELT_MASK_DATA = ujson.loads(read_file.read())
@@ -412,6 +424,8 @@ class Sprites:
             self.EARS_LEFT_SPRITE_DATA,
             self.EARS_RIGHT_SPRITE_DATA,
             self.PELT_MASK_DATA,
+            self.NONE_EAR_RIGHT_PELT_MASK_DATA,
+            self.NONE_EAR_LEFT_PELT_MASK_DATA,
             self.MEDIUM_AVERAGE_EAR_RIGHT_PELT_MASK_DATA,
             self.MEDIUM_AVERAGE_EAR_LEFT_PELT_MASK_DATA,
             self.SMALL_TINY_EAR_RIGHT_PELT_MASK_DATA,
