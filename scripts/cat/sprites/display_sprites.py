@@ -662,6 +662,15 @@ def _build_single_layer(
         color_part(full_sprite, combined_mask, new_colour)
     else:
         full_sprite.blit(temp, (0, 0))
+        if not no_ears(cat):
+            full_sprite.blit(temp_er, (0,0))
+            full_sprite.blit(temp_el, (0,0))
+
+        elif "NORIGHTEAR" in cat.pelt.scars:
+            full_sprite.blit(temp_el, (0,0))
+
+        elif "NOLEFTEAR" in cat.pelt.scars:
+            full_sprite.blit(temp_er, (0,0))
         if "NOTAIL" not in cat.pelt.scars:
             full_sprite.blit(temp_t, (0, 0))
 
